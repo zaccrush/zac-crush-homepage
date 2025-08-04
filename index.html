@@ -12,17 +12,18 @@
             font-family: 'Inter', sans-serif;
             color: #d4af37;
             background-color: #0d1117;
-            /* REPLACE with your own beautiful photo URL */
-            background-image: url('https://placehold.co/1920x1080/1a1a1a/2d2d2d?text=Beautiful+Background+Image');
+            background-image: url('https://raw.githubusercontent.com/zaccrush/zac-crush-homepage/main/vietnam%20drone%20shot%20by%20zac%20crush.jpg?raw=true'),
+                              url('https://raw.githubusercontent.com/zaccrush/zac-crush-homepage/main/zac%20crush%20drone%20photo%202020.jpg?raw=true');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
+            background-repeat: no-repeat;
         }
         .hero-overlay {
-            background-color: rgba(0, 0, 0, 0.7);
+            background-color: rgba(0, 0, 0, 0.85); /* Slightly darker overlay */
         }
         .card {
-            background-color: rgba(30, 30, 30, 0.9);
+            background-color: rgba(30, 30, 30, 0.9); /* Reverted to dark background */
             backdrop-filter: blur(5px);
             border: 1px solid rgba(51, 51, 51, 0.8);
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -64,12 +65,18 @@
     </style>
 </head>
 <body class="min-h-screen">
+    <!-- The hero-overlay now wraps the entire page content, including the footer -->
     <div class="hero-overlay p-4 sm:p-8">
         <div class="w-full max-w-4xl mx-auto space-y-12">
+            <!-- New Hero Images -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <img src="https://raw.githubusercontent.com/zaccrush/zac-crush-homepage/main/zac%20crush%20live%20gods%20of%20martial%20arts.jpg?raw=true" alt="Zac Crush at Gods of Martial Arts event" class="w-full rounded-2xl shadow-xl border-4 border-gma-gold">
+                <img src="https://raw.githubusercontent.com/zaccrush/zac-crush-homepage/main/22BE564F-C9C8-44BD-AC11-4E17938F1365_1_105_c.jpeg?raw=true" alt="Zac Crush in a formal suit" class="w-full rounded-2xl shadow-xl border-4 border-gma-gold">
+                <img src="https://raw.githubusercontent.com/zaccrush/zac-crush-homepage/main/Frame-03-08-2025-05-39-45.jpeg?raw=true" alt="Zac Crush on a motorbike" class="w-full rounded-2xl shadow-xl border-4 border-gma-gold">
+            </div>
+
             <!-- Header Section -->
             <header class="text-center space-y-4 pt-10">
-                <!-- REPLACE with your actual profile picture URL -->
-                <img src="https://placehold.co/150x150/1e1e1e/d4af37?text=ZC" alt="Zac Crush" class="mx-auto rounded-full w-32 h-32 object-cover border-4 border-gma-gold shadow-lg">
                 <h1 class="text-5xl md:text-6xl font-extrabold text-gma-gold text-shadow">Zac Crush</h1>
                 <p class="text-xl text-gma-gray italic">
                     A guy who loves martial arts, motorbikes, and a good laugh.
@@ -80,86 +87,114 @@
             <section id="about" class="card p-6 md:p-8 space-y-6">
                 <h2 class="text-3xl font-bold text-gma-red text-shadow">A Little About Me</h2>
                 <p class="text-gma-gray leading-relaxed text-lg">
-                    I'm just a guy from Lexington, Virginia, who fell in love with living abroad, especially here in Vietnam. I'm all about a good adventure, whether it's on the mat as a martial arts promoter and grappler or on the open road on my motorbike.
+                    I'm a guy who fell in love with living abroad and the absurd, beautiful idea of falling in love. Every ten years or so, I give in to the notion that the latter is a reality and not just a beautifully cruel dream—only to be left just heartbroken enough to fully appreciate the endless beauty and adventure life holds.
                 </p>
                 <p class="text-gma-gray leading-relaxed text-lg">
-                    My real passion is building the combat sports community in Southeast Asia and sharing the amazing stories I find along the way on my podcast. While some people might call me an "architect," I just see myself as a connector—someone who brings people together through the things I love most: martial arts, world travel, and a healthy dose of humor.
+                    Vietnam’s martial arts community is one of the most innovative and fastest-growing in the world… and the world doesn't even know it yet! It's a special moment in history, and I'm here to make sure we don’t miss it.
+                </p>
+                <p class="text-gma-gray leading-relaxed text-lg">
+                    Since moving to Vietnam, I've dived deep into grappling and become involved in martial arts in almost every way imaginable—from coach to commentator. This community has provided more opportunities than I ever dreamed of in a lifetime, and it's only been a little over two years.
+                </p>
+                <p class="text-gma-gray leading-relaxed text-lg">
+                    I'm always open to any partnership or adventure that's challenging, meaningful, and, ideally, doesn't take itself too seriously. When we combine our networks and pool our resources, we have the chance to move the needle in nearly any industry or sport—or at least cause some interesting chaos. And hey, even if everything crashes and burns, you’re still in one of the most fun places on earth, surrounded by some of the warmest people you’ll ever meet. Not a bad worst-case scenario.
                 </p>
             </section>
-
+            
             <!-- GMA & Saigon Superfights Section -->
             <section id="register" class="card p-6 md:p-8 space-y-6">
-                <h2 class="text-3xl font-bold text-gma-red text-shadow">Register & Compete</h2>
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                    <!-- REPLACE with your GMA registration link -->
-                    <a href="/gmaregistration" class="flex flex-col items-center justify-center p-6 bg-gray-900 rounded-lg shadow-xl hover:bg-gray-700 transition-colors duration-200">
-                        <!-- REPLACE with your GMA Emblem URL -->
-                        <img src="https://placehold.co/200x150/000000/d4af37?text=GMA+Logo" alt="Gods of Martial Arts Emblem" class="w-2/3 h-auto mb-4">
-                        <span class="text-gma-gold text-xl font-bold">Gods of Martial Arts</span>
-                    </a>
-                    <!-- REPLACE with your Saigon Superfights registration link -->
-                    <a href="#" class="flex flex-col items-center justify-center p-6 bg-gray-900 rounded-lg shadow-xl hover:bg-gray-700 transition-colors duration-200">
-                        <!-- REPLACE with your Saigon Superfights Logo URL -->
-                        <img src="https://placehold.co/200x150/000000/d4af37?text=Saigon+Superfights+Logo" alt="Saigon Superfights Logo" class="w-2/3 h-auto mb-4">
-                        <span class="text-gma-gold text-xl font-bold">Saigon Superfights</span>
-                    </a>
-                </div>
-            </section>
-
-            <!-- Social Media & Reels -->
-            <section id="social" class="card p-6 md:p-8 space-y-6">
-                <h2 class="text-3xl font-bold text-gma-red text-shadow">Connect & Follow the Journey</h2>
-                <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
-                    <!-- REPLACE with your LinkedIn link -->
-                    <a href="https://www.linkedin.com/in/zac-crush/" target="_blank" class="flex items-center justify-center space-x-2 p-4 bg-gray-700 rounded-lg shadow-md hover:bg-gray-600 transition-colors duration-200">
-                        <svg class="h-6 w-6 text-gma-gold" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-linkedin"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
-                        <span class="hidden sm:inline">LinkedIn</span>
-                    </a>
-                    <!-- REPLACE with your Instagram link -->
-                    <a href="https://www.instagram.com/zcrush13/" target="_blank" class="flex items-center justify-center space-x-2 p-4 bg-gray-700 rounded-lg shadow-md hover:bg-gray-600 transition-colors duration-200">
-                        <svg class="h-6 w-6 text-gma-gold" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-instagram"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
-                        <span class="hidden sm:inline">Instagram</span>
-                    </a>
-                    <!-- REPLACE with your YouTube link -->
-                    <a href="https://www.youtube.com/@GMAFightingChampionship" target="_blank" class="flex items-center justify-center space-x-2 p-4 bg-gray-700 rounded-lg shadow-md hover:bg-gray-600 transition-colors duration-200">
-                        <svg class="h-6 w-6 text-gma-gold" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-youtube"><path d="M2.5 17a24.161 24.161 0 0 1 0-10c0-1.8 0-2.8.7-3.5C3.9 3 5 3 6.5 3h11c1.5 0 2.6 0 3.3.7s.7 1.7.7 3.5a24.161 24.161 0 0 1 0 10c0 1.8 0 2.8-.7 3.5s-1.8.7-3.3.7h-11c-1.5 0-2.6 0-3.3-.7s-.7-1.7-.7-3.5a24.161 24.161 0 0 1 0-10z"/><path d="m10 8 6 4-6 4z"/></svg>
-                        <span class="hidden sm:inline">YouTube</span>
-                    </a>
-                    <!-- REPLACE with your Facebook link -->
-                    <a href="#" target="_blank" class="flex items-center justify-center space-x-2 p-4 bg-gray-700 rounded-lg shadow-md hover:bg-gray-600 transition-colors duration-200">
-                        <svg class="h-6 w-6 text-gma-gold" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-facebook"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-                        <span class="hidden sm:inline">Facebook</span>
-                    </a>
-                </div>
-                <div class="space-y-4">
-                    <h3 class="text-2xl font-bold text-gma-gold text-shadow">Latest from Instagram</h3>
-                    <div id="instagram-carousel" class="carousel-scroll flex gap-4 p-2">
-                        <!-- REPLACE with your Instagram Reel URLs. Add more <div> for more reels. -->
-                        <div class="carousel-item w-2/3 sm:w-1/3 md:w-1/4 flex-shrink-0">
-                            <img src="https://placehold.co/300x500/1e1e1e/gma-gold?text=Reel+1" alt="Instagram Reel 1" class="w-full rounded-lg shadow-lg aspect-[9/16] object-cover">
-                        </div>
-                        <div class="carousel-item w-2/3 sm:w-1/3 md:w-1/4 flex-shrink-0">
-                            <img src="https://placehold.co/300x500/1e1e1e/gma-gold?text=Reel+2" alt="Instagram Reel 2" class="w-full rounded-lg shadow-lg aspect-[9/16] object-cover">
-                        </div>
-                        <div class="carousel-item w-2/3 sm:w-1/3 md:w-1/4 flex-shrink-0">
-                            <img src="https://placehold.co/300x500/1e1e1e/gma-gold?text=Reel+3" alt="Instagram Reel 3" class="w-full rounded-lg shadow-lg aspect-[9/16] object-cover">
-                        </div>
-                        <div class="carousel-item w-2/3 sm:w-1/3 md:w-1/4 flex-shrink-0">
-                            <img src="https://placehold.co/300x500/1e1e1e/gma-gold?text=Reel+4" alt="Instagram Reel 4" class="w-full rounded-lg shadow-lg aspect-[9/16] object-cover">
-                        </div>
+                <h2 class="text-3xl font-bold text-gma-red text-shadow text-center">Register & Compete</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 text-center">
+                    <!-- Gods of Martial Arts Box -->
+                    <div>
+                        <a href="/gmaregistration" class="group flex flex-col items-center justify-center p-6 bg-black rounded-lg shadow-xl hover:bg-gray-900 transition-colors duration-200 aspect-square">
+                            <!-- Gods of Martial Arts image from GitHub -->
+                            <img src="https://raw.githubusercontent.com/zaccrush/zac-crush-homepage/4f38e25754d34b0e66645603976bb5e4d4e24916/GMA_Emblem%202K.jpeg" alt="Gods of Martial Arts Emblem" class="w-full h-auto object-contain transition-transform duration-200 group-hover:scale-105">
+                        </a>
+                        <span class="text-gma-gold text-xl font-bold mt-4 block">Gods of Martial Arts</span>
+                    </div>
+                    <!-- Saigon Superfights Box -->
+                    <div>
+                        <a href="#" class="group flex flex-col items-center justify-center p-6 bg-black rounded-lg shadow-xl hover:bg-gray-900 transition-colors duration-200 aspect-square">
+                            <!-- Saigon Superfights image from GitHub -->
+                            <img src="https://raw.githubusercontent.com/zaccrush/zac-crush-homepage/4f38e25754d34b0e66645603976bb5e4d4e24916/saigon%20superfights%20logo.jpg" alt="Saigon Superfights Logo" class="w-full h-auto object-contain transition-transform duration-200 group-hover:scale-105">
+                        </a>
+                        <span class="text-gma-gold text-xl font-bold mt-4 block">Saigon Superfights</span>
                     </div>
                 </div>
             </section>
             
+            <!-- From the Mat Section -->
+            <section id="from-the-mat" class="card p-6 md:p-8 space-y-6 text-center">
+                <h2 class="text-3xl font-bold text-gma-red text-shadow">From the Mat</h2>
+                <img src="https://raw.githubusercontent.com/zaccrush/zac-crush-homepage/main/DSC_6381.jpg?raw=true" alt="Zac Crush on the Mat" class="w-full rounded-2xl shadow-xl border-4 border-gma-gold">
+            </section>
+
+            <!-- Want to Compete in Vietnam? Section -->
+            <section id="compete" class="card p-6 md:p-8 space-y-6 text-center">
+                <h2 class="text-3xl font-bold text-gma-red text-shadow">Want to do Martial Arts in Vietnam?</h2>
+                <p class="text-lg text-gma-gray">
+                    If you'd like to train or compete in any martial art – Wrestling, MMA, Muay Thai, Vovinam, etc. – contact me directly on any platform and we will find opportunities so you can make the most out of your visit to Vietnam.
+                </p>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <a href="https://www.linkedin.com/in/zac-crush/" target="_blank" class="px-6 py-3 bg-gray-700 rounded-lg shadow-md hover:bg-gray-600 transition-colors duration-200 text-gma-gold font-semibold">
+                        <span class="inline-block mr-2">LinkedIn</span>
+                    </a>
+                    <a href="https://www.instagram.com/zcrush13/" target="_blank" class="px-6 py-3 bg-gray-700 rounded-lg shadow-md hover:bg-gray-600 transition-colors duration-200 text-gma-gold font-semibold">
+                        <span class="inline-block mr-2">Instagram</span>
+                    </a>
+                    <a href="#" target="_blank" class="px-6 py-3 bg-gray-700 rounded-lg shadow-md hover:bg-gray-600 transition-colors duration-200 text-gma-gold font-semibold">
+                        <span class="inline-block mr-2">Facebook</span>
+                    </a>
+                </div>
+            </section>
+            
+            <!-- GMA Beyond The Fight Podcast Section -->
+            <section id="gma-beyond" class="card p-6 md:p-8 space-y-6 text-center">
+                <h2 class="text-3xl font-bold text-gma-red text-shadow">GMA Beyond The Fight Podcast</h2>
+                <a href="https://www.youtube.com/watch?v=5xoRhcy-qKU" target="_blank" class="mt-6 block">
+                    <img src="https://raw.githubusercontent.com/zaccrush/zac-crush-homepage/main/EP%2011%20GMA%20Beyond%20The%20Fight%20Podcast%20Robson%20Thumbnail.png?raw=true" alt="GMA Beyond The Fight Podcast Thumbnail" class="w-full rounded-lg shadow-lg">
+                </a>
+            </section>
+
+            <!-- Inspiration Video Section -->
+            <section id="inspiration" class="card p-6 md:p-8 space-y-6">
+                <h2 class="text-3xl font-bold text-gma-red text-shadow">Inspiration</h2>
+                <div class="aspect-w-16 aspect-h-9">
+                    <iframe class="w-full aspect-video rounded-lg shadow-lg" src="https://www.youtube.com/embed/LUoRhPot8Fc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </section>
+            
+            <!-- GMA Live Video Section -->
+            <section id="gma-live" class="card p-6 md:p-8 space-y-6">
+                <h2 class="text-3xl font-bold text-gma-red text-shadow">Gods Of Martial Arts</h2>
+                <div class="aspect-w-16 aspect-h-9">
+                    <a href="https://www.youtube.com/live/CIT661FZ1h4?si=QhWj6DiFos9DcBa1" target="_blank">
+                        <img src="https://yt3.googleusercontent.com/5mfoItqSSbfzypaxai2SCQrW_QHGpnCYwj7Y7wtdHF2G9Lx050hX2foBNXCbD4QnHkgKe34k8g=w2560-fcrop64=1,00005a57ffffa5a8-k-c0xffffffff-no-nd-rj" alt="GMA 07 Live English Commentary Thumbnail" class="w-full rounded-lg shadow-lg">
+                    </a>
+                </div>
+            </section>
+
             <!-- Podcast Section -->
             <section id="podcast" class="card p-6 md:p-8 space-y-6">
-                <h2 class="text-3xl font-bold text-gma-red text-shadow">GMA Fighting Championship Podcast</h2>
+                <h2 class="text-3xl font-bold text-gma-red text-shadow">Vietnam Grappling Podcast</h2>
                 <div class="aspect-w-16 aspect-h-9">
                     <!-- REPLACE with your YouTube video or playlist embed link -->
                     <iframe class="w-full aspect-video rounded-lg shadow-lg" src="https://www.youtube.com/embed/videoseries?list=PLAiMPJ7S0_cIP2j2vo8X9JwxZNp6Zu6QK" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
             </section>
         </div>
+    
+        <!-- Footer -->
+        <footer class="bg-gray-900 text-gray-500 text-center text-sm py-8 px-4 mt-12">
+            <div class="w-full max-w-4xl mx-auto flex flex-wrap justify-between items-center space-y-2 sm:space-y-0 sm:space-x-4 mb-4">
+                <a href="https://www.linkedin.com/in/zac-crush/" target="_blank" class="hover:text-gma-gold transition-colors duration-200">LinkedIn</a>
+                <a href="https://www.instagram.com/zcrush13/" target="_blank" class="hover:text-gma-gold transition-colors duration-200">Instagram</a>
+                <a href="https://www.youtube.com/@GMAFightingChampionship" target="_blank" class="hover:text-gma-gold transition-colors duration-200">YouTube</a>
+                <a href="#" target="_blank" class="hover:text-gma-gold transition-colors duration-200">Facebook</a>
+                <a href="mailto:hello@zaccrush.com" class="hover:text-gma-gold transition-colors duration-200">hello@zaccrush.com</a>
+            </div>
+            <p class="text-gma-gray">&copy; 2025 Zac Crush trademark. All rights reserved.</p>
+        </footer>
     </div>
 
     <!-- JavaScript for any dynamic features (e.g., carousel) if needed -->
