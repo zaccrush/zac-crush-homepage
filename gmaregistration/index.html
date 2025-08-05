@@ -4,6 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MMA Fighter Registration</title>
+    <!-- Social Media Meta Tags -->
+    <meta property="og:title" content="MMA Fighter Registration">
+    <meta property="og:description" content="Register to compete in Gods of Martial Arts and join Vietnam's premier combat sports community.">
+    <meta property="og:image" content="https://raw.githubusercontent.com/zaccrush/zac-crush-homepage/main/gmaregistration/%C4%90ai%20Tha%CC%82%CC%80n%20Vo%CC%83%20Myanmar%20(1).png?raw=true">
+    <meta property="og:image:alt" content="Gods of Martial Arts Championship Belt">
+    <meta name="theme-color" content="#000000">
     <!-- Tailwind CSS for mobile-first, responsive styling -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -146,8 +152,8 @@
                             <option value="Djibouti">Djibouti</option>
                             <option value="Dominica">Dominica</option>
                             <option value="Dominican Republic">Dominican Republic</option>
-                            <option value="Ecuador">Ecuador</option>
-                            <option value="Egypt">Egypt</Egypt>
+                            <option value="Ecuador">Ecuador</Ecuador>
+                            <option value="Egypt">Egypt</option>
                             <option value="El Salvador">El Salvador</option>
                             <option value="Equatorial Guinea">Equatorial Guinea</option>
                             <option value="Eritrea">Eritrea</option>
@@ -165,7 +171,7 @@
                             <option value="Greece">Greece</option>
                             <option value="Grenada">Grenada</option>
                             <option value="Guatemala">Guatemala</option>
-                            <option value="Guinea">Guinea</option>
+                            <option value="Guinea">Guinea</Guinea>
                             <option value="Guinea-Bissau">Guinea-Bissau</option>
                             <option value="Guyana">Guyana</option>
                             <option value="Haiti">Haiti</option>
@@ -203,10 +209,10 @@
                             <option value="Malawi">Malawi</ Malawi>
                             <option value="Malaysia">Malaysia</option>
                             <option value="Maldives">Maldives</option>
-                            <option value="Mali">Mali</option>
+                            <option value="Mali">Mali</Mali>
                             <option value="Malta">Malta</option>
                             <option value="Marshall Islands">Marshall Islands</option>
-                            <option value="Mauritania">Mauritania</option>
+                            <option value="Mauritania">Mauritania</ Mauritania>
                             <option value="Mauritius">Mauritius</option>
                             <option value="Mexico">Mexico</option>
                             <option value="Micronesia">Micronesia</option>
@@ -223,7 +229,7 @@
                             <option value="Netherlands">Netherlands</option>
                             <option value="New Zealand">New Zealand</option>
                             <option value="Nicaragua">Nicaragua</option>
-                            <option value="Niger">Niger</option>
+                            <option value="Niger">Niger</ Niger>
                             <option value="Nigeria">Nigeria</option>
                             <option value="North Macedonia">North Macedonia</option>
                             <option value="Norway">Norway</option>
@@ -257,16 +263,16 @@
                             <option value="Slovakia">Slovakia</option>
                             <option value="Slovenia">Slovenia</option>
                             <option value="Solomon Islands">Solomon Islands</option>
-                            <option value="Somalia">Somalia</option>
+                            <option value="Somalia">Somalia</ Somilia>
                             <option value="South Africa">South Africa</option>
                             <option value="South Sudan">South Sudan</option>
-                            <option value="Spain">Spain</option>
+                            <option value="Spain">Spain</ Spain>
                             <option value="Sri Lanka">Sri Lanka</option>
                             <option value="Sudan">Sudan</Sudan>
                             <option value="Suriname">Suriname</option>
                             <option value="Sweden">Sweden</option>
                             <option value="Switzerland">Switzerland</option>
-                            <option value="Syria">Syria</option>
+                            <option value="Syria">Syria</ Syria>
                             <option value="Taiwan">Taiwan</option>
                             <option value="Tajikistan">Tajikistan</option>
                             <option value="Tanzania">Tanzania</option>
@@ -393,15 +399,21 @@
                     <div class="space-y-4">
                         <h3 class="text-lg font-semibold text-gma-gray">MMA Record</h3>
                         <div class="grid grid-cols-3 gap-4">
-                            <input type="number" name="pro-wins" placeholder="W" min="0" class="input-field px-4 py-3">
-                            <input type="number" name="pro-losses" placeholder="L" min="0" class="input-field px-4 py-3">
-                            <input type="number" name="pro-draws" placeholder="D" min="0" class="input-field px-4 py-3">
+                            <label for="wins" class="sr-only">Wins</label>
+                            <input type="number" id="wins" name="pro-wins" placeholder="W" min="0" class="input-field px-4 py-3">
+                            <label for="losses" class="sr-only">Losses</label>
+                            <input type="number" id="losses" name="pro-losses" placeholder="L" min="0" class="input-field px-4 py-3">
+                            <label for="draws" class="sr-only">Draws</label>
+                            <input type="number" id="draws" name="pro-draws" placeholder="D" min="0" class="input-field px-4 py-3">
                         </div>
                         <h3 class="text-md font-semibold text-gma-gray">Method of Victory</h3>
                         <div class="grid grid-cols-3 gap-4">
-                            <input type="number" name="pro-ko" placeholder="KO" min="0" class="input-field px-4 py-3">
-                            <input type="number" name="pro-submission" placeholder="Sub" min="0" class="input-field px-4 py-3">
-                            <input type="number" name="pro-other-methods" placeholder="Forfeit, Withdraw, DQ" min="0" class="input-field px-4 py-3">
+                            <label for="ko" class="sr-only">KO</label>
+                            <input type="number" id="ko" name="pro-ko" placeholder="KO" min="0" class="input-field px-4 py-3">
+                            <label for="submission" class="sr-only">Submission</label>
+                            <input type="number" id="submission" name="pro-submission" placeholder="Sub" min="0" class="input-field px-4 py-3">
+                            <label for="other-methods" class="sr-only">Other</label>
+                            <input type="number" id="other-methods" name="pro-other-methods" placeholder="Forfeit, Withdraw, DQ" min="0" class="input-field px-4 py-3">
                         </div>
                     </div>
                     <div>
@@ -494,6 +506,13 @@
                     </div>
                 </div>
 
+                <!-- Data Privacy Disclaimer -->
+                <div class="text-center text-sm text-gma-gray px-4">
+                    <p class="text-sm italic">
+                        All data submitted in this form will be treated with strict confidentiality. It will not be sold, shared, or used for any purpose other than for Gods of Martial Arts event registration and internal communication.
+                    </p>
+                </div>
+                
                 <div class="flex items-center justify-center pt-4">
                     <button type="submit"
                             class="w-full px-6 py-3 text-lg font-bold text-white bg-gma-red rounded-lg shadow-lg hover:bg-red-700 focus:outline-none focus:ring-4 focus:ring-red-500 focus:ring-opacity-50 transition-all duration-300">
