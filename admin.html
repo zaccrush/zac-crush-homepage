@@ -1,0 +1,37 @@
+<div id="login-area">
+  <button onclick="netlifyIdentity.open()">Log In</button>
+</div>
+
+<div id="dashboard" style="display:none;">
+  <h2>Registered Grapplers</h2>
+  <table id="registrations"></table>
+</div>
+
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+<script>
+netlifyIdentity.on('login', user => {
+  const roles = user.app_metadata.roles || [];
+  if (roles.includes('admin')) {
+    document.getElementById('login-area').style.display = 'none';
+    document.getElementById('dashboard').style.display = 'block';
+    fetchRegistrations();
+  } else {
+    alert('You are not authorized to view this page.');
+  }
+});
+
+async function fetchRegistrations() {
+  const response = await fetch('/.netlify/functions/get-registrations');
+  const data = await response.json();
+  const table = document.getElementById('registrations');
+  table.innerHTML = `<tr><th>Name</th><th>Instagram</th><th>Zalo</th><th>Belt</th><th>Weight</th><th>Ideal Opponent</th></tr>` +
+    data.map(row => `<tr>
+      <td>${row.name}</td>
+      <td>${row.instagram}</td>
+      <td>${row.zalo}</td>
+      <td>${row.belt}</td>
+      <td>${row.weight}</td>
+      <td>${row.idealOpponent}</td>
+    </tr>`).join('');
+}
+</script>
