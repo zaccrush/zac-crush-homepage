@@ -97,9 +97,7 @@
     <h1>SAIGON SUPERFIGHTS</h1>
     <h2>Fighter Registration</h2>
 
-    <form name="fighter-registration" method="POST" data-netlify="true">
-      <input type="hidden" name="form-name" value="fighter-registration">
-
+    <form name="fighter-registration" id="fighter-registration-form">
       <fieldset>
         <legend>Personal & Contact Information</legend>
         <label for="fullname">Full Name</label>
@@ -133,5 +131,52 @@
       <button type="submit">Submit Registration</button>
     </form>
   </div>
+
+  <!-- Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
+
+  <script>
+    // Your Firebase config
+    const firebaseConfig = {
+      apiKey: "AIzaSyD1yT6dW9uQ1TC4XTLtsd3ZQ1_coUdf1AM",
+      authDomain: "saigon-superfights.firebaseapp.com",
+      projectId: "saigon-superfights",
+      storageBucket: "saigon-superfights.firebasestorage.app",
+      messagingSenderId: "453436088801",
+      appId: "1:453436088801:web:30f8302b5123b479d132a0",
+      measurementId: "G-1VKLNT5FLT"
+    };
+
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+
+    // Handle form submission
+    const form = document.getElementById('fighter-registration-form');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const data = {
+        fullname: form.fullname.value,
+        citizenship: form.citizenship.value,
+        passport: form.passport.value,
+        hometown: form.hometown.value,
+        weightClass: form['weight-class'].value,
+        experience: form.experience.value,
+        submittedAt: firebase.firestore.FieldValue.serverTimestamp()
+      };
+
+      try {
+        await db.collection('fighter-registrations').add(data);
+        alert('Registration submitted successfully!');
+        form.reset();
+      } catch (error) {
+        console.error('Error submitting registration:', error);
+        alert('Failed to submit registration. Please try again later.');
+      }
+    });
+  </script>
 </body>
 </html>
