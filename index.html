@@ -79,8 +79,8 @@
             border-color: #d4af37;
         }
         .bg-card {
-            background-color: rgba(22, 27, 34, 0.8); /* Slightly transparent card background */
-            backdrop-filter: blur(8px);
+            background-color: rgba(22, 27, 34, 0.85); /* Slightly transparent card background */
+            backdrop-filter: blur(10px);
             border: 1px solid #30363d;
         }
         .hover-lift {
@@ -112,6 +112,12 @@
                 2px  2px 0 #000,
                 0 0 15px rgba(212, 175, 55, 0.8), /* Gold glow */
                 0 0 25px rgba(212, 175, 55, 0.6);
+        }
+        .main-content-bg {
+            background-image: linear-gradient(rgba(13, 17, 23, 0.9), rgba(13, 17, 23, 0.9)), url('https://github.com/zaccrush/zac-crush-homepage/blob/main/vietnam%20drone%20shot%20by%20zac%20crush.jpg?raw=true');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
         }
     </style>
 </head>
@@ -150,7 +156,7 @@
         </div>
     </section>
 
-    <main class="bg-[#0d1117] relative z-10">
+    <main class="main-content-bg relative z-10 border-t-4 border-gold">
         <div class="max-w-5xl mx-auto p-4 sm:p-8 space-y-16">
 
             <!-- Intro/About Section -->
@@ -196,9 +202,9 @@
             </section>
             
             <section id="contact" class="bg-card rounded-lg p-6 md:p-10 text-center">
-                <h2 class="text-3xl font-bold text-gold mb-4">Want to Train or Compete in Vietnam?</h2>
-                <p class="text-lg text-gray-300 max-w-2xl mx-auto mb-6">
-                    If you'd like to train or compete in any martial art – Wrestling, MMA, Muay Thai, Vovinam, etc. – contact me directly on any platform and we will find opportunities so you can make the most out of your visit to Vietnam.
+                <h2 class="text-3xl font-bold text-gold mb-4">Your Gateway to Martial Arts in Vietnam</h2>
+                <p class="text-lg text-gray-300 max-w-3xl mx-auto mb-6">
+                    Planning a trip to Vietnam? Let us connect you with the vibrant local martial arts scene. Whether you're looking to train in MMA, Muay Thai, Wrestling, BJJ, or Vovinam, reach out through any of our platforms. We are dedicated to finding you the best opportunities to make your visit an unforgettable experience, immersing you in a dedicated and tight-knit community you'll cherish forever.
                 </p>
                 <div class="flex flex-wrap justify-center gap-4">
                     <a href="https://www.linkedin.com/in/zac-crush/" target="_blank" class="px-6 py-3 bg-gray-700 rounded-lg hover:bg-gray-600 transition-colors text-white font-semibold hover-lift">LinkedIn</a>
