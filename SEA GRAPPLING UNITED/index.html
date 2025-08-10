@@ -75,6 +75,7 @@ export default function SEAGrapplingUnitedApp() {
   const [user, setUser] = useState(null);
   const [userId, setUserId] = useState(null);
   const [loadingUser, setLoadingUser] = useState(true);
+  const [page, setPage] = useState('home');
   
   const [modal, setModal] = useState({ isOpen: false, title: '', content: '', onConfirm: null });
   const [notification, setNotification] = useState({ isVisible: false, message: '', type: 'success' });
@@ -106,6 +107,8 @@ export default function SEAGrapplingUnitedApp() {
     return () => unsubscribe();
   }, [showNotification]);
 
+  const navigateTo = (targetPage) => setPage(targetPage);
+
   const showModal = (title, content, onConfirm) => setModal({ isOpen: true, title, content, onConfirm });
   const handleModalClose = () => setModal({ isOpen: false, title: '', content: '', onConfirm: null });
   const handleModalConfirm = () => {
@@ -118,21 +121,15 @@ export default function SEAGrapplingUnitedApp() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-100 to-gray-200 p-4 sm:p-6 font-sans">
-      <div className="max-w-7xl mx-auto">
-        <Header user={user} />
-        <main className="mt-6">
-          <Hero />
-          {user && userId && (
-            <div className="mt-6 grid grid-cols-1 lg:grid-cols-3 gap-6">
-              <div className="lg:col-span-1 space-y-6">
-                <ProfileCard userId={userId} />
-                <RegisterCard userId={userId} showNotification={showNotification} showModal={showModal} />
-              </div>
-              <div className="lg:col-span-2">
-                <Dashboard currentUser={user} showNotification={showNotification} />
-              </div>
-            </div>
+    <div className="flex flex-col min-h-screen bg-gradient-to-b from-slate-100 to-gray-200 p-4 sm:p-6 font-sans">
+      <div className="max-w-7xl mx-auto w-full">
+        <Header user={user} page={page} navigateTo={navigateTo} />
+        <main className="mt-6 flex-grow">
+          {page === 'home' && user && userId && (
+              <HomePage currentUser={user} currentUserId={userId} showNotification={showNotification} showModal={showModal} />
+          )}
+          {page === 'faq' && (
+              <FAQPage />
           )}
         </main>
         <Footer />
@@ -143,15 +140,36 @@ export default function SEAGrapplingUnitedApp() {
   );
 }
 
+function HomePage({currentUser, currentUserId, showNotification, showModal}) {
+    return (
+        <>
+            <Hero />
+            <div className="mt-6 grid grid-cols-1 lg:grid-cols-3 gap-6">
+              <div className="lg:col-span-1 space-y-6">
+                <ProfileCard userId={currentUserId} />
+                <RegisterCard userId={currentUserId} showNotification={showNotification} showModal={showModal} />
+              </div>
+              <div className="lg:col-span-2">
+                <Dashboard currentUser={currentUser} showNotification={showNotification} />
+              </div>
+            </div>
+        </>
+    );
+}
+
 // --- UI Components ---
-function Header({ user }) {
+function Header({ user, page, navigateTo }) {
   return (
     <header className="flex items-center justify-between">
       <div>
         <h1 className="text-2xl md:text-3xl font-black text-black">SEA Grappling United</h1>
         <p className="text-sm text-slate-700 font-medium">Pooling Resources, Ideas, and Passion</p>
       </div>
-      {user && <button onClick={() => signOut(auth)} className="px-4 py-2 rounded-lg bg-slate-200 text-slate-800 hover:bg-slate-300 transition-colors text-sm font-semibold">Sign out</button>}
+      <div className="flex items-center gap-4">
+        {page === 'home' && <button onClick={() => navigateTo('faq')} className="px-4 py-2 rounded-lg bg-slate-200 text-slate-800 hover:bg-slate-300 transition-colors text-sm font-semibold">FAQ</button>}
+        {page === 'faq' && <button onClick={() => navigateTo('home')} className="px-4 py-2 rounded-lg bg-slate-200 text-slate-800 hover:bg-slate-300 transition-colors text-sm font-semibold">HOME</button>}
+        {user && <button onClick={() => signOut(auth)} className="px-4 py-2 rounded-lg bg-slate-200 text-slate-800 hover:bg-slate-300 transition-colors text-sm font-semibold">Sign out</button>}
+      </div>
     </header>
   );
 }
@@ -517,6 +535,41 @@ function GrapplerCard({ grappler, onClick }) {
   );
 }
 
+function FAQPage() {
+    const faqs = [
+        {
+            q: "What is SEA Grappling United?",
+            a: "It's a community-driven platform designed to connect grapplers, promoters, and fans across Southeast Asia. Our goal is to pool resources, share ideas, and create more opportunities for everyone in the grappling community."
+        },
+        {
+            q: "How do I use this platform?",
+            a: "Create your profile with as much detail as possible. Use the dashboard to find other members, potential opponents, or collaborators for events. The more information you provide, the more the community can connect with you."
+        },
+        {
+            q: "Is my data private?",
+            a: "Your profile is public to other members of the platform to facilitate connections. We encourage you to only share information you are comfortable with being seen by the community. Your login information is secured by Firebase Authentication."
+        },
+        {
+            q: "How does the AI matchmaking work?",
+            a: "When you click 'Find My Match', we securely send your profile and the profiles of other members who are 'looking for matches' to the Gemini API. The AI analyzes this data to suggest interesting matchups based on skill level, weight, and style. No private data is stored by the AI."
+        }
+    ];
+
+    return (
+        <div className="rounded-xl p-6 bg-white shadow-lg">
+            <h2 className="text-2xl font-bold text-black mb-6">Frequently Asked Questions</h2>
+            <div className="space-y-6">
+                {faqs.map((faq, index) => (
+                    <div key={index} className="border-t-2 border-red-600 pt-4">
+                        <h3 className="font-bold text-lg text-slate-900">{faq.q}</h3>
+                        <p className="mt-1 text-slate-800">{faq.a}</p>
+                    </div>
+                ))}
+            </div>
+        </div>
+    );
+}
+
 // --- Utility & Modal Components ---
 function FullProfileModal({ isOpen, onClose, grappler, currentUser, showNotification }) {
     const [isGenerating, setIsGenerating] = useState(false);
@@ -710,7 +763,7 @@ function Notification({ isVisible, message, type }) {
 
 function Footer() {
     return (
-        <footer className="mt-12 text-center text-sm text-slate-600">
+        <footer className="mt-12 text-center text-sm text-slate-600 py-4">
             SEA Grappling United • For the Community, By the Community
         </footer>
     );
