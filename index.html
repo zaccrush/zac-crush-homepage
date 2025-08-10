@@ -11,7 +11,6 @@
     <meta property="og:image:height" content="630">
     <meta property="og:url" content="https://zaccrush.com">
     <title>Zac Crush | Vietnam MMA & Grappling Events, Podcasts, and Community</title>
-    <!-- Tailwind CSS for mobile-first, responsive styling -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap');
@@ -86,18 +85,19 @@
 <body class="min-h-screen">
     <div class="hero-overlay p-4 sm:p-8">
         <div class="w-full max-w-4xl mx-auto space-y-12">
-            <!-- Single Hero Image -->
-            <img src="https://raw.githubusercontent.com/zaccrush/zac-crush-homepage/main/zac%20crush%20live%20gods%20of%20martial%20arts.jpg?raw=true" alt="Zac Crush at Gods of Martial Arts event" class="w-full rounded-2xl shadow-xl border-4 border-gma-gold">
+            <div class="relative">
+                <img src="https://github.com/zaccrush/zac-crush-homepage/blob/main/zac%20pointing%20no%20background.png?raw=true" alt="Zac Crush pointing" 
+                     class="absolute -top-24 right-0 w-1/2 md:w-1/3" 
+                     style="filter: drop-shadow(3px 3px 6px rgba(212, 175, 55, 0.4)); z-index: 1;">
+                
+                <header class="text-center space-y-4 pt-10 relative z-10">
+                    <h1 class="text-6xl md:text-7xl font-extrabold uppercase text-gma-gold text-outline text-shadow hover:text-white text-outline-hover transition-all duration-300">Zac Crush</h1>
+                    <p class="text-xl text-gma-gray italic">
+                        A guy who loves martial arts, motorbikes, and people who are actually funny.
+                    </p>
+                </header>
+            </div>
 
-            <!-- Header Section -->
-            <header class="text-center space-y-4 pt-10">
-                <h1 class="text-6xl md:text-7xl font-extrabold uppercase text-gma-gold text-outline text-shadow hover:text-white text-outline-hover transition-all duration-300">Zac Crush</h1>
-                <p class="text-xl text-gma-gray italic">
-                    A guy who loves martial arts, motorbikes, and people who are actually funny.
-                </p>
-            </header>
-
-            <!-- About Me Section -->
             <section id="about" class="card p-6 md:p-8 space-y-6">
                 <h2 class="text-3xl font-bold text-gma-red text-shadow text-center">A Little About Me</h2>
                 <p class="text-gma-gray leading-relaxed text-lg">
@@ -114,22 +114,17 @@
                 </p>
             </section>
             
-            <!-- GMA & Saigon Superfights Section -->
             <section id="register" class="card p-6 md:p-8 space-y-6">
                 <h2 class="text-3xl font-bold text-gma-red text-shadow text-center">Register & Compete in MMA & Grappling</h2>
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 text-center">
-                    <!-- Gods of Martial Arts Box -->
                     <div>
                         <a href="/gmaregistration" class="group flex flex-col items-center justify-center p-6 bg-black rounded-lg shadow-xl hover:bg-gray-900 transition-colors duration-200 aspect-square">
-                            <!-- Gods of Martial Arts image from GitHub -->
                             <img src="https://raw.githubusercontent.com/zaccrush/zac-crush-homepage/4f38e25754d34b0e66645603976bb5e4d4e24916/GMA_Emblem%202K.jpeg" alt="Gods of Martial Arts Emblem" class="w-full h-auto object-contain transition-transform duration-200 group-hover:scale-105">
                         </a>
                         <span class="text-gma-gold text-xl font-bold mt-4 block">GODS OF MARTIAL ARTS</span>
                     </div>
-                    <!-- Saigon Superfights Box -->
                     <div>
                         <a href="/saigon-superfights-registration" class="group flex flex-col items-center justify-center p-6 bg-black rounded-lg shadow-xl hover:bg-gray-900 transition-colors duration-200 aspect-square">
-                            <!-- Saigon Superfights image from GitHub -->
                             <img src="https://raw.githubusercontent.com/zaccrush/zac-crush-homepage/4f38e25754d34b0e66645603976bb5e4d4e24916/saigon%20superfights%20logo.jpg" alt="Saigon Superfights Logo" class="w-full h-auto object-contain transition-transform duration-200 group-hover:scale-105">
                         </a>
                         <span class="text-gma-gold text-xl font-bold mt-4 block">SAIGON SUPERFIGHTS</span>
@@ -137,13 +132,11 @@
                 </div>
             </section>
             
-            <!-- From the Mat Section -->
             <section id="from-the-mat" class="card p-6 md:p-8 space-y-6 text-center">
                 <h2 class="text-3xl font-bold text-gma-red text-shadow text-center">Vietnam's Most Innovative Grappling Events</h2>
                 <img src="https://raw.githubusercontent.com/zaccrush/zac-crush-homepage/main/DSC_6381.jpg?raw=true" alt="Zac Crush on the Mat" class="w-full rounded-2xl shadow-xl border-4 border-gma-gold">
             </section>
 
-            <!-- Want to Compete in Vietnam? Section -->
             <section id="compete" class="card p-6 md:p-8 space-y-6 text-center">
                 <h2 class="text-3xl font-bold text-gma-red text-shadow text-center">Want to do Martial Arts in Vietnam?</h2>
                 <p class="text-lg text-gma-gray">
@@ -162,7 +155,6 @@
                 </div>
             </section>
             
-            <!-- GMA Beyond The Fight Podcast Section -->
             <section id="gma-beyond" class="card p-6 md:p-8 space-y-6 text-center">
                 <h2 class="text-3xl font-bold text-gma-red text-shadow text-center">GMA Beyond The Fight Podcast</h2>
                 <a href="https://www.youtube.com/watch?v=5xoRhcy-qKU" target="_blank">
@@ -170,7 +162,6 @@
                 </a>
             </section>
 
-            <!-- ADCC Grappling Superfights Video Section -->
             <section id="adcc" class="card p-6 md:p-8 space-y-6">
                 <h2 class="text-3xl font-bold text-gma-red text-shadow text-center">ADCC Grappling Superfights</h2>
                 <div class="aspect-w-16 aspect-h-9">
@@ -178,7 +169,6 @@
                 </div>
             </section>
             
-            <!-- GMA Live Video Section -->
             <section id="gma-live" class="card p-6 md:p-8 space-y-6">
                 <h2 class="text-3xl font-bold text-gma-red text-shadow text-center">Gods Of Martial Arts: Vietnam's MMA Revolution</h2>
                 <div class="aspect-w-16 aspect-h-9">
@@ -188,19 +178,16 @@
                 </div>
             </section>
 
-            <!-- Podcast Section -->
             <section id="podcast" class="card p-6 md:p-8 space-y-6">
                 <h2 class="text-3xl font-bold text-gma-red text-shadow text-center">Vietnam Grappling Podcast</h2>
                 <div class="aspect-w-16 aspect-h-9">
                     <a href="https://www.youtube.com/@vietnam-grappling" target="_blank">
-                    <!-- REPLACE with your YouTube video or playlist embed link -->
                     <iframe class="w-full aspect-video rounded-lg shadow-lg" src="https://www.youtube.com/embed/AJyKcG8_QUE?si=bwX3Fid32-P3rtL7" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </a>
                 </div>
             </section>
         </div>
     
-        <!-- Footer -->
         <footer class="card text-gray-500 text-center text-sm py-8 px-4 mt-12">
             <div class="w-full max-w-4xl mx-auto flex flex-wrap justify-between items-center space-y-2 sm:space-y-0 sm:space-x-4 mb-4">
                 <a href="https://www.linkedin.com/in/zac-crush/" target="_blank" class="hover:text-gma-gold transition-colors duration-200">LinkedIn</a>
@@ -210,12 +197,11 @@
                 <a href="mailto:hello@zaccrush.com" class="hover:text-gma-gold transition-colors duration-200">hello@zaccrush.com</a>
                 <a href="/faq.html" class="hover:text-gma-gold transition-colors duration-200">FAQ</a>
             </div>
-            <p class="text-gma-gray mb-2">&copy; 2025 Zac Crush trademark. All rights reserved.</p>
+            <p class="text-gma-gray mb-2">© 2025 Zac Crush trademark. All rights reserved.</p>
             <p class="text-gma-gray">Sponsored by <a href="https://shadeprotocol.io/" target="_blank" class="underline hover:text-gma-gold transition-colors duration-200">Shade Protocol: New Generation of Private DeFi</a></p>
         </footer>
     </div>
 
-    <!-- JavaScript for any dynamic features (e.g., carousel) if needed -->
     <script>
         // Placeholder for future JavaScript functionality
         // For now, the carousel is a simple scrollable div.
