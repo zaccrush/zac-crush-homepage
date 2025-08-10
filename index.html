@@ -3,208 +3,228 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Register for grappling tournaments, MMA events, and connect with Vietnam's combat sports community. Join us to train and compete in Jiu Jitsu, Muay Thai, Wrestling, and more.">
-    <meta property="og:title" content="Zac Crush | Vietnam MMA & Grappling Events, Podcasts, and Community">
-    <meta property="og:description" content="Register for grappling tournaments, MMA events, and connect with Vietnam's combat sports community. Join us to train and compete in Jiu Jitsu, Muay Thai, Wrestling, and more.">
-    <meta property="og:image" content="https://github.com/zaccrush/zac-crush-homepage/blob/main/zac-crush-social-image.jpeg?raw=true">
+
+    <!-- SEO & Core Meta Tags -->
+    <title>Zac Crush — Southeast Asia’s Grappling Ambassador & MMA Storyteller</title>
+    <meta name="description" content="Bridging communities, inspiring fighters, and elevating martial arts across Southeast Asia. Join Zac Crush in growing the grappling and MMA scene through events, stories, and partnerships.">
+    <link rel="icon" type="image/jpeg" href="https://github.com/zaccrush/zac-crush-homepage/blob/main/favicon.jpg?raw=true">
+
+    <!-- Open Graph / Facebook / Social Media Meta Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://zaccrush.com/">
+    <meta property="og:title" content="Zac Crush — Southeast Asia’s Grappling Ambassador & MMA Storyteller">
+    <meta property="og:description" content="Bridging communities, inspiring fighters, and elevating martial arts across Southeast Asia.">
+    <meta property="og:image" content="https://github.com/zaccrush/zac-crush-homepage/blob/main/saigon-superfights-grappling-ram-muay-thai.jpeg?raw=true">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
-    <meta property="og:url" content="https://zaccrush.com">
-    <title>Zac Crush | Vietnam MMA & Grappling Events, Podcasts, and Community</title>
+    <meta property="og:site_name" content="Zac Crush">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://zaccrush.com/">
+    <meta name="twitter:title" content="Zac Crush — Southeast Asia’s Grappling Ambassador & MMA Storyteller">
+    <meta name="twitter:description" content="Bridging communities, inspiring fighters, and elevating martial arts across Southeast Asia.">
+    <meta name="twitter:image" content="https://github.com/zaccrush/zac-crush-homepage/blob/main/saigon-superfights-grappling-ram-muay-thai.jpeg?raw=true">
+
+    <!-- Structured Data (JSON-LD) for Rich Snippets -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Zac Crush",
+      "url": "https://zaccrush.com",
+      "image": "https://github.com/zaccrush/zac-crush-homepage/blob/main/zac-crush-raising-hand-winner-grappling-match-saigon-superfights.jpeg?raw=true",
+      "jobTitle": "Grappling Ambassador & MMA Storyteller",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Saigon Superfights"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/in/zac-crush/",
+        "https://www.instagram.com/zcrush13/",
+        "https://www.facebook.com/crushza",
+        "https://www.youtube.com/@vietnam-grappling"
+      ],
+      "alumniOf": {
+        "@type": "Organization",
+        "name": "Southeast Asia Martial Arts Community",
+        "location": {
+          "@type": "Place",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Ho Chi Minh City",
+            "addressCountry": "VN"
+          }
+        }
+      },
+      "description": "Zac Crush is a key figure in the Southeast Asian martial arts scene, dedicated to building communities, organizing events like Saigon Superfights, and telling the stories of fighters in the region."
+    }
+    </script>
+
+    <!-- Tailwind CSS & Google Fonts -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
+        
+        /* Custom Theme Colors & Base Styles */
         body {
             font-family: 'Inter', sans-serif;
+            background-color: #0d1117; /* Dark background */
+            color: #c9d1d9; /* Light grey text for readability */
+        }
+        .text-gold {
             color: #d4af37;
-            background-color: #0d1117;
-            background-image: url('https://raw.githubusercontent.com/zaccrush/zac-crush-homepage/main/vietnam%20drone%20shot%20by%20zac%20crush.jpg?raw=true'),
-                              url('https://raw.githubusercontent.com/zaccrush/zac-crush-homepage/main/zac%20crush%20drone%20photo%202020.jpg?raw=true');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            background-repeat: no-repeat;
         }
-        .hero-overlay {
-            background-color: rgba(0, 0, 0, 0.85);
+        .border-gold {
+            border-color: #d4af37;
         }
-        .card {
-            background-color: rgba(30, 30, 30, 0.9);
-            backdrop-filter: blur(5px);
-            border: 1px solid rgba(51, 51, 51, 0.8);
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        .bg-card {
+            background-color: rgba(22, 27, 34, 0.8); /* Slightly transparent card background */
+            backdrop-filter: blur(8px);
+            border: 1px solid #30363d;
         }
-        .text-shadow {
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        .hover-lift {
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
         }
-        .hover-shadow:hover {
-            box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.7);
-            transform: translateY(-2px);
-            transition: all 0.3s ease-in-out;
+        .hover-lift:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         }
-        .text-outline {
-            text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+        
+        /* Enhanced text outline and hover effect */
+        .text-outline-strong {
+            text-shadow:
+               -2px -2px 0 #000,  
+                2px -2px 0 #000,
+               -2px  2px 0 #000,
+                2px  2px 0 #000,
+                3px 3px 8px rgba(0,0,0,0.7);
         }
-        .text-outline-hover:hover {
-            text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000, 0 0 10px #fff;
-            transition: all 0.3s ease-in-out;
+        .text-hover-glow {
+            transition: text-shadow 0.3s ease-in-out, color 0.3s ease-in-out;
         }
-        .carousel-container {
-            position: relative;
-            overflow: hidden;
-        }
-        .carousel-slide {
-            display: flex;
-            transition: transform 0.5s ease-in-out;
-        }
-        .carousel-item {
-            min-width: 100%;
-        }
-        .carousel-scroll {
-            overflow-x: auto;
-            scroll-snap-type: x mandatory;
-            -webkit-overflow-scrolling: touch;
-        }
-        .carousel-scroll > div {
-            scroll-snap-align: center;
-        }
-        /* Custom scrollbar for aesthetics */
-        .carousel-scroll::-webkit-scrollbar {
-            height: 8px;
-        }
-        .carousel-scroll::-webkit-scrollbar-track {
-            background: #1e1e1e;
-        }
-        .carousel-scroll::-webkit-scrollbar-thumb {
-            background-color: #d4af37;
-            border-radius: 20px;
-            border: 2px solid #1e1e1e;
+        .text-hover-glow:hover {
+            color: #fff; /* Brighten color on hover */
+            text-shadow:
+               -2px -2px 0 #000,  
+                2px -2px 0 #000,
+               -2px  2px 0 #000,
+                2px  2px 0 #000,
+                0 0 15px rgba(212, 175, 55, 0.8), /* Gold glow */
+                0 0 25px rgba(212, 175, 55, 0.6);
         }
     </style>
 </head>
-<body class="min-h-screen">
-    <div class="hero-overlay p-4 sm:p-8">
-        <div class="w-full max-w-4xl mx-auto space-y-12">
-            <div class="relative">
-                <img src="https://github.com/zaccrush/zac-crush-homepage/blob/main/zac%20pointing%20no%20background.png?raw=true" alt="Zac Crush pointing" 
-                     class="absolute -top-24 right-0 w-1/2 md:w-1/3" 
-                     style="filter: drop-shadow(3px 3px 6px rgba(212, 175, 55, 0.4)); z-index: 1;">
-                
-                <header class="text-center space-y-4 pt-10 relative z-10">
-                    <h1 class="text-6xl md:text-7xl font-extrabold uppercase text-gma-gold text-outline text-shadow hover:text-white text-outline-hover transition-all duration-300">Zac Crush</h1>
-                    <p class="text-xl text-gma-gray italic">
-                        A guy who loves martial arts, motorbikes, and people who are actually funny.
-                    </p>
-                </header>
+<body class="antialiased">
+
+    <!-- Sticky Header -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-[#0d1117] bg-opacity-80 backdrop-blur-sm border-b border-b-[#30363d]">
+        <nav class="max-w-5xl mx-auto flex justify-center items-center p-4 text-sm">
+            <div class="flex flex-wrap justify-center items-center gap-x-4 sm:gap-x-6 gap-y-2">
+                <a href="https://www.youtube.com/@GMAFightingChampionship" target="_blank" class="text-gray-300 hover:text-gold transition-colors font-semibold">YouTube</a>
+                <a href="https://zaccrush.com/gmaregistration/" target="_blank" class="text-gray-300 hover:text-gold transition-colors font-semibold">GMA Fighter Registration</a>
+                <a href="/saigon-superfights-registration" class="text-gray-300 hover:text-gold transition-colors font-semibold">SEA Grappling United</a>
             </div>
+        </nav>
+    </header>
 
-            <section id="about" class="card p-6 md:p-8 space-y-6">
-                <h2 class="text-3xl font-bold text-gma-red text-shadow text-center">A Little About Me</h2>
-                <p class="text-gma-gray leading-relaxed text-lg">
-                    I'm a guy who fell in love with living abroad who lives with the slight, the absurd, hopeless-romantic pursuit of actually falling in love. Every ten years or so, I give in to the notion that the latter is a reality and not just a beautifully-crafted cruel dream—only to be left heartbroken enough to fully appreciate the endless majesty and adventure life itself holds in abundance.
-                </p>
-                <p class="text-gma-gray leading-relaxed text-lg">
-                    Since moving to Saigon in 2023, I’ve experienced the rapid growth and evolution of Vietnam’s martial arts scene. And being a part of this passionate, innovative—from coach to competitor to commentator—and it’s been incredible. This community has provided more opportunities than I ever dreamed of in a lifetime, and it's only been a little over two years.
-                </p>
-                <p class="text-gma-gray leading-relaxed text-lg">
-                    Vietnam’s martial arts community is one of the most innovative and fastest-growing in the world… and the world doesn't even know it yet! It's a special moment in history, and I'm here to make sure we don’t miss it.
-                </p>
-                <p class="text-gma-gray leading-relaxed text-lg">
-                    I'm always open to any partnership or adventure that's challenging, meaningful, and, ideally, doesn't take itself too seriously. When we combine our networks and pool our resources, we have the chance to move the needle in nearly any industry or sport—or at least cause some interesting chaos. And hey, even if everything crashes and burns, you’re still in one of the most fun places on earth, surrounded by some of the warmest people you’ll ever meet. Not a bad worst-case scenario.
+    <!-- Hero Section -->
+    <section class="relative h-screen flex items-center justify-center text-center text-white overflow-hidden">
+        <!-- Hero Background Image -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://github.com/zaccrush/zac-crush-homepage/blob/main/zac-crush-raising-hand-winner-grappling-match-saigon-superfights.jpeg?raw=true" 
+                 alt="Zac Crush winning a grappling match at Saigon Superfights" 
+                 class="w-full h-full object-cover object-center">
+            <!-- Overlay for text readability -->
+            <div class="absolute inset-0 bg-black opacity-60"></div>
+        </div>
+        
+        <!-- Hero Content -->
+        <div class="relative z-10 p-4">
+            <h1 class="text-5xl sm:text-7xl md:text-8xl font-black uppercase text-white text-outline-strong text-hover-glow">
+                Zac Crush
+            </h1>
+            <h2 class="mt-8 max-w-3xl mx-auto text-xl md:text-3xl font-bold text-gray-200 text-outline-strong text-hover-glow">
+                Bridging Communities, Inspiring Fighters, and Elevating Martial Arts Across SE Asia
+            </h2>
+        </div>
+    </section>
+
+    <main class="bg-[#0d1117] relative z-10">
+        <div class="max-w-5xl mx-auto p-4 sm:p-8 space-y-16">
+
+            <!-- Intro/About Section -->
+            <section id="intro" class="bg-card rounded-lg p-6 md:p-10">
+                <h2 class="text-3xl md:text-4xl font-bold text-center text-gold mb-6">From Humble Beginnings to Regional Grappling Icon</h2>
+                <p class="text-lg md:text-xl leading-relaxed text-gray-300">
+                    I know what it’s like to walk around scared — unsure if you could protect yourself or trust anything else about who you were. For me, that all changed when I was fourteen, humiliated one last time in front of everyone during a playful wrestling match. Everyone was staring, and that moment lit a fire inside me. Since then, I’ve dedicated myself to martial arts, not just to build skill and confidence, but to create a community where no one feels powerless or alone. Moving to Southeast Asia, competing across the region, and launching events like Saigon Superfights, I’ve worked to uplift fighters and grow martial arts in places that need it most.
                 </p>
             </section>
-            
-            <section id="register" class="card p-6 md:p-8 space-y-6">
-                <h2 class="text-3xl font-bold text-gma-red text-shadow text-center">Register & Compete in MMA & Grappling</h2>
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 text-center">
-                    <div>
-                        <a href="/gmaregistration" class="group flex flex-col items-center justify-center p-6 bg-black rounded-lg shadow-xl hover:bg-gray-900 transition-colors duration-200 aspect-square">
-                            <img src="https://raw.githubusercontent.com/zaccrush/zac-crush-homepage/4f38e25754d34b0e66645603976bb5e4d4e24916/GMA_Emblem%202K.jpeg" alt="Gods of Martial Arts Emblem" class="w-full h-auto object-contain transition-transform duration-200 group-hover:scale-105">
-                        </a>
-                        <span class="text-gma-gold text-xl font-bold mt-4 block">GODS OF MARTIAL ARTS</span>
-                    </div>
-                    <div>
-                        <a href="/saigon-superfights-registration" class="group flex flex-col items-center justify-center p-6 bg-black rounded-lg shadow-xl hover:bg-gray-900 transition-colors duration-200 aspect-square">
-                            <img src="https://raw.githubusercontent.com/zaccrush/zac-crush-homepage/4f38e25754d34b0e66645603976bb5e4d4e24916/saigon%20superfights%20logo.jpg" alt="Saigon Superfights Logo" class="w-full h-auto object-contain transition-transform duration-200 group-hover:scale-105">
-                        </a>
-                        <span class="text-gma-gold text-xl font-bold mt-4 block">SAIGON SUPERFIGHTS</span>
-                    </div>
+
+            <!-- Register & Compete Section -->
+            <section id="register" class="bg-card rounded-lg p-6 md:p-10">
+                <h2 class="text-3xl md:text-4xl font-bold text-center text-gold mb-8">Register & Compete</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                    <a href="/gmaregistration" class="group block text-center hover-lift rounded-lg overflow-hidden">
+                        <div class="bg-black p-6">
+                            <img src="https://raw.githubusercontent.com/zaccrush/zac-crush-homepage/4f38e25754d34b0e66645603976bb5e4d4e24916/GMA_Emblem%202K.jpeg" alt="Gods of Martial Arts Emblem" class="w-48 h-48 mx-auto object-contain transition-transform duration-300 group-hover:scale-105">
+                        </div>
+                        <span class="text-gold text-xl font-bold block bg-[#161b22] py-4">GODS OF MARTIAL ARTS</span>
+                    </a>
+                    <a href="/saigon-superfights-registration" class="group block text-center hover-lift rounded-lg overflow-hidden">
+                        <div class="bg-black p-6">
+                            <img src="https://raw.githubusercontent.com/zaccrush/zac-crush-homepage/4f38e25754d34b0e66645603976bb5e4d4e24916/saigon%20superfights%20logo.jpg" alt="Saigon Superfights Logo" class="w-48 h-48 mx-auto object-contain transition-transform duration-300 group-hover:scale-105">
+                        </div>
+                        <span class="text-gold text-xl font-bold block bg-[#161b22] py-4">SAIGON SUPERFIGHTS</span>
+                    </a>
                 </div>
             </section>
             
-            <section id="from-the-mat" class="card p-6 md:p-8 space-y-6 text-center">
-                <h2 class="text-3xl font-bold text-gma-red text-shadow text-center">Vietnam's Most Innovative Grappling Events</h2>
-                <img src="https://raw.githubusercontent.com/zaccrush/zac-crush-homepage/main/DSC_6381.jpg?raw=true" alt="Zac Crush on the Mat" class="w-full rounded-2xl shadow-xl border-4 border-gma-gold">
-            </section>
-
-            <section id="compete" class="card p-6 md:p-8 space-y-6 text-center">
-                <h2 class="text-3xl font-bold text-gma-red text-shadow text-center">Want to do Martial Arts in Vietnam?</h2>
-                <p class="text-lg text-gma-gray">
-                    If you'd like to train or compete in any martial art – Wrestling, MMA, Muay Thai, Vovinam, etc. – contact me directly on any platform and we will find opportunities so you can make the most out of your visit to Vietnam.
-                </p>
-                <div class="flex flex-wrap justify-center gap-4">
-                    <a href="https://www.linkedin.com/in/zac-crush/" target="_blank" class="px-6 py-3 bg-gray-700 rounded-lg shadow-md hover:bg-gray-600 transition-colors duration-200 text-gma-gold font-semibold">
-                        <span class="inline-block mr-2">LinkedIn</span>
-                    </a>
-                    <a href="https://www.instagram.com/zcrush13/" target="_blank" class="px-6 py-3 bg-gray-700 rounded-lg shadow-md hover:bg-gray-600 transition-colors duration-200 text-gma-gold font-semibold">
-                        <span class="inline-block mr-2">Instagram</span>
-                    </a>
-                    <a href="https://www.facebook.com/crushza" target="_blank" class="px-6 py-3 bg-gray-700 rounded-lg shadow-md hover:bg-gray-600 transition-colors duration-200 text-gma-gold font-semibold">
-                        <span class="inline-block mr-2">Facebook</span>
-                    </a>
-                </div>
-            </section>
-            
-            <section id="gma-beyond" class="card p-6 md:p-8 space-y-6 text-center">
-                <h2 class="text-3xl font-bold text-gma-red text-shadow text-center">GMA Beyond The Fight Podcast</h2>
-                <a href="https://www.youtube.com/watch?v=5xoRhcy-qKU" target="_blank">
-                    <img src="https://raw.githubusercontent.com/zaccrush/zac-crush-homepage/main/EP%2011%20GMA%20Beyond%20The%20Fight%20Podcast%20Robson%20Thumbnail.png?raw=true" alt="GMA Beyond The Fight Podcast Thumbnail" class="w-full rounded-lg shadow-lg">
+            <!-- Other Sections (Podcasts, Videos, etc.) -->
+            <section id="gma-beyond" class="bg-card rounded-lg p-6 md:p-10 text-center">
+                <h2 class="text-3xl font-bold text-gold mb-6">GMA Beyond The Fight Podcast</h2>
+                <a href="https://www.youtube.com/watch?v=5xoRhcy-qKU" target="_blank" class="block hover-lift rounded-lg overflow-hidden">
+                    <img src="https://raw.githubusercontent.com/zaccrush/zac-crush-homepage/main/EP%2011%20GMA%20Beyond%20The%20Fight%20Podcast%20Robson%20Thumbnail.png?raw=true" alt="GMA Beyond The Fight Podcast Thumbnail" class="w-full">
                 </a>
             </section>
 
-            <section id="adcc" class="card p-6 md:p-8 space-y-6">
-                <h2 class="text-3xl font-bold text-gma-red text-shadow text-center">ADCC Grappling Superfights</h2>
-                <div class="aspect-w-16 aspect-h-9">
-                    <iframe class="w-full aspect-video rounded-lg shadow-lg" src="https://www.youtube.com/embed/LUoRhPot8Fc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <section id="adcc" class="bg-card rounded-lg p-6 md:p-10">
+                <h2 class="text-3xl font-bold text-gold text-center mb-6">ADCC Grappling Superfights</h2>
+                <div class="aspect-video rounded-lg overflow-hidden">
+                    <iframe class="w-full h-full" src="https://www.youtube.com/embed/LUoRhPot8Fc" title="ADCC Grappling Superfight Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
             </section>
             
-            <section id="gma-live" class="card p-6 md:p-8 space-y-6">
-                <h2 class="text-3xl font-bold text-gma-red text-shadow text-center">Gods Of Martial Arts: Vietnam's MMA Revolution</h2>
-                <div class="aspect-w-16 aspect-h-9">
-                    <a href="https://www.youtube.com/live/CIT661FZ1h4?si=QhWj6DiFos9DcBa1" target="_blank">
-                        <img src="https://yt3.googleusercontent.com/5mfoItqSSbfzypaxai2SCQrW_QHGpnCYwj7Y7wtdHF2G9Lx050hX2foBNXCbD4QnHkgKe34k8g=w2560-fcrop64=1,00005a57ffffa5a8-k-c0xffffffff-no-nd-rj" alt="GMA 07 Live English Commentary Thumbnail" class="w-full rounded-lg shadow-lg">
-                    </a>
+            <section id="contact" class="bg-card rounded-lg p-6 md:p-10 text-center">
+                <h2 class="text-3xl font-bold text-gold mb-4">Want to Train or Compete in Vietnam?</h2>
+                <p class="text-lg text-gray-300 max-w-2xl mx-auto mb-6">
+                    If you'd like to train or compete in any martial art – Wrestling, MMA, Muay Thai, Vovinam, etc. – contact me directly on any platform and we will find opportunities so you can make the most out of your visit to Vietnam.
+                </p>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <a href="https://www.linkedin.com/in/zac-crush/" target="_blank" class="px-6 py-3 bg-gray-700 rounded-lg hover:bg-gray-600 transition-colors text-white font-semibold hover-lift">LinkedIn</a>
+                    <a href="https://www.instagram.com/zcrush13/" target="_blank" class="px-6 py-3 bg-gray-700 rounded-lg hover:bg-gray-600 transition-colors text-white font-semibold hover-lift">Instagram</a>
+                    <a href="https://www.facebook.com/crushza" target="_blank" class="px-6 py-3 bg-gray-700 rounded-lg hover:bg-gray-600 transition-colors text-white font-semibold hover-lift">Facebook</a>
                 </div>
             </section>
 
-            <section id="podcast" class="card p-6 md:p-8 space-y-6">
-                <h2 class="text-3xl font-bold text-gma-red text-shadow text-center">Vietnam Grappling Podcast</h2>
-                <div class="aspect-w-16 aspect-h-9">
-                    <a href="https://www.youtube.com/@vietnam-grappling" target="_blank">
-                    <iframe class="w-full aspect-video rounded-lg shadow-lg" src="https://www.youtube.com/embed/AJyKcG8_QUE?si=bwX3Fid32-P3rtL7" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    </a>
-                </div>
-            </section>
         </div>
-    
-        <footer class="card text-gray-500 text-center text-sm py-8 px-4 mt-12">
-            <div class="w-full max-w-4xl mx-auto flex flex-wrap justify-between items-center space-y-2 sm:space-y-0 sm:space-x-4 mb-4">
-                <a href="https://www.linkedin.com/in/zac-crush/" target="_blank" class="hover:text-gma-gold transition-colors duration-200">LinkedIn</a>
-                <a href="https://www.instagram.com/zcrush13/" target="_blank" class="hover:text-gma-gold transition-colors duration-200">Instagram</a>
-                <a href="https://www.youtube.com/@GMAFightingChampionship" target="_blank" class="hover:text-gma-gold transition-colors duration-200">YouTube</a>
-                <a href="https://www.facebook.com/crushza" target="_blank" class="hover:text-gma-gold transition-colors duration-200">Facebook</a>
-                <a href="mailto:hello@zaccrush.com" class="hover:text-gma-gold transition-colors duration-200">hello@zaccrush.com</a>
-                <a href="/faq.html" class="hover:text-gma-gold transition-colors duration-200">FAQ</a>
-            </div>
-            <p class="text-gma-gray mb-2">© 2025 Zac Crush trademark. All rights reserved.</p>
-            <p class="text-gma-gray">Sponsored by <a href="https://shadeprotocol.io/" target="_blank" class="underline hover:text-gma-gold transition-colors duration-200">Shade Protocol: New Generation of Private DeFi</a></p>
-        </footer>
-    </div>
+    </main>
 
-    <script>
-        // Placeholder for future JavaScript functionality
-        // For now, the carousel is a simple scrollable div.
-    </script>
+    <!-- Footer -->
+    <footer class="bg-[#0d1117] border-t border-t-[#30363d] text-gray-400 text-center py-8 px-4 mt-16">
+        <div class="max-w-4xl mx-auto">
+            <div class="flex flex-wrap justify-center items-center gap-x-6 gap-y-2 mb-6">
+                <a href="https://www.linkedin.com/in/zac-crush/" target="_blank" class="hover:text-gold transition-colors">LinkedIn</a>
+                <a href="https://www.instagram.com/zcrush13/" target="_blank" class="hover:text-gold transition-colors">Instagram</a>
+                <a href="https://www.youtube.com/@GMAFightingChampionship" target="_blank" class="hover:text-gold transition-colors">YouTube</a>
+                <a href="https://www.facebook.com/crushza" target="_blank" class="hover:text-gold transition-colors">Facebook</a>
+                <a href="mailto:hello@zaccrush.com" class="hover:text-gold transition-colors">hello@zaccrush.com</a>
+                <a href="/faq.html" class="hover:text-gold transition-colors">FAQ</a>
+            </div>
+            <p class="text-sm mb-2">© 2025 Zac Crush. All rights reserved.</p>
+            <p class="text-xs">Sponsored by <a href="https://shadeprotocol.io/" target="_blank" class="underline hover:text-gold transition-colors">Shade Protocol: New Generation of Private DeFi</a></p>
+        </div>
+    </footer>
+
 </body>
 </html>
