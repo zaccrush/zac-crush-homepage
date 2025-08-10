@@ -159,6 +159,19 @@ function HomePage({currentUser, currentUserId, showNotification, showModal}) {
 
 // --- UI Components ---
 function Header({ user, page, navigateTo }) {
+  if (page === 'faq') {
+    return (
+      <header className="bg-gray-800 py-4 rounded-lg">
+        <nav className="flex justify-center items-center gap-8">
+          <button onClick={() => navigateTo('home')} className="text-white text-sm font-medium hover:text-yellow-400 transition-colors">HOME</button>
+          <a href="#" className="text-white text-sm font-medium hover:text-yellow-400 transition-colors">Youtube</a>
+          <a href="#" className="text-white text-sm font-medium hover:text-yellow-400 transition-colors">GMA Fighter Registration</a>
+          <a href="#" className="text-white text-sm font-medium hover:text-yellow-400 transition-colors">Saigon Superfights Registration</a>
+        </nav>
+      </header>
+    );
+  }
+
   return (
     <header className="flex items-center justify-between">
       <div>
@@ -166,8 +179,7 @@ function Header({ user, page, navigateTo }) {
         <p className="text-sm text-slate-700 font-medium">Pooling Resources, Ideas, and Passion</p>
       </div>
       <div className="flex items-center gap-4">
-        {page === 'home' && <button onClick={() => navigateTo('faq')} className="px-4 py-2 rounded-lg bg-slate-200 text-slate-800 hover:bg-slate-300 transition-colors text-sm font-semibold">FAQ</button>}
-        {page === 'faq' && <button onClick={() => navigateTo('home')} className="px-4 py-2 rounded-lg bg-slate-200 text-slate-800 hover:bg-slate-300 transition-colors text-sm font-semibold">HOME</button>}
+        <button onClick={() => navigateTo('faq')} className="px-4 py-2 rounded-lg bg-slate-200 text-slate-800 hover:bg-slate-300 transition-colors text-sm font-semibold">FAQ</button>
         {user && <button onClick={() => signOut(auth)} className="px-4 py-2 rounded-lg bg-slate-200 text-slate-800 hover:bg-slate-300 transition-colors text-sm font-semibold">Sign out</button>}
       </div>
     </header>
