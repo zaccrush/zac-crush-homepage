@@ -1,1337 +1,357 @@
-Gemini
-
-2.5 Pro
-
-Invite a friend
-
-PRO
-
-
-
-Conversation with Gemini
-
-take this and make it much better and user friendly with an admin login and dashboard: <!DOCTYPE html>
-
-<html lang="en">
-
-<head>
-
-  <meta charset="utf-8" />
-
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-
-  <title>Saigon Superfights Registration</title>
-
-
-
-  <meta property="og:title" content="Saigon Superfights Registration">
-
-  <meta property="og:description" content="Register to compete in Saigon Superfights and join Vietnam's exciting combat sports events.">
-
-  <meta property="og:image" content="https://raw.githubusercontent.com/zaccrush/zac-crush-homepage/4f38e25754d34b0e66645603976bb5e4d4e24916/saigon%20superfights%20logo.jpg">
-
-  <meta property="og:image:alt" content="Saigon Superfights Logo">
-
-  <meta name="theme-color" content="#000000">
-
-
-
-  <!-- Tailwind -->
-
-  <script src="https://cdn.tailwindcss.com"></script>
-
-  <script>
-
-    tailwind.config = {
-
-      theme: {
-
-        extend: {
-
-          fontFamily: { sans: ['Inter', 'sans-serif'] },
-
-          colors: {
-
-            'gma-gold': '#d4af37',
-
-            'gma-red': '#dc2626',
-
-            'gma-dark': '#151515',
-
-            'gma-gray': '#a0a0a0',
-
-          }
-
-        }
-
-      }
-
-    }
-
-  </script>
-
-
-
-  <style>
-
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap');
-
-    body {
-
-      font-family: 'Inter', sans-serif;
-
-      background-color: #1a1a1a;
-
-      background-image: url('https://raw.githubusercontent.com/zaccrush/zac-crush-homepage/main/saigon-superfights-girls.png?raw=true');
-
-      background-size: cover;
-
-      background-position: center;
-
-      background-attachment: fixed;
-
-      background-repeat: no-repeat;
-
-    }
-
-    .hero-overlay { background-color: rgba(0,0,0,0.85); }
-
-    .form-section {
-
-      background-color: rgba(30,30,30,0.9);
-
-      backdrop-filter: blur(5px);
-
-      border: 1px solid rgba(51,51,51,0.8);
-
-      border-radius: 1rem;
-
-      padding: 2rem;
-
-      box-shadow: 0 8px 16px rgba(0,0,0,0.4);
-
-      animation: float-section 4s ease-in-out infinite;
-
-    }
-
-    .input-field, .select-field, .textarea-field {
-
-      background-color: #4a5568;
-
-      border: 1px solid #718096;
-
-      border-radius: 0.5rem;
-
-      padding: 0.75rem 1rem;
-
-      color: #fff;
-
-      width: 100%;
-
-      transition: all 0.2s;
-
-    }
-
-    .input-field:focus, .select-field:focus, .textarea-field:focus {
-
-      outline: none;
-
-      box-shadow: 0 0 0 2px #dc2626;
-
-      border-color: #dc2626;
-
-    }
-
-    .belt-white { color: #FFFFFF; }
-
-    .belt-blue { color: #0000FF; }
-
-    .belt-purple { color: #800080; }
-
-    .belt-brown { color: #A52A2A; }
-
-    .belt-black { color: #000000; }
-
-    #grappler-reg-h1 {
-
-      text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000;
-
-      animation: float-text 3s ease-in-out infinite;
-
-      transition: all 0.3s ease-in-out;
-
-      font-size: 1.6rem;
-
-      line-height: 1.2;
-
-    }
-
-    @media (max-width:640px){ #grappler-reg-h1{ font-size:1.2rem } }
-
-    #grappler-reg-h1:hover {
-
-      transform: translateY(-5px) scale(1.03);
-
-      text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000, 0 0 10px #FFD700, 0 0 20px #FFD700;
-
-    }
-
-    @keyframes float-text { 0%{transform:translateY(0)} 50%{transform:translateY(-3px)} 100%{transform:translateY(0)} }
-
-    @keyframes float-section { 0%{transform:translateY(0)} 50%{transform:translateY(-4px)} 100%{transform:translateY(0)} }
-
-
-
-    /* Small helper for admin list */
-
-    .list-row { border-bottom: 1px solid rgba(255,255,255,0.06); padding: 0.75rem 0; }
-
-    .muted { color: rgba(255,255,255,0.65); }
-
-  </style>
-
-</head>
-
-<body class="min-h-screen">
-
-  <div class="hero-overlay p-4 sm:p-8 min-h-screen flex items-center">
-
-    <div class="w-full max-w-lg mx-auto space-y-6">
-
-      <div class="w-full bg-gray-800 p-6 rounded-2xl shadow-xl">
-
-        <div class="text-center space-y-2 mb-6">
-
-          <img src="https://raw.githubusercontent.com/zaccrush/zac-crush-homepage/4f38e25754d34b0e66645603976bb5e4d4e24916/saigon%20superfights%20logo.jpg" alt="Saigon Superfights Logo" class="mx-auto w-4/5 h-auto rounded-lg">
-
-          <div class="relative inline-block overflow-hidden max-w-[90%] mx-auto">
-
-            <h1 id="grappler-reg-h1" class="font-bold uppercase text-gma-gold mt-4 inline-block whitespace-nowrap">GRAPPLER REGISTRATION</h1>
-
-          </div>
-
-          <p class="text-lg text-gma-gray">SSF V – TBD</p>
-
-        </div>
-
-
-
-        <!-- AUTH + STATUS -->
-
-        <div id="auth-area" class="mb-4 text-center">
-
-          <button id="google-signin" class="px-4 py-2 rounded-md bg-blue-600 text-white hover:opacity-95">Sign in with Google</button>
-
-          <button id="signout" class="px-3 py-2 rounded-md bg-slate-100 hidden">Sign out</button>
-
-          <div id="user-info" class="mt-2 text-sm muted"></div>
-
-        </div>
-
-
-
-        <!-- The enhanced form (keeps your original structure and classes) -->
-
-        <form id="ssf-form" class="space-y-6" autocomplete="off">
-
-          <input type="hidden" id="uid" name="uid" value="">
-
-          <div class="form-section space-y-4">
-
-            <h2 class="text-xl font-semibold text-gma-gold text-center">Personal</h2>
-
-            <div>
-
-              <label for="name" class="block text-sm font-medium text-gma-gray">Name</label>
-
-              <input type="text" id="name" name="name" required class="input-field mt-1 block">
-
-            </div>
-
-            <div>
-
-              <label for="team" class="block text-sm font-medium text-gma-gray">Team</label>
-
-              <input type="text" id="team" name="team" class="input-field mt-1 block">
-
-            </div>
-
-            <div>
-
-              <label for="weight" class="block text-sm font-medium text-gma-gray">Weight (kg)</label>
-
-              <input type="number" step="0.1" id="weight" name="weight" class="input-field mt-1 block">
-
-            </div>
-
-            <div>
-
-              <label for="zalo" class="block text-sm font-medium text-gma-gray">Zalo</label>
-
-              <input type="text" id="zalo" name="zalo" class="input-field mt-1 block">
-
-            </div>
-
-            <div>
-
-              <label for="instagram" class="block text-sm font-medium text-gma-gray">Instagram</label>
-
-              <input type="text" id="instagram" name="instagram" class="input-field mt-1 block">
-
-            </div>
-
-          </div>
-
-
-
-          <div class="form-section space-y-4">
-
-            <h2 class="text-xl font-semibold text-gma-gold text-center">Skill Level / Experience</h2>
-
-            <div>
-
-              <select id="belt" name="belt" class="select-field mt-1 block">
-
-                <option value="">Select Belt Color</option>
-
-                <option value="White" class="belt-white">White</option>
-
-                <option value="Blue" class="belt-blue">Blue</option>
-
-                <option value="Purple" class="belt-purple">Purple</option>
-
-                <option value="Brown" class="belt-brown">Brown</option>
-
-                <option value="Black" class="belt-black">Black</option>
-
-              </select>
-
-            </div>
-
-            <div>
-
-              <label for="experience" class="block text-sm font-medium text-gma-gray text-center">Notable Achievements / Years Experience</label>
-
-              <textarea id="experience" name="experience" rows="5" class="textarea-field mt-1 block"></textarea>
-
-            </div>
-
-          </div>
-
-
-
-          <div class="flex items-center justify-center pt-4">
-
-            <button id="submit-btn" type="submit" class="w-full px-6 py-3 text-lg font-bold text-white bg-gma-red rounded-lg shadow-lg hover:bg-red-700 focus:outline-none focus:ring-4 focus:ring-red-500 transition-all duration-300">
-
-              Submit Registration
-
-            </button>
-
-          </div>
-
-        </form>
-
-
-
-        <!-- Lightweight admin list (visible when signed in) -->
-
-        <div id="admin-list" class="mt-6 hidden">
-
-          <h3 class="text-lg font-semibold text-gma-gold mb-2">Registrations</h3>
-
-          <div id="registrations-container" class="text-sm text-white/90"></div>
-
-        </div>
-
-
-
-        <div id="message" class="mt-4 text-center text-sm muted"></div>
-
-      </div>
-
-    </div>
-
-  </div>
-
-
-
-  <!-- Firebase (compat) - works directly in browser without bundler -->
-
-  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
-
-  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
-
-  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
-
-
-
-  <script>
-
-    // ----- PASTE YOUR FIREBASE CONFIG HERE -----
-
-    // Replace the below object with your project's config
-
-    const firebaseConfig = {
-
-      apiKey: "YOUR_API_KEY",
-
-      authDomain: "YOUR_AUTH_DOMAIN",
-
-      projectId: "YOUR_PROJECT_ID",
-
-      storageBucket: "YOUR_STORAGE_BUCKET",
-
-      messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-
-      appId: "YOUR_APP_ID"
-
-    };
-
-    // -------------------------------------------
-
-
-
-    // Initialize Firebase
-
-    firebase.initializeApp(firebaseConfig);
-
-    const auth = firebase.auth();
-
-    const db = firebase.firestore();
-
-
-
-    // Elements
-
-    const signInBtn = document.getElementById('google-signin');
-
-    const signOutBtn = document.getElementById('signout');
-
-    const userInfo = document.getElementById('user-info');
-
-    const ssfForm = document.getElementById('ssf-form');
-
-    const submitBtn = document.getElementById('submit-btn');
-
-    const message = document.getElementById('message');
-
-    const adminList = document.getElementById('admin-list');
-
-    const registrationsContainer = document.getElementById('registrations-container');
-
-    const uidInput = document.getElementById('uid');
-
-
-
-    // Basic UI helpers
-
-    function showMessage(txt, isError = false) {
-
-      message.textContent = txt;
-
-      message.style.color = isError ? '#ffcccc' : '';
-
-      setTimeout(() => { if (message.textContent === txt) message.textContent = ''; }, 5000);
-
-    }
-
-
-
-    // Auth handlers
-
-    signInBtn.addEventListener('click', async () => {
-
-      const provider = new firebase.auth.GoogleAuthProvider();
-
-      try {
-
-        await auth.signInWithPopup(provider);
-
-      } catch (err) {
-
-        showMessage('Sign-in failed: ' + err.message, true);
-
-      }
-
-    });
-
-
-
-    signOutBtn.addEventListener('click', async () => {
-
-      await auth.signOut();
-
-    });
-
-
-
-    // Listen for auth state
-
-    auth.onAuthStateChanged(async user => {
-
-      if (user) {
-
-        // show signed-in UI
-
-        signInBtn.classList.add('hidden');
-
-        signOutBtn.classList.remove('hidden');
-
-        userInfo.textContent = `Signed in as ${user.displayName || user.email}`;
-
-        uidInput.value = user.uid || '';
-
-        // show admin area
-
-        adminList.classList.remove('hidden');
-
-        // start listening for registrations
-
-        startRegistrationsListener();
-
-      } else {
-
-        // show signed-out UI
-
-        signInBtn.classList.remove('hidden');
-
-        signOutBtn.classList.add('hidden');
-
-        userInfo.textContent = '';
-
-        uidInput.value = '';
-
-        adminList.classList.add('hidden');
-
-        stopRegistrationsListener();
-
-      }
-
-    });
-
-
-
-    // Form submit -> save to Firestore
-
-    ssfForm.addEventListener('submit', async (e) => {
-
-      e.preventDefault();
-
-      submitBtn.disabled = true;
-
-      submitBtn.textContent = 'Saving…';
-
-
-
-      const data = {
-
-        name: (document.getElementById('name').value || '').trim(),
-
-        team: (document.getElementById('team').value || '').trim(),
-
-        weight: parseFloat(document.getElementById('weight').value) || null,
-
-        zalo: (document.getElementById('zalo').value || '').trim(),
-
-        instagram: (document.getElementById('instagram').value || '').trim(),
-
-        belt: (document.getElementById('belt').value || '').trim(),
-
-        experience: (document.getElementById('experience').value || '').trim(),
-
-        idealOpponent: null,
-
-        createdAt: firebase.firestore.FieldValue.serverTimestamp(),
-
-        createdBy: auth.currentUser ? auth.currentUser.uid : null,
-
-        createdByEmail: auth.currentUser ? (auth.currentUser.email || null) : null
-
-      };
-
-
-
-      if (!data.name) {
-
-        showMessage('Please enter your name', true);
-
-        submitBtn.disabled = false;
-
-        submitBtn.textContent = 'Submit Registration';
-
-        return;
-
-      }
-
-
-
-      try {
-
-        // Save document in collection 'registrations'
-
-        await db.collection('registrations').add(data);
-
-        showMessage('Thanks — your registration was saved!');
-
-        ssfForm.reset();
-
-      } catch (err) {
-
-        console.error(err);
-
-        showMessage('Error saving registration: ' + err.message, true);
-
-      } finally {
-
-        submitBtn.disabled = false;
-
-        submitBtn.textContent = 'Submit Registration';
-
-      }
-
-    });
-
-
-
-    // Firestore listener for admin view
-
-    let registrationsUnsub = null;
-
-    function startRegistrationsListener() {
-
-      if (registrationsUnsub) return;
-
-      registrationsContainer.innerHTML = '<div class="muted">Loading registrations…</div>';
-
-      registrationsUnsub = db.collection('registrations').orderBy('createdAt', 'desc')
-
-        .onSnapshot(snap => {
-
-          if (snap.empty) {
-
-            registrationsContainer.innerHTML = '<div class="muted">No registrations yet.</div>';
-
-            return;
-
-          }
-
-          const rows = [];
-
-          snap.forEach(doc => {
-
-            const d = doc.data();
-
-            const created = d.createdAt && d.createdAt.toDate ? d.createdAt.toDate().toLocaleString() : '—';
-
-            rows.push(`
-
-              <div class="list-row">
-
-                <div class="font-medium">${escapeHtml(d.name || '—')}</div>
-
-                <div class="muted text-xs">${escapeHtml(d.belt || '')} • ${escapeHtml(d.weight || '')}kg • ${created}</div>
-
-                <div class="text-sm mt-1">${escapeHtml(d.team || '')} ${d.instagram ? '• IG: ' + escapeHtml(d.instagram) : ''} ${d.zalo ? '• Zalo: ' + escapeHtml(d.zalo) : ''}</div>
-
-                <div class="text-xs mt-1 muted">${escapeHtml(d.experience || '')}</div>
-
-              </div>
-
-            `);
-
-          });
-
-          registrationsContainer.innerHTML = rows.join('');
-
-        }, err => {
-
-          registrationsContainer.innerHTML = '<div class="muted">Error loading registrations: ' + escapeHtml(err.message) + '</div>';
-
-        });
-
-    }
-
-    function stopRegistrationsListener() {
-
-      if (registrationsUnsub) {
-
-        registrationsUnsub();
-
-        registrationsUnsub = null;
-
-      }
-
-      registrationsContainer.innerHTML = '';
-
-    }
-
-
-
-    // Small helper to avoid HTML injection in admin list
-
-    function escapeHtml(unsafe) {
-
-      if (!unsafe && unsafe !== 0) return '';
-
-      return ('' + unsafe)
-
-        .replace(/&/g, "&amp;")
-
-        .replace(/</g, "&lt;")
-
-        .replace(/>/g, "&gt;")
-
-        .replace(/"/g, "&quot;")
-
-        .replace(/'/g, "&#039;");
-
-    }
-
-
-
-    // Optional: restrict admin list by email allowlist in client (firestore rules still recommended)
-
-    const adminAllowlist = [
-
-      /* 'you@yourdomain.com', 'otheradmin@gmail.com' */
-
-    ];
-
-
-
-    // If you want automatic pre-fill from query params (e.g. ?name=...), add here
-
-    (function prefillFromQuery() {
-
-      const url = new URL(location.href);
-
-      const params = url.searchParams;
-
-      if (params.get('name')) document.getElementById('name').value = params.get('name');
-
-      if (params.get('instagram')) document.getElementById('instagram').value = params.get('instagram');
-
-    })();
-
-
-
-    // Good-to-know (security):
-
-    // - This client-side admin view is convenience only. For production, enforce read/write control with Firestore Security Rules.
-
-    // - If you want me to add rules, paste your Firebase project id and I can suggest rules to lock writes to logged in users or only allow reads to specific emails.
-
-  </script>
-
-</body>
-
-</html>
-
-
-
-
-Show thinking
-Of course. Here is a greatly improved and more user-friendly version of your registration page, complete with a separated admin login and a functional, interactive dashboard.
-
-This revised version transforms your single-page form into a mini web application with distinct views for different users, enhancing both functionality and security.
-
-Key Improvements ✨
-Role-Based Views: Users are now directed to different screens based on their role. Regular users see the registration form, while administrators are taken to a private dashboard.
-
-Secure Admin Access: The dashboard is only visible to users whose unique Firebase UID is on a predefined ADMIN_UIDS list. This prevents unauthorized access to registrant data.
-
-Interactive Admin Dashboard: The old text list is replaced with a proper, sortable, and searchable data table. Admins can now:
-
-Search for specific grapplers by name.
-
-Approve, reject, or delete registrations directly from the dashboard.
-
-See a clear status for each registration (Pending, Approved, Rejected).
-
-Improved User Experience (UX):
-
-For Competitors: After logging in, they can see the status of their own registration, letting them know if it's been received or approved.
-
-For Admins: The dashboard is clean, responsive, and provides the tools needed to manage the event.
-
-Enhanced Code Structure: The JavaScript is reorganized and heavily commented for better readability and easier future modifications.
-
-The Code
-Below is the complete, self-contained HTML file. Simply replace the placeholder Firebase configuration with your own, and add your admin UID to the designated list in the script.
-
-HTML
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Saigon Superfights | Registration & Admin</title>
-
-  <meta property="og:title" content="Saigon Superfights Registration">
-  <meta property="og:description" content="Register to compete in Saigon Superfights and join Vietnam's exciting combat sports events.">
-  <meta property="og:image" content="https://raw.githubusercontent.com/zaccrush/zac-crush-homepage/4f38e25754d34b0e66645603976bb5e4d4e24916/saigon%20superfights%20logo.jpg">
-  <meta property="og:image:alt" content="Saigon Superfights Logo">
-  <meta name="theme-color" content="#000000">
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Saigon Superfights | Event Hub</title>
+  
+  <!-- Google Sign-In Library -->
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+  
+  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: { sans: ['Inter', 'sans-serif'] },
-          colors: {
-            'gma-gold': '#d4af37',
-            'gma-red': '#dc2626',
-            'gma-dark': '#151515',
-            'gma-gray': '#a0a0a0',
-          }
-        }
-      }
-    }
-  </script>
-
+  
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap');
-    body {
-      font-family: 'Inter', sans-serif;
-      background-color: #1a1a1a;
-      background-image: url('https://raw.githubusercontent.com/zaccrush/zac-crush-homepage/main/saigon-superfights-girls.png?raw=true');
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
-      background-repeat: no-repeat;
+    body { 
+        background-color: #111; 
+        color: #eee; 
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; 
+        background-image: url('https://github.com/zaccrush/zac-crush-homepage/blob/main/saigon-superfights-grappling-ram-muay-thai.jpeg?raw=true');
+        background-size: cover;
+        background-position: center center;
+        background-attachment: fixed;
     }
-    .hero-overlay { background-color: rgba(0,0,0,0.88); }
-    .form-section, .dashboard-card {
-      background-color: rgba(30,30,30,0.92);
-      backdrop-filter: blur(8px);
-      border: 1px solid rgba(51,51,51,0.8);
-      border-radius: 1rem;
-      padding: 1.5rem 2rem;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+    .body-overlay {
+        background-color: rgba(0, 0, 0, 0.85);
+        min-height: 100vh;
     }
-    .input-field, .select-field, .textarea-field {
-      background-color: #4a5568; border: 1px solid #718096; border-radius: 0.5rem;
-      padding: 0.75rem 1rem; color: #fff; width: 100%; transition: all 0.2s;
+    .card { 
+        background-color: rgba(30, 30, 30, 0.9); 
+        border: 1px solid #444; 
+        transition: all 0.3s ease-in-out; 
+        backdrop-filter: blur(4px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5), 0 5px 10px rgba(0, 0, 0, 0.2);
     }
-    .input-field:focus, .select-field:focus, .textarea-field:focus {
-      outline: none; box-shadow: 0 0 0 3px #dc2626; border-color: #dc2626;
-    }
-    .status-badge { padding: 0.25rem 0.75rem; border-radius: 9999px; font-size: 0.75rem; font-weight: bold; text-transform: uppercase; }
-    .status-pending { background-color: #d4af37; color: #1a1a1a; }
+    .vs-circle { width: 40px; height: 40px; background-color: #dc2626; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 0.8rem; border: 2px solid white; box-shadow: 0 0 10px rgba(220, 38, 38, 0.7); }
+    .admin-badge { background-color: #d4af37; color: black; }
+    .status-badge { padding: 0.2rem 0.6rem; border-radius: 9999px; font-size: 0.7rem; font-weight: bold; text-transform: uppercase; }
     .status-approved { background-color: #22c55e; color: white; }
+    .status-pending { background-color: #eab308; color: black; }
     .status-rejected { background-color: #ef4444; color: white; }
+    .input-field { background-color: #333; border-color: #555; transition: all 0.2s ease-in-out; }
+    .input-field:focus { box-shadow: 0 0 0 2px #d4af37; border-color: #d4af37; }
+    .view-container { transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out; }
   </style>
 </head>
+<body>
+<div class="body-overlay p-4 sm:p-6">
+  <div class="max-w-2xl mx-auto">
+    <!-- Header Section -->
+    <header class="text-center mb-6">
+        <img src="https://raw.githubusercontent.com/zaccrush/zac-crush-homepage/4f38e25754d34b0e66645603976bb5e4d4e24916/saigon%20superfights%20logo.jpg" alt="Logo" class="w-72 sm:w-96 mx-auto mb-2 rounded-lg transition-transform duration-300 hover:scale-105">
+        <h1 id="page-title" class="text-2xl sm:text-3xl font-bold text-yellow-400 uppercase">Fight Card</h1>
+        <p id="user-status" class="text-gray-400 text-sm h-5 mt-1"></p>
+    </header>
 
-<body class="min-h-screen text-gray-200">
-
-  <div class="hero-overlay p-4 sm:p-6 min-h-screen flex items-center justify-center">
-    <div class="w-full max-w-4xl mx-auto">
-
-      <div id="login-view" class="w-full max-w-md mx-auto text-center">
-        <div class="form-section space-y-6">
-            <img src="https://raw.githubusercontent.com/zaccrush/zac-crush-homepage/4f38e25754d34b0e66645603976bb5e4d4e24916/saigon%20superfights%20logo.jpg" alt="Saigon Superfights Logo" class="mx-auto w-4/5 h-auto rounded-lg">
-            <h1 class="text-3xl font-extrabold text-gma-gold uppercase tracking-wider">Saigon Superfights V</h1>
-            <p class="text-gma-gray">Please sign in to register or manage event.</p>
-            <button id="google-signin-btn" class="w-full flex items-center justify-center gap-3 px-4 py-3 rounded-lg bg-blue-600 text-white font-semibold hover:bg-blue-700 transition-colors">
-              <svg class="w-6 h-6" viewBox="0 0 48 48"><path fill="#FFC107" d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12s5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24s8.955,20,20,20s20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z"></path><path fill="#FF3D00" d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z"></path><path fill="#4CAF50" d="M24,44c5.166,0,9.86-1.977,13.409-5.192l-6.19-5.238C29.211,35.091,26.715,36,24,36c-5.202,0-9.619-3.317-11.283-7.946l-6.522,5.025C9.505,39.556,16.227,44,24,44z"></path><path fill="#1976D2" d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571l6.19,5.238C42.012,35.426,44,30.038,44,24C44,22.659,43.862,21.35,43.611,20.083z"></path></svg>
-              Sign In with Google
-            </button>
+    <!-- Main Content Area -->
+    <main>
+        <!-- View Toggler & Login -->
+        <div class="flex justify-between items-center mb-6">
+            <button id="view-toggle-btn" class="px-4 py-2 text-sm bg-gray-700 rounded-md hover:bg-gray-600 transition-colors">Register to Compete</button>
+            <div id="auth-container">
+                <div id="g_id_onload" data-auto_prompt="false"></div>
+                <div class="g_id_signin" data-type="standard" data-shape="rectangular" data-theme="outline" data-text="signin_with" data-size="large" data-logo_alignment="left"></div>
+                <button id="logout-btn" class="hidden px-4 py-2 text-sm bg-red-600 rounded-md" onclick="signOut();">Sign Out</button>
+            </div>
         </div>
-      </div>
 
-      <div id="registration-view" class="hidden">
-        <div class="w-full max-w-lg mx-auto">
-          <div class="dashboard-card space-y-4">
-              <div class="flex justify-between items-start">
-                  <div>
-                      <h1 class="text-2xl font-bold text-gma-gold">Grappler Registration</h1>
-                      <p id="user-info-regular" class="text-sm text-gma-gray"></p>
-                  </div>
-                  <button id="signout-btn-regular" class="px-4 py-2 text-sm rounded-md bg-gma-red text-white hover:opacity-90 transition-opacity">Sign Out</button>
-              </div>
-              <div id="my-registration-status" class="p-4 rounded-lg bg-black/30"></div>
-          </div>
-
-          <form id="ssf-form" class="space-y-6 mt-6" autocomplete="off">
-            <div class="form-section space-y-4">
-              <h2 class="text-xl font-semibold text-gma-gold text-center">Personal Details</h2>
-              <div>
-                <label for="name" class="block text-sm font-medium text-gma-gray">Full Name</label>
-                <input type="text" id="name" name="name" required class="input-field mt-1 block">
-              </div>
-              <div>
-                <label for="team" class="block text-sm font-medium text-gma-gray">Team / Gym</label>
-                <input type="text" id="team" name="team" class="input-field mt-1 block">
-              </div>
-               <div>
-                <label for="weight" class="block text-sm font-medium text-gma-gray">Weight (kg)</label>
-                <input type="number" step="0.1" id="weight" name="weight" required class="input-field mt-1 block">
-              </div>
-              <div>
-                <label for="zalo" class="block text-sm font-medium text-gma-gray">Zalo Phone</label>
-                <input type="text" id="zalo" name="zalo" class="input-field mt-1 block">
-              </div>
-              <div>
-                <label for="instagram" class="block text-sm font-medium text-gma-gray">Instagram Handle</label>
-                <input type="text" id="instagram" name="instagram" placeholder="@username" class="input-field mt-1 block">
-              </div>
+        <!-- Dashboard View -->
+        <div id="dashboard-view" class="view-container">
+            <div id="dashboard-container" class="space-y-4">
+                <p id="loading-indicator" class="text-center text-gray-400">Loading fighters...</p>
             </div>
-
-            <div class="form-section space-y-4">
-              <h2 class="text-xl font-semibold text-gma-gold text-center">Skill & Experience</h2>
-              <div>
-                <label for="belt" class="block text-sm font-medium text-gma-gray">BJJ Belt Level</label>
-                <select id="belt" name="belt" required class="select-field mt-1 block">
-                  <option value="">Select Belt Color</option>
-                  <option value="White">White</option><option value="Blue">Blue</option><option value="Purple">Purple</option>
-                  <option value="Brown">Brown</option><option value="Black">Black</option>
-                </select>
-              </div>
-              <div>
-                <label for="experience" class="block text-sm font-medium text-gma-gray">Notable Achievements / Years of Experience</label>
-                <textarea id="experience" name="experience" rows="4" class="textarea-field mt-1 block"></textarea>
-              </div>
-            </div>
-
-            <div class="flex items-center justify-center pt-2">
-              <button id="submit-btn" type="submit" class="w-full px-6 py-3 text-lg font-bold text-white bg-gma-red rounded-lg shadow-lg hover:bg-red-700 focus:outline-none focus:ring-4 focus:ring-red-500 transition-all duration-300">
-                Submit Registration
-              </button>
-            </div>
-            <div id="form-message" class="mt-4 text-center text-sm"></div>
-          </form>
         </div>
-      </div>
 
-      <div id="admin-dashboard-view" class="hidden">
-        <div class="dashboard-card space-y-6">
-          <div class="flex flex-col sm:flex-row justify-between sm:items-center gap-4">
-            <div>
-              <h1 class="text-2xl font-bold text-gma-gold">Admin Dashboard</h1>
-              <p id="user-info-admin" class="text-sm text-gma-gray"></p>
-            </div>
-            <div class="flex items-center gap-4">
-              <input type="text" id="search-input" placeholder="Search by name..." class="input-field !py-2 !w-48">
-              <button id="signout-btn-admin" class="px-4 py-2 text-sm rounded-md bg-gma-red text-white hover:opacity-90 transition-opacity whitespace-nowrap">Sign Out</button>
-            </div>
-          </div>
-          
-          <div class="overflow-x-auto">
-            <table class="w-full text-sm text-left">
-              <thead class="text-xs text-gma-gold uppercase bg-black/20">
-                <tr>
-                  <th scope="col" class="px-4 py-3">Name</th>
-                  <th scope="col" class="px-4 py-3">Details</th>
-                  <th scope="col" class="px-4 py-3">Contact</th>
-                  <th scope="col" class="px-4 py-3">Status</th>
-                  <th scope="col" class="px-4 py-3 text-right">Actions</th>
-                </tr>
-              </thead>
-              <tbody id="registrations-table-body">
-                </tbody>
-            </table>
-            <div id="admin-message" class="mt-4 text-center text-gma-gray"></div>
-          </div>
+        <!-- Registration View (hidden by default) -->
+        <div id="registration-view" class="view-container hidden">
+            <form id="ssf-form" class="space-y-6" autocomplete="off">
+                <div class="card p-4 sm:p-6 rounded-lg space-y-4">
+                    <!-- Personal Info -->
+                    <div>
+                        <label for="name" class="block text-sm font-medium text-gray-300">Full Name</label>
+                        <input type="text" id="name" required class="input-field mt-1 block w-full rounded-md p-3 text-white">
+                    </div>
+                    <div>
+                        <label for="birthYear" class="block text-sm font-medium text-gray-300">Birth Year</label>
+                        <input type="number" id="birthYear" required placeholder="e.g., 1995" class="input-field mt-1 block w-full rounded-md p-3 text-white">
+                    </div>
+                    <div>
+                        <label for="team" class="block text-sm font-medium text-gray-300">Team</label>
+                        <input type="text" id="team" class="input-field mt-1 block w-full rounded-md p-3 text-white">
+                    </div>
+                    <div>
+                        <label for="weight" class="block text-sm font-medium text-gray-300">Weight (kg)</label>
+                        <input type="number" step="0.1" id="weight" required class="input-field mt-1 block w-full rounded-md p-3 text-white">
+                    </div>
+                     <div>
+                        <label for="belt" class="block text-sm font-medium text-gray-300">BJJ Belt Level</label>
+                        <select id="belt" required class="input-field mt-1 block w-full rounded-md p-3 text-white">
+                            <option value="">Select Belt...</option>
+                            <option value="White">White</option><option value="Blue">Blue</option><option value="Purple">Purple</option><option value="Brown">Brown</option><option value="Black">Black</option>
+                        </select>
+                    </div>
+                    <!-- Fight Preferences -->
+                     <div>
+                        <label for="fightStatus" class="block text-sm font-medium text-gray-300">Status</label>
+                        <select id="fightStatus" required class="input-field mt-1 block w-full rounded-md p-3 text-white">
+                            <option value="Ready to Fight!">Ready to Fight!</option>
+                            <option value="Not Looking for Superfight">Not Looking for Superfight</option>
+                        </select>
+                    </div>
+                     <div>
+                        <label for="idealOpponent" class="block text-sm font-medium text-gray-300">Ideal Opponent (Optional)</label>
+                        <input type="text" id="idealOpponent" placeholder="Name, weight, belt, style..." class="input-field mt-1 block w-full rounded-md p-3 text-white">
+                    </div>
+                    <div>
+                        <label for="opportunity" class="block text-sm font-medium text-gray-300">What's one opportunity you've always wanted in martial arts?</label>
+                        <textarea id="opportunity" rows="3" required class="input-field mt-1 block w-full rounded-md p-3 text-white"></textarea>
+                    </div>
+                    <!-- NEW QUESTION -->
+                    <div>
+                        <label for="excitement" class="block text-sm font-medium text-gray-300">How could we make this app more exciting?</label>
+                        <textarea id="excitement" rows="3" required class="input-field mt-1 block w-full rounded-md p-3 text-white"></textarea>
+                    </div>
+                </div>
+                <div>
+                    <button id="submit-btn" type="submit" class="w-full px-6 py-4 text-lg font-bold text-white bg-red-600 rounded-lg shadow-lg hover:bg-red-700 transition-all duration-300">
+                        Submit Registration
+                    </button>
+                </div>
+                <div id="form-message" class="text-center text-sm h-4"></div>
+            </form>
         </div>
-      </div>
-
-    </div>
+    </main>
   </div>
+</div>
+<script>
+    // =================================================================
+    // ============== CONFIGURATION - PASTE YOUR IDs HERE ==============
+    // =================================================================
+    const GOOGLE_CLIENT_ID = "YOUR_GOOGLE_API_CLIENT_ID.apps.googleusercontent.com";
+    const SCRIPT_URL = "YOUR_DEPLOYED_GOOGLE_APPS_SCRIPT_URL";
+    const ADMIN_EMAILS = ['admin1@example.com', 'admin2@example.com'];
+    // =================================================================
 
-  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
-
-  <script>
-    // =================================================================================
-    // CONFIGURATION
-    // =================================================================================
-
-    // --- ⬇️ 1. PASTE YOUR FIREBASE CONFIG HERE ⬇️ ---
-    const firebaseConfig = {
-      apiKey: "YOUR_API_KEY",
-      authDomain: "YOUR_AUTH_DOMAIN",
-      projectId: "YOUR_PROJECT_ID",
-      storageBucket: "YOUR_STORAGE_BUCKET",
-      messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-      appId: "YOUR_APP_ID"
-    };
-
-    // --- ⬇️ 2. ADD ADMIN FIREBASE UIDs HERE ⬇️ ---
-    // Find a user's UID in the Firebase Console > Authentication > Users table.
-    const ADMIN_UIDS = [
-      "replace_this_with_your_firebase_uid",
-      "another_admin_uid_can_go_here"
-    ];
-
-    // =================================================================================
-    // INITIALIZATION
-    // =================================================================================
-    
-    firebase.initializeApp(firebaseConfig);
-    const auth = firebase.auth();
-    const db = firebase.firestore();
-    const registrationsCollection = db.collection('registrations');
-
-    // DOM Elements
-    const views = {
-        login: document.getElementById('login-view'),
-        registration: document.getElementById('registration-view'),
-        adminDashboard: document.getElementById('admin-dashboard-view')
-    };
-    const signInBtn = document.getElementById('google-signin-btn');
-    const signOutBtns = [document.getElementById('signout-btn-regular'), document.getElementById('signout-btn-admin')];
-    const ssfForm = document.getElementById('ssf-form');
-    const searchInput = document.getElementById('search-input');
-    
-    // App State
-    let currentUser = null;
+    // --- App State ---
+    let userProfile = null;
     let isAdmin = false;
-    let registrationsUnsub = null;
+    let currentView = 'dashboard'; // 'dashboard' or 'registration'
 
-    // =================================================================================
-    // AUTHENTICATION & ROUTING
-    // =================================================================================
+    // --- DOM Elements ---
+    const pageTitle = document.getElementById('page-title');
+    const dashboardView = document.getElementById('dashboard-view');
+    const registrationView = document.getElementById('registration-view');
+    const viewToggleBtn = document.getElementById('view-toggle-btn');
+    const authContainer = document.getElementById('auth-container');
+    const logoutBtn = document.getElementById('logout-btn');
+    const userStatusEl = document.getElementById('user-status');
+    const ssfForm = document.getElementById('ssf-form');
 
-    auth.onAuthStateChanged(user => {
-        currentUser = user;
-        isAdmin = user ? ADMIN_UIDS.includes(user.uid) : false;
-        updateView();
-    });
+    // --- Authentication ---
+    window.onload = function () {
+      google.accounts.id.initialize({
+        client_id: GOOGLE_CLIENT_ID,
+        callback: handleCredentialResponse
+      });
+      updateUI();
+      loadFighters();
+    };
 
-    function updateView() {
-        // Hide all views first
-        Object.values(views).forEach(view => view.classList.add('hidden'));
-
-        if (currentUser) {
-            if (isAdmin) {
-                // Show Admin Dashboard
-                views.adminDashboard.classList.remove('hidden');
-                document.getElementById('user-info-admin').textContent = `Signed in as admin: ${currentUser.displayName || currentUser.email}`;
-                startRegistrationsListener();
-            } else {
-                // Show Regular User/Registration View
-                views.registration.classList.remove('hidden');
-                document.getElementById('user-info-regular').textContent = `Signed in as ${currentUser.displayName || currentUser.email}`;
-                checkUserRegistrationStatus();
-            }
-        } else {
-            // Show Login View
-            views.login.classList.remove('hidden');
-            stopRegistrationsListener();
-        }
+    function handleCredentialResponse(response) {
+      const profile = jwt_decode(response.credential);
+      userProfile = { name: profile.name, email: profile.email };
+      isAdmin = ADMIN_EMAILS.includes(userProfile.email);
+      updateUI();
+      loadFighters();
+    }
+    
+    function signOut() {
+        google.accounts.id.disableAutoSelect();
+        userProfile = null;
+        isAdmin = false;
+        updateUI();
+        loadFighters();
     }
 
-    signInBtn.addEventListener('click', () => {
-        const provider = new firebase.auth.GoogleAuthProvider();
-        auth.signInWithPopup(provider).catch(error => {
-            console.error("Sign-in error", error);
-            alert(`Sign-in failed: ${error.message}`);
-        });
+    // --- UI Management ---
+    function updateUI() {
+        // Auth buttons
+        if (userProfile) {
+            authContainer.querySelector('.g_id_signin').style.display = 'none';
+            logoutBtn.classList.remove('hidden');
+            let adminText = isAdmin ? ' <span class="admin-badge font-bold px-2 py-1 rounded-md text-xs">ADMIN</span>' : '';
+            userStatusEl.innerHTML = `Welcome, ${userProfile.name}${adminText}`;
+        } else {
+            authContainer.querySelector('.g_id_signin').style.display = 'block';
+            logoutBtn.classList.add('hidden');
+            userStatusEl.textContent = 'Sign in as Admin to manage fighters.';
+        }
+        
+        // View toggling with smooth transitions
+        if (currentView === 'dashboard') {
+            registrationView.classList.add('opacity-0', 'scale-95');
+            setTimeout(() => {
+                dashboardView.classList.remove('hidden', 'opacity-0', 'scale-95');
+                registrationView.classList.add('hidden');
+            }, 300);
+            viewToggleBtn.textContent = 'Register to Compete';
+            pageTitle.textContent = 'Fight Card';
+        } else {
+            dashboardView.classList.add('opacity-0', 'scale-95');
+            setTimeout(() => {
+                registrationView.classList.remove('hidden', 'opacity-0', 'scale-95');
+                dashboardView.classList.add('hidden');
+            }, 300);
+            viewToggleBtn.textContent = 'View Fight Card';
+            pageTitle.textContent = 'Grappler Registration';
+        }
+    }
+    
+    viewToggleBtn.addEventListener('click', () => {
+        currentView = (currentView === 'dashboard') ? 'registration' : 'dashboard';
+        updateUI();
     });
 
-    signOutBtns.forEach(btn => btn.addEventListener('click', () => auth.signOut()));
+    // --- Data Fetching & Rendering ---
+    async function loadFighters() {
+        const container = document.getElementById('dashboard-container');
+        const loadingIndicator = document.getElementById('loading-indicator');
+        loadingIndicator.style.display = 'block';
+        container.innerHTML = `<p id="loading-indicator" class="text-center text-gray-400">Loading fighters...</p>`;
+        
+        try {
+            const response = await fetch(SCRIPT_URL);
+            if (!response.ok) throw new Error(`Network response was not ok`);
+            const fighters = await response.json(); 
 
-    // =================================================================================
-    // COMPETITOR VIEW LOGIC
-    // =================================================================================
+            loadingIndicator.style.display = 'none';
+            const fightersToDisplay = isAdmin ? fighters : fighters.filter(f => f.status && f.status.toLowerCase() === 'approved');
+            
+            if (fightersToDisplay.length === 0) {
+                container.innerHTML = `<p class="text-center text-gray-400">No fighters to display. Register or check back soon!</p>`;
+                return;
+            }
+            container.innerHTML = fightersToDisplay.map(renderFighterCard).join('');
+            
+        } catch (error) {
+            handleError(error, 'Failed to load fighters');
+        }
+    }
     
+    function renderFighterCard(fighter) {
+        const adminControls = isAdmin ? `
+            <div class="admin-actions mt-3 pt-3 border-t border-gray-600 flex justify-end gap-2">
+                <button onclick="updateStatus('${fighter.name}', 'approved')" class="px-3 py-1 text-xs bg-green-600 rounded-md hover:bg-green-500 transition-colors">Approve</button>
+                <button onclick="updateStatus('${fighter.name}', 'rejected')" class="px-3 py-1 text-xs bg-red-700 rounded-md hover:bg-red-600 transition-colors">Reject</button>
+            </div>
+        ` : '';
+        
+        const fightStatusColor = fighter.fightStatus === 'Ready to Fight!' ? 'text-green-400' : 'text-yellow-500';
+
+        return `
+            <div class="card rounded-lg p-4">
+                <div class="flex flex-col sm:flex-row justify-between items-center text-center sm:text-left">
+                    <div class="mb-2 sm:mb-0">
+                        <p class="text-xl font-bold text-white">${escapeHtml(fighter.name)}</p>
+                        <p class="text-sm text-gray-400">${escapeHtml(fighter.team)} • ${escapeHtml(fighter.weight)}kg • ${escapeHtml(fighter.belt)} Belt</p>
+                        <p class="text-xs mt-1 ${fightStatusColor}">${escapeHtml(fighter.fightStatus)}</p>
+                    </div>
+                    <div class="text-right">
+                        <span class="status-badge status-${fighter.status ? fighter.status.toLowerCase() : 'pending'}">${escapeHtml(fighter.status)}</span>
+                    </div>
+                </div>
+                ${adminControls}
+            </div>
+        `;
+    }
+    
+    // --- Form & Admin Actions ---
     ssfForm.addEventListener('submit', async (e) => {
         e.preventDefault();
-        if (!currentUser) {
-            showFormMessage('You must be signed in to register.', true);
-            return;
-        }
-
         const submitBtn = document.getElementById('submit-btn');
+        const formMessage = document.getElementById('form-message');
         submitBtn.disabled = true;
         submitBtn.textContent = 'Submitting...';
+        formMessage.textContent = '';
 
-        const formData = {
+        const payload = {
             name: ssfForm.name.value.trim(),
+            birthYear: ssfForm.birthYear.value,
             team: ssfForm.team.value.trim(),
             weight: parseFloat(ssfForm.weight.value) || null,
-            zalo: ssfForm.zalo.value.trim(),
-            instagram: ssfForm.instagram.value.trim(),
             belt: ssfForm.belt.value,
-            experience: ssfForm.experience.value.trim(),
-            status: 'pending', // Default status
-            createdAt: firebase.firestore.FieldValue.serverTimestamp(),
-            createdBy: currentUser.uid,
-            creatorInfo: {
-                email: currentUser.email,
-                name: currentUser.displayName
-            }
+            fightStatus: ssfForm.fightStatus.value,
+            idealOpponent: ssfForm.idealOpponent.value.trim(),
+            opportunity: ssfForm.opportunity.value.trim(),
+            excitement: ssfForm.excitement.value.trim(), // New field
+            experience: "" // Deprecated but kept for schema consistency if needed
         };
-
-        if (!formData.name || !formData.weight || !formData.belt) {
-            showFormMessage('Please fill out all required fields (Name, Weight, Belt).', true);
-            submitBtn.disabled = false;
-            submitBtn.textContent = 'Submit Registration';
-            return;
-        }
-
+        
         try {
-            // Use user's UID as the document ID to prevent duplicate submissions
-            await registrationsCollection.doc(currentUser.uid).set(formData);
-            showFormMessage('Thank you! Your registration has been submitted for review.', false);
+            const response = await fetch(SCRIPT_URL, {
+                method: 'POST', mode: 'cors', headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ action: 'register', payload: payload }),
+            });
+            const result = await response.json();
+            if (result.result !== 'success') throw new Error(result.message);
+            
+            formMessage.textContent = 'Thank you! Your registration has been submitted.';
+            formMessage.style.color = '#34d399';
             ssfForm.reset();
-            setTimeout(checkUserRegistrationStatus, 1000); // Re-check status after submission
+            setTimeout(() => { 
+                currentView = 'dashboard'; 
+                updateUI(); 
+                loadFighters(); 
+            }, 2000);
         } catch (error) {
-            console.error("Error saving registration: ", error);
-            showFormMessage(`Error: ${error.message}`, true);
+            handleError(error, 'Could not submit registration', formMessage);
         } finally {
             submitBtn.disabled = false;
             submitBtn.textContent = 'Submit Registration';
         }
     });
 
-    async function checkUserRegistrationStatus() {
-        if (!currentUser) return;
-        
-        const statusEl = document.getElementById('my-registration-status');
-        const docRef = registrationsCollection.doc(currentUser.uid);
-        const doc = await docRef.get();
-
-        if (doc.exists) {
-            const data = doc.data();
-            const status = data.status || 'pending';
-            statusEl.innerHTML = `
-                <h3 class="font-bold text-gma-gold">Your Registration Status</h3>
-                <p>Your application is currently <span class="status-badge status-${status}">${status}</span>.</p>
-                <p class="text-xs text-gma-gray mt-2">You can update your details by re-submitting the form below.</p>
-            `;
-            // Pre-fill the form with existing data
-            ssfForm.name.value = data.name || '';
-            ssfForm.team.value = data.team || '';
-            ssfForm.weight.value = data.weight || '';
-            ssfForm.zalo.value = data.zalo || '';
-            ssfForm.instagram.value = data.instagram || '';
-            ssfForm.belt.value = data.belt || '';
-            ssfForm.experience.value = data.experience || '';
-
-        } else {
-            statusEl.innerHTML = `
-                <h3 class="font-bold text-gma-gold">No Active Registration</h3>
-                <p>Please fill out the form below to register for the event.</p>
-            `;
-            ssfForm.reset();
-        }
-    }
-
-    function showFormMessage(text, isError = false) {
-        const messageEl = document.getElementById('form-message');
-        messageEl.textContent = text;
-        messageEl.style.color = isError ? '#ef4444' : '#22c55e';
-        setTimeout(() => messageEl.textContent = '', 6000);
-    }
-
-    // =================================================================================
-    // ADMIN DASHBOARD LOGIC
-    // =================================================================================
-
-    function startRegistrationsListener() {
-        if (registrationsUnsub) return; // Listener already active
-        
-        const tableBody = document.getElementById('registrations-table-body');
-        const adminMessage = document.getElementById('admin-message');
-        adminMessage.textContent = 'Loading registrations...';
-
-        registrationsUnsub = registrationsCollection.orderBy('createdAt', 'desc')
-            .onSnapshot(snapshot => {
-                if (snapshot.empty) {
-                    tableBody.innerHTML = '';
-                    adminMessage.textContent = 'No registrations found.';
-                    return;
-                }
-                adminMessage.textContent = '';
-                const allDocs = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-                renderDashboardTable(allDocs);
-            }, error => {
-                console.error("Error fetching registrations:", error);
-                adminMessage.textContent = `Error: ${error.message}`;
-            });
-        
-        searchInput.addEventListener('input', () => {
-             // Re-rendering on search is handled by the snapshot listener re-calling render
-             // For instant client-side search, we need to query all docs once and filter locally
-             // This implementation re-renders from the current snapshot data for simplicity
-             registrationsCollection.orderBy('createdAt', 'desc').get().then(snapshot => {
-                 const allDocs = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-                 renderDashboardTable(allDocs);
-             });
-        });
-    }
-
-    function stopRegistrationsListener() {
-        if (registrationsUnsub) {
-            registrationsUnsub();
-            registrationsUnsub = null;
-        }
-    }
-
-    function renderDashboardTable(registrations) {
-        const tableBody = document.getElementById('registrations-table-body');
-        const searchTerm = searchInput.value.toLowerCase();
-
-        const filteredRegistrations = searchTerm
-            ? registrations.filter(reg => reg.name && reg.name.toLowerCase().includes(searchTerm))
-            : registrations;
-
-        if (filteredRegistrations.length === 0) {
-            tableBody.innerHTML = `<tr><td colspan="5" class="text-center py-4 text-gma-gray">No matches found.</td></tr>`;
-            return;
-        }
-
-        tableBody.innerHTML = filteredRegistrations.map(reg => {
-            const status = reg.status || 'pending';
-            return `
-                <tr class="border-b border-gray-700 hover:bg-black/20">
-                    <td class="px-4 py-3 font-medium">${escapeHtml(reg.name)}</td>
-                    <td class="px-4 py-3">
-                        <div class="font-semibold">${escapeHtml(reg.team || 'No Team')}</div>
-                        <div class="text-xs text-gma-gray">${escapeHtml(reg.belt)} Belt • ${reg.weight} kg</div>
-                    </td>
-                    <td class="px-4 py-3 text-xs">
-                        <div>Zalo: ${escapeHtml(reg.zalo || 'N/A')}</div>
-                        <div>IG: ${escapeHtml(reg.instagram || 'N/A')}</div>
-                    </td>
-                    <td class="px-4 py-3">
-                        <span class="status-badge status-${status}">${escapeHtml(status)}</span>
-                    </td>
-                    <td class="px-4 py-3 text-right space-x-1">
-                        ${status !== 'approved' ? `<button onclick="updateStatus('${reg.id}', 'approved')" class="px-2 py-1 text-xs bg-green-600 rounded hover:bg-green-700">Approve</button>` : ''}
-                        ${status !== 'rejected' ? `<button onclick="updateStatus('${reg.id}', 'rejected')" class="px-2 py-1 text-xs bg-yellow-600 rounded hover:bg-yellow-700">Reject</button>` : ''}
-                        <button onclick="deleteRegistration('${reg.id}', '${escapeHtml(reg.name)}')" class="px-2 py-1 text-xs bg-red-700 rounded hover:bg-red-800">Del</button>
-                    </td>
-                </tr>
-            `;
-        }).join('');
-    }
-
-    window.updateStatus = async (docId, newStatus) => {
+    async function updateStatus(fighterName, newStatus) {
         if (!isAdmin) return alert('Permission denied.');
+        if (!confirm(`Set status for ${fighterName} to "${newStatus}"?`)) return;
+        
         try {
-            await registrationsCollection.doc(docId).update({ status: newStatus });
+            const response = await fetch(SCRIPT_URL, {
+                method: 'POST', mode: 'cors', headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ action: 'updateStatus', payload: { name: fighterName, newStatus: newStatus } }),
+            });
+            const result = await response.json();
+            if (result.result !== 'success') throw new Error(result.message);
+            
+            loadFighters();
         } catch (error) {
-            console.error("Error updating status: ", error);
-            alert(`Failed to update status: ${error.message}`);
+            handleError(error, 'Could not update status');
         }
-    };
-
-    window.deleteRegistration = async (docId, name) => {
-        if (!isAdmin) return alert('Permission denied.');
-        if (confirm(`Are you sure you want to permanently delete the registration for ${name}?`)) {
-            try {
-                await registrationsCollection.doc(docId).delete();
-            } catch (error) {
-                console.error("Error deleting document: ", error);
-                alert(`Failed to delete registration: ${error.message}`);
-            }
-        }
-    };
-
-    function escapeHtml(unsafe) {
-      if (unsafe === null || unsafe === undefined) return '';
-      return String(unsafe)
-           .replace(/&/g, "&amp;")
-           .replace(/</g, "&lt;")
-           .replace(/>/g, "&gt;")
-           .replace(/"/g, "&quot;")
-           .replace(/'/g, "&#039;");
     }
 
-  </script>
+    // --- Utilities ---
+    function jwt_decode(t){const e=t.split(".")[1].replace(/-/g,"+").replace(/_/g,"/");return JSON.parse(decodeURIComponent(atob(e).split("").map(t=>"%" + ("00" + t.charCodeAt(0).toString(16)).slice(-2)).join("")))}
+    function handleError(error, message, element = document.getElementById('dashboard-container')) {
+        console.error(message + ':', error);
+        if (element.id === 'dashboard-container') {
+            element.innerHTML = `<p class="text-center text-red-500">${message}. Please try again.</p>`;
+        } else {
+            element.textContent = `${message}. Please try again.`;
+            element.style.color = '#ef4444';
+        }
+    }
+    function escapeHtml(unsafe){return unsafe?String(unsafe).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;").replace(/'/g,"&#039;"):""}
+
+</script>
 </body>
 </html>
-How to Use 🚀
-Set Up Firebase: If you haven't already, create a new project on the Firebase Console.
-
-Get Config: In your Firebase project, go to Project Settings (⚙️ icon) > General. Under "Your apps," create a new Web App. Firebase will give you a firebaseConfig object.
-
-Paste Config: Copy the entire firebaseConfig object and paste it into the designated area in the <script> tag of the HTML file above.
-
-Enable Authentication: In the Firebase Console, go to Authentication > Sign-in method and enable the Google provider.
-
-Find Your Admin UID: After signing into your application with your own Google account for the first time, go to the Authentication > Users tab in the Firebase Console. You will see your account listed. Copy the long string from the "User UID" column.
-
-Set Admin UID: Paste your UID into the ADMIN_UIDS array in the script, replacing "replace_this_with_your_firebase_uid". You can add multiple UIDs for other admins.
-
-Set Up Firestore: Go to the Firestore Database section in the Firebase Console and create a new database in Test Mode for now. (Production rules are below).
-
-Deploy: You can now open this single HTML file in your browser or deploy it to any web hosting service (like Firebase Hosting, Netlify, or Vercel).
-
-Next Steps: Security (Firestore Rules)
-The current setup relies on client-side code to hide the admin dashboard. This is good for UX but is not secure. A clever user could still find a way to access the data. To properly secure your database, you must apply Firestore Security Rules.
-
-Go to Firestore Database > Rules in your Firebase console and paste the following rules. These rules enforce the logic securely on the server side.
-
-JavaScript
-
-rules_version = '2';
-
-// Helper function to check if a user's UID is in a list of admins.
-// For a real app, you might check a 'roles' field on the user's document.
-function isAdmin(request) {
-  // IMPORTANT: Replace these UIDs with your actual admin UIDs
-  let adminUIDs = [
-    'replace_this_with_your_firebase_uid',
-    'another_admin_uid_can_go_here'
-  ];
-  return request.auth.uid in adminUIDs;
-}
-
-service cloud.firestore {
-  match /databases/{database}/documents {
-    
-    // The 'registrations' collection
-    match /registrations/{userId} {
-
-      // CREATE: Any signed-in user can create THEIR OWN registration.
-      // The document ID must match their own UID.
-      allow create: if request.auth != null && request.auth.uid == userId;
-
-      // READ: 
-      // 1. Admins can read any document.
-      // 2. A regular user can only read their own registration document.
-      allow get: if isAdmin(request) || request.auth.uid == userId;
-
-      // LIST (for the dashboard): Only admins can list all documents.
-      allow list: if isAdmin(request);
-
-      // UPDATE: 
-      // 1. Admins can update any document (to change status).
-      // 2. A regular user can update their own registration data.
-      allow update: if isAdmin(request) || request.auth.uid == userId;
-
-      // DELETE: Only admins can delete registrations.
-      allow delete: if isAdmin(request);
-    }
-  }
-}
-
-
-
-
-
-
-
-
-
-
-
-Video
-
-Deep Research
-
-Canvas
-
-Image
-
-
-Gemini can make mistakes, so double-check it
-
