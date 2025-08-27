@@ -116,6 +116,10 @@
                         <input type="text" id="name" required class="input-field mt-1 block w-full rounded-md p-3 text-white">
                     </div>
                     <div>
+                        <label for="email" class="block text-sm font-medium text-gray-300">Email Address</label>
+                        <input type="email" id="email" required class="input-field mt-1 block w-full rounded-md p-3 text-white">
+                    </div>
+                    <div>
                         <label for="birthYear" class="block text-sm font-medium text-gray-300">Birth Year</label>
                         <input type="number" id="birthYear" required placeholder="e.g., 1995" class="input-field mt-1 block w-full rounded-md p-3 text-white">
                     </div>
@@ -182,10 +186,9 @@
     // =================================================================
     // ============== CONFIGURATION - PASTE YOUR IDs HERE ==============
     // =================================================================
-    // IMPORTANT: You MUST replace these placeholder values with your actual credentials.
-    // 1. Get your script URL after deploying your Google Apps Script.
-    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxGHTY24TPRYt7tXI-YkqKJn9ro1hxS1WJU11Zqe_fl1GRZC5hVoCPYlGaNlIXWgYlXww/exec";
-    // 2. List the email addresses that should have admin privileges.
+    // 1. Your script URL from deploying the Google Apps Script.
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbx-tEnwBQSLjBUqP8OB9S_XSX2f3dkQANfdQPXDe02NbksclQS57E3WAfy9tAW5qkOjWg/exec";
+    // 2. The email addresses that should have admin privileges.
     const ADMIN_EMAILS = ['hello@zaccrush.com', 'zcrush13@gmail.com'];
     // =================================================================
 
@@ -255,7 +258,7 @@
             setTimeout(() => {
                 dashboardView.classList.remove('opacity-0', 'scale-95');
                 registrationView.classList.add('hidden');
-            }, 50); // A small delay ensures the transition is smooth
+            }, 50);
             viewToggleBtn.textContent = 'Register to Compete';
             pageTitle.textContent = 'Fight Card';
         } else {
@@ -281,23 +284,15 @@
         container.innerHTML = `<p class="text-center text-gray-400">Loading fighters...</p>`;
         
         try {
-            let fighters = [];
-            // FIX: If the script URL is a placeholder, use mock data instead of throwing an error.
-            // This allows the UI to be tested without a live backend.
-            if (SCRIPT_URL.includes("YOUR_DEPLOYED_GOOGLE_APPS_SCRIPT_URL")) {
-                console.warn("Using mock data because SCRIPT_URL is not configured.");
-                fighters = [
-                    { name: "John 'The Mauler' Doe", team: "Tiger Muay Thai", weight: "77", belt: "Brown", fightStatus: "Ready to Fight!", status: "Approved" },
-                    { name: "Jane 'The Jaguar' Smith", team: "Saigon Sports Club", weight: "65", belt: "Purple", fightStatus: "Ready to Fight!", status: "Approved" },
-                    { name: "Mike 'The Python' Williams", team: "Kimura BJJ", weight: "84", belt: "Black", fightStatus: "Not Looking for Superfight", status: "Pending" },
-                    { name: "Sarah 'The Viper' Jones", team: "Renzo Gracie Saigon", weight: "60", belt: "Blue", fightStatus: "Ready to Fight!", status: "Rejected" },
-                ];
-            } else {
-                // If a real URL is provided, fetch the data.
-                const response = await fetch(SCRIPT_URL);
-                if (!response.ok) throw new Error(`Network response was not ok`);
-                fighters = await response.json(); 
-            }
+            // **FIX**: Changed to a POST request to avoid CORS issues with Google Script redirects.
+            const response = await fetch(SCRIPT_URL, {
+                method: 'POST',
+                mode: 'cors',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ action: 'getFighters' })
+            });
+            if (!response.ok) throw new Error(`Network response was not ok`);
+            const fighters = await response.json(); 
 
             const fightersToDisplay = isAdmin ? fighters : fighters.filter(f => f.status && f.status.toLowerCase() === 'approved');
             
@@ -350,6 +345,7 @@
 
         const payload = {
             name: ssfForm.name.value.trim(),
+            email: ssfForm.email.value.trim(),
             birthYear: ssfForm.birthYear.value,
             team: ssfForm.team.value.trim(),
             weight: parseFloat(ssfForm.weight.value) || null,
@@ -361,18 +357,17 @@
         };
         
         try {
-            if (SCRIPT_URL.includes("YOUR_DEPLOYED_GOOGLE_APPS_SCRIPT_URL")) {
-                 // Simulate a successful submission for testing purposes
-                console.log("Mock submission:", payload);
-                showModal("This is a mock submission. Data was not saved.");
-            } else {
-                const response = await fetch(SCRIPT_URL, {
-                    method: 'POST', mode: 'cors', headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ action: 'register', payload: payload }),
-                });
-                const result = await response.json();
-                if (result.result !== 'success') throw new Error(result.message);
+            const response = await fetch(SCRIPT_URL, {
+                method: 'POST', mode: 'cors', headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ action: 'register', payload: payload }),
+            });
+            if (!response.ok) {
+                // Try to get more specific error from the backend response
+                const errorResult = await response.json().catch(() => ({ message: 'Server returned an invalid response.' }));
+                throw new Error(errorResult.message || `HTTP error! status: ${response.status}`);
             }
+            const result = await response.json();
+            if (result.result !== 'success') throw new Error(result.message);
             
             formMessage.textContent = 'Thank you! Your registration has been submitted.';
             formMessage.style.color = '#34d399';
@@ -402,12 +397,6 @@
 
     async function updateStatus(fighterName, newStatus) {
         try {
-             if (SCRIPT_URL.includes("YOUR_DEPLOYED_GOOGLE_APPS_SCRIPT_URL")) {
-                console.log(`Mock status update for ${fighterName} to ${newStatus}`);
-                showModal(`Mock update successful for ${fighterName}.`);
-                // In a real app, you'd want to update the mock data array and re-render
-                return;
-            }
             const response = await fetch(SCRIPT_URL, {
                 method: 'POST', mode: 'cors', headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ action: 'updateStatus', payload: { name: fighterName, newStatus: newStatus } }),
