@@ -121,10 +121,6 @@
         </nav>
     </header>
 
-    <!-- 
-      This <main> tag now wraps all content except the header and footer.
-      The `flex-grow` class is essential for pushing the footer down.
-    -->
     <main class="flex-grow">
         <!-- Hero Section -->
         <section class="relative h-screen flex items-center justify-center text-center text-white overflow-hidden">
@@ -187,19 +183,52 @@
                     </a>
                 </section>
 
-                <section id="adcc" class="bg-card rounded-lg p-6 md:p-10 shadow-2xl">
+                <!-- UPDATED SECTION: Added hover-lift class -->
+                <section id="adcc" class="bg-card rounded-lg p-6 md:p-10 shadow-2xl hover-lift">
                     <h2 class="text-3xl font-bold text-gold text-center mb-6">ADCC Grappling Superfights</h2>
                     <div class="aspect-video rounded-lg overflow-hidden shadow-lg">
                         <iframe class="w-full h-full" src="https://www.youtube.com/embed/LUoRhPot8Fc" title="ADCC Grappling Superfight Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                 </section>
+
+                <section id="vietnam-grappling-podcast" class="bg-card rounded-lg p-6 md:p-10 text-center shadow-2xl">
+                    <h2 class="text-3xl font-bold text-gold mb-6">Vietnam Grappling Podcast</h2>
+                    <a href="https://www.youtube.com/watch?v=AJyKcG8_QUE&list=PLAiMPJ7S0_cIP2j2vo8X9JwxZNp6Zu6QK" target="_blank" class="block hover-lift rounded-lg overflow-hidden">
+                        <img src="https://img.youtube.com/vi/AJyKcG8_QUE/maxresdefault.jpg" alt="Vietnam Grappling Podcast Thumbnail" class="w-full" onerror="this.onerror=null;this.src='https://placehold.co/1280x720/000000/ffffff?text=Podcast';">
+                    </a>
+                </section>
                 
+                <!-- UPDATED SECTION: Expanded text and structure -->
                 <section id="contact" class="bg-card rounded-lg p-6 md:p-10 text-center shadow-2xl">
                     <h2 class="text-3xl font-bold text-gold mb-4">Your Gateway to Martial Arts in Vietnam</h2>
-                    <p class="text-lg text-gray-300 max-w-3xl mx-auto mb-6">
-                        Planning a trip to Vietnam? Let us connect you with the vibrant local martial arts scene. Whether you're looking to train in MMA, Muay Thai, Wrestling, BJJ, or Vovinam, reach out through any of our platforms. We are dedicated to finding you the best opportunities to make your visit an unforgettable experience, immersing you in a dedicated and tight-knit community you'll cherish forever.
-                    </p>
-                    <div class="flex flex-wrap justify-center gap-4">
+                    <div class="max-w-3xl mx-auto text-lg text-gray-300 space-y-6">
+                        <p>
+                            This is more than just a website; it's a bridge to the heart of Vietnam's martial arts community. Whether you're a seasoned professional, a curious beginner, a local resident, or a visitor to our beautiful country, we are here to connect you.
+                        </p>
+
+                        <div>
+                            <h3 class="text-2xl font-bold text-white mb-2">For Fighters, Practitioners & Enthusiasts</h3>
+                            <p>
+                                Are you taking your first martial arts class? A pro seeking a world-class training camp? A tourist looking for an unforgettable experience? Or a local searching for a new gym? We are your dedicated guides to the best training in MMA, Muay Thai, Wrestling, BJJ, Vovinam, and more.
+                            </p>
+                        </div>
+
+                        <div>
+                            <h3 class="text-2xl font-bold text-white mb-2">For Gyms, Partners & Sponsors</h3>
+                            <p class="mb-4">
+                                Let's grow the community together. We are actively seeking to collaborate with gyms, brands, and individuals who share our passion for martial arts.
+                            </p>
+                            <ul class="text-left list-disc list-inside space-y-2 inline-block">
+                                <li><strong>Gym Owners:</strong> Feature your gym on our platform to connect with a global audience.</li>
+                                <li><strong>Partners:</strong> Collaborate with Saigon Superfights and other events to elevate the sport.</li>
+                                <li><strong>Sponsors:</strong> Discover unique sponsorship opportunities or find dedicated athletes to represent your brand.</li>
+                            </ul>
+                        </div>
+                        <p class="font-bold text-xl pt-4">
+                            Whatever your mission, your journey starts here. Reach out through any of our platforms, and let's connect you with the vibrant, tight-knit community you've been looking for.
+                        </p>
+                    </div>
+                    <div class="flex flex-wrap justify-center gap-4 mt-8">
                         <a href="https://www.linkedin.com/in/zac-crush/" target="_blank" class="px-6 py-3 bg-gray-700 rounded-lg hover:bg-gold hover:text-black transition-colors text-white font-semibold hover-lift">LinkedIn</a>
                         <a href="https://www.instagram.com/zcrush13/" target="_blank" class="px-6 py-3 bg-gray-700 rounded-lg hover:bg-gold hover:text-black transition-colors text-white font-semibold hover-lift">Instagram</a>
                         <a href="https://www.facebook.com/crushza" target="_blank" class="px-6 py-3 bg-gray-700 rounded-lg hover:bg-gold hover:text-black transition-colors text-white font-semibold hover-lift">Facebook</a>
