@@ -5,17 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Saigon Superfights | Event Hub</title>
   
-  <!-- Google Sign-In Library -->
-  <script src="https://accounts.google.com/gsi/client" async defer></script>
-  
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
   
   <style>
-    body { 
-        background-color: #111; 
-        color: #eee; 
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; 
+    /* Using Inter font for a cleaner look */
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
+    
+    body {  
+        background-color: #111;  
+        color: #eee;  
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;  
         background-image: url('https://github.com/zaccrush/zac-crush-homepage/blob/main/saigon-superfights-grappling-ram-muay-thai.jpeg?raw=true');
         background-size: cover;
         background-position: center center;
@@ -25,22 +25,54 @@
         background-color: rgba(0, 0, 0, 0.85);
         min-height: 100vh;
     }
-    .card { 
-        background-color: rgba(30, 30, 30, 0.9); 
-        border: 1px solid #444; 
-        transition: all 0.3s ease-in-out; 
+    .card {  
+        background-color: rgba(30, 30, 30, 0.9);  
+        border: 1px solid #444;  
+        transition: all 0.3s ease-in-out;  
         backdrop-filter: blur(4px);
         box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5), 0 5px 10px rgba(0, 0, 0, 0.2);
     }
-    .vs-circle { width: 40px; height: 40px; background-color: #dc2626; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 0.8rem; border: 2px solid white; box-shadow: 0 0 10px rgba(220, 38, 38, 0.7); }
     .admin-badge { background-color: #d4af37; color: black; }
     .status-badge { padding: 0.2rem 0.6rem; border-radius: 9999px; font-size: 0.7rem; font-weight: bold; text-transform: uppercase; }
     .status-approved { background-color: #22c55e; color: white; }
     .status-pending { background-color: #eab308; color: black; }
     .status-rejected { background-color: #ef4444; color: white; }
     .input-field { background-color: #333; border-color: #555; transition: all 0.2s ease-in-out; }
-    .input-field:focus { box-shadow: 0 0 0 2px #d4af37; border-color: #d4af37; }
+    .input-field:focus { box-shadow: 0 0 0 2px #d4af37; border-color: #d4af37; ring: 0; outline: 0; }
     .view-container { transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out; }
+    
+    /* Custom Modal Styles for better UX than alert/confirm */
+    .modal-backdrop {
+        position: fixed;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 1000;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        pointer-events: none;
+    }
+    .modal-backdrop.visible {
+        opacity: 1;
+        pointer-events: auto;
+    }
+    .modal-content {
+        background-color: #2d2d2d;
+        padding: 1.5rem;
+        border-radius: 0.5rem;
+        border: 1px solid #555;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+        transform: scale(0.95);
+        transition: transform 0.3s ease;
+        max-width: 90%;
+        width: 400px;
+    }
+    .modal-backdrop.visible .modal-content {
+        transform: scale(1);
+    }
   </style>
 </head>
 <body>
@@ -49,7 +81,7 @@
     <!-- Header Section -->
     <header class="text-center mb-6">
         <img src="https://raw.githubusercontent.com/zaccrush/zac-crush-homepage/4f38e25754d34b0e66645603976bb5e4d4e24916/saigon%20superfights%20logo.jpg" alt="Logo" class="w-72 sm:w-96 mx-auto mb-2 rounded-lg transition-transform duration-300 hover:scale-105">
-        <h1 id="page-title" class="text-2xl sm:text-3xl font-bold text-yellow-400 uppercase">Fight Card</h1>
+        <h1 id="page-title" class="text-2xl sm:text-3xl font-bold text-yellow-400 uppercase tracking-wider">Fight Card</h1>
         <p id="user-status" class="text-gray-400 text-sm h-5 mt-1"></p>
     </header>
 
@@ -58,10 +90,12 @@
         <!-- View Toggler & Login -->
         <div class="flex justify-between items-center mb-6">
             <button id="view-toggle-btn" class="px-4 py-2 text-sm bg-gray-700 rounded-md hover:bg-gray-600 transition-colors">Register to Compete</button>
-            <div id="auth-container">
-                <div id="g_id_onload" data-auto_prompt="false"></div>
-                <div class="g_id_signin" data-type="standard" data-shape="rectangular" data-theme="outline" data-text="signin_with" data-size="large" data-logo_alignment="left"></div>
-                <button id="logout-btn" class="hidden px-4 py-2 text-sm bg-red-600 rounded-md" onclick="signOut();">Sign Out</button>
+            <div id="auth-section">
+                <form id="admin-login-form" class="flex items-center gap-2">
+                    <input type="email" id="admin-email" placeholder="Admin Email" class="input-field rounded-md p-2 text-sm w-48">
+                    <button type="submit" class="px-4 py-2 text-sm bg-blue-600 rounded-md hover:bg-blue-500 transition-colors">Sign In</button>
+                </form>
+                <button id="logout-btn" class="hidden px-4 py-2 text-sm bg-red-600 rounded-md">Sign Out</button>
             </div>
         </div>
 
@@ -73,7 +107,7 @@
         </div>
 
         <!-- Registration View (hidden by default) -->
-        <div id="registration-view" class="view-container hidden">
+        <div id="registration-view" class="view-container hidden opacity-0 scale-95">
             <form id="ssf-form" class="space-y-6" autocomplete="off">
                 <div class="card p-4 sm:p-6 rounded-lg space-y-4">
                     <!-- Personal Info -->
@@ -116,7 +150,6 @@
                         <label for="opportunity" class="block text-sm font-medium text-gray-300">What's one opportunity you've always wanted in martial arts?</label>
                         <textarea id="opportunity" rows="3" required class="input-field mt-1 block w-full rounded-md p-3 text-white"></textarea>
                     </div>
-                    <!-- NEW QUESTION -->
                     <div>
                         <label for="excitement" class="block text-sm font-medium text-gray-300">How could we make this app more exciting?</label>
                         <textarea id="excitement" rows="3" required class="input-field mt-1 block w-full rounded-md p-3 text-white"></textarea>
@@ -133,17 +166,30 @@
     </main>
   </div>
 </div>
+
+<!-- Custom Modal for Confirmations and Alerts -->
+<div id="custom-modal" class="modal-backdrop">
+    <div class="modal-content">
+        <p id="modal-message" class="text-white mb-4">Modal message goes here.</p>
+        <div id="modal-actions" class="flex justify-end gap-3">
+            <button id="modal-cancel-btn" class="px-4 py-2 text-sm bg-gray-600 rounded-md hover:bg-gray-500 transition-colors">Cancel</button>
+            <button id="modal-confirm-btn" class="px-4 py-2 text-sm bg-red-600 rounded-md hover:bg-red-500 transition-colors">Confirm</button>
+        </div>
+    </div>
+</div>
+
 <script>
     // =================================================================
     // ============== CONFIGURATION - PASTE YOUR IDs HERE ==============
     // =================================================================
-    const GOOGLE_CLIENT_ID = "YOUR_GOOGLE_API_CLIENT_ID.apps.googleusercontent.com";
-    const SCRIPT_URL = "YOUR_DEPLOYED_GOOGLE_APPS_SCRIPT_URL";
-    const ADMIN_EMAILS = ['admin1@example.com', 'admin2@example.com'];
+    // IMPORTANT: You MUST replace these placeholder values with your actual credentials.
+    // 1. Get your script URL after deploying your Google Apps Script.
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxGHTY24TPRYt7tXI-YkqKJn9ro1hxS1WJU11Zqe_fl1GRZC5hVoCPYlGaNlIXWgYlXww/exec";
+    // 2. List the email addresses that should have admin privileges.
+    const ADMIN_EMAILS = ['admin1@example.com', 'admin2@example.com', 'z@z.com'];
     // =================================================================
 
     // --- App State ---
-    let userProfile = null;
     let isAdmin = false;
     let currentView = 'dashboard'; // 'dashboard' or 'registration'
 
@@ -152,47 +198,52 @@
     const dashboardView = document.getElementById('dashboard-view');
     const registrationView = document.getElementById('registration-view');
     const viewToggleBtn = document.getElementById('view-toggle-btn');
-    const authContainer = document.getElementById('auth-container');
+    const adminLoginForm = document.getElementById('admin-login-form');
     const logoutBtn = document.getElementById('logout-btn');
     const userStatusEl = document.getElementById('user-status');
     const ssfForm = document.getElementById('ssf-form');
+    const modal = document.getElementById('custom-modal');
+    const modalMessage = document.getElementById('modal-message');
+    const modalConfirmBtn = document.getElementById('modal-confirm-btn');
+    const modalCancelBtn = document.getElementById('modal-cancel-btn');
 
-    // --- Authentication ---
+    // --- Initialization ---
     window.onload = function () {
-      google.accounts.id.initialize({
-        client_id: GOOGLE_CLIENT_ID,
-        callback: handleCredentialResponse
-      });
       updateUI();
       loadFighters();
     };
 
-    function handleCredentialResponse(response) {
-      const profile = jwt_decode(response.credential);
-      userProfile = { name: profile.name, email: profile.email };
-      isAdmin = ADMIN_EMAILS.includes(userProfile.email);
-      updateUI();
-      loadFighters();
-    }
+    // --- Authentication ---
+    adminLoginForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const emailInput = document.getElementById('admin-email');
+        const email = emailInput.value.trim().toLowerCase();
+        if (ADMIN_EMAILS.includes(email)) {
+            isAdmin = true;
+            updateUI();
+            loadFighters();
+            emailInput.value = '';
+        } else {
+            showModal("Invalid admin email.");
+            isAdmin = false;
+        }
+    });
     
-    function signOut() {
-        google.accounts.id.disableAutoSelect();
-        userProfile = null;
+    logoutBtn.addEventListener('click', () => {
         isAdmin = false;
         updateUI();
         loadFighters();
-    }
+    });
 
     // --- UI Management ---
     function updateUI() {
-        // Auth buttons
-        if (userProfile) {
-            authContainer.querySelector('.g_id_signin').style.display = 'none';
+        // Auth section
+        if (isAdmin) {
+            adminLoginForm.classList.add('hidden');
             logoutBtn.classList.remove('hidden');
-            let adminText = isAdmin ? ' <span class="admin-badge font-bold px-2 py-1 rounded-md text-xs">ADMIN</span>' : '';
-            userStatusEl.innerHTML = `Welcome, ${userProfile.name}${adminText}`;
+            userStatusEl.innerHTML = `Welcome, Admin <span class="admin-badge font-bold px-2 py-1 rounded-md text-xs">ADMIN</span>`;
         } else {
-            authContainer.querySelector('.g_id_signin').style.display = 'block';
+            adminLoginForm.classList.remove('hidden');
             logoutBtn.classList.add('hidden');
             userStatusEl.textContent = 'Sign in as Admin to manage fighters.';
         }
@@ -200,18 +251,20 @@
         // View toggling with smooth transitions
         if (currentView === 'dashboard') {
             registrationView.classList.add('opacity-0', 'scale-95');
+            dashboardView.classList.remove('hidden');
             setTimeout(() => {
-                dashboardView.classList.remove('hidden', 'opacity-0', 'scale-95');
+                dashboardView.classList.remove('opacity-0', 'scale-95');
                 registrationView.classList.add('hidden');
-            }, 300);
+            }, 50); // A small delay ensures the transition is smooth
             viewToggleBtn.textContent = 'Register to Compete';
             pageTitle.textContent = 'Fight Card';
         } else {
             dashboardView.classList.add('opacity-0', 'scale-95');
+            registrationView.classList.remove('hidden');
             setTimeout(() => {
-                registrationView.classList.remove('hidden', 'opacity-0', 'scale-95');
+                registrationView.classList.remove('opacity-0', 'scale-95');
                 dashboardView.classList.add('hidden');
-            }, 300);
+            }, 50);
             viewToggleBtn.textContent = 'View Fight Card';
             pageTitle.textContent = 'Grappler Registration';
         }
@@ -225,16 +278,27 @@
     // --- Data Fetching & Rendering ---
     async function loadFighters() {
         const container = document.getElementById('dashboard-container');
-        const loadingIndicator = document.getElementById('loading-indicator');
-        loadingIndicator.style.display = 'block';
-        container.innerHTML = `<p id="loading-indicator" class="text-center text-gray-400">Loading fighters...</p>`;
+        container.innerHTML = `<p class="text-center text-gray-400">Loading fighters...</p>`;
         
         try {
-            const response = await fetch(SCRIPT_URL);
-            if (!response.ok) throw new Error(`Network response was not ok`);
-            const fighters = await response.json(); 
+            let fighters = [];
+            // FIX: If the script URL is a placeholder, use mock data instead of throwing an error.
+            // This allows the UI to be tested without a live backend.
+            if (SCRIPT_URL.includes("YOUR_DEPLOYED_GOOGLE_APPS_SCRIPT_URL")) {
+                console.warn("Using mock data because SCRIPT_URL is not configured.");
+                fighters = [
+                    { name: "John 'The Mauler' Doe", team: "Tiger Muay Thai", weight: "77", belt: "Brown", fightStatus: "Ready to Fight!", status: "Approved" },
+                    { name: "Jane 'The Jaguar' Smith", team: "Saigon Sports Club", weight: "65", belt: "Purple", fightStatus: "Ready to Fight!", status: "Approved" },
+                    { name: "Mike 'The Python' Williams", team: "Kimura BJJ", weight: "84", belt: "Black", fightStatus: "Not Looking for Superfight", status: "Pending" },
+                    { name: "Sarah 'The Viper' Jones", team: "Renzo Gracie Saigon", weight: "60", belt: "Blue", fightStatus: "Ready to Fight!", status: "Rejected" },
+                ];
+            } else {
+                // If a real URL is provided, fetch the data.
+                const response = await fetch(SCRIPT_URL);
+                if (!response.ok) throw new Error(`Network response was not ok`);
+                fighters = await response.json(); 
+            }
 
-            loadingIndicator.style.display = 'none';
             const fightersToDisplay = isAdmin ? fighters : fighters.filter(f => f.status && f.status.toLowerCase() === 'approved');
             
             if (fightersToDisplay.length === 0) {
@@ -251,8 +315,8 @@
     function renderFighterCard(fighter) {
         const adminControls = isAdmin ? `
             <div class="admin-actions mt-3 pt-3 border-t border-gray-600 flex justify-end gap-2">
-                <button onclick="updateStatus('${fighter.name}', 'approved')" class="px-3 py-1 text-xs bg-green-600 rounded-md hover:bg-green-500 transition-colors">Approve</button>
-                <button onclick="updateStatus('${fighter.name}', 'rejected')" class="px-3 py-1 text-xs bg-red-700 rounded-md hover:bg-red-600 transition-colors">Reject</button>
+                <button onclick="confirmStatusUpdate('${fighter.name}', 'approved')" class="px-3 py-1 text-xs bg-green-600 rounded-md hover:bg-green-500 transition-colors">Approve</button>
+                <button onclick="confirmStatusUpdate('${fighter.name}', 'rejected')" class="px-3 py-1 text-xs bg-red-700 rounded-md hover:bg-red-600 transition-colors">Reject</button>
             </div>
         ` : '';
         
@@ -293,17 +357,22 @@
             fightStatus: ssfForm.fightStatus.value,
             idealOpponent: ssfForm.idealOpponent.value.trim(),
             opportunity: ssfForm.opportunity.value.trim(),
-            excitement: ssfForm.excitement.value.trim(), // New field
-            experience: "" // Deprecated but kept for schema consistency if needed
+            excitement: ssfForm.excitement.value.trim(),
         };
         
         try {
-            const response = await fetch(SCRIPT_URL, {
-                method: 'POST', mode: 'cors', headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ action: 'register', payload: payload }),
-            });
-            const result = await response.json();
-            if (result.result !== 'success') throw new Error(result.message);
+            if (SCRIPT_URL.includes("YOUR_DEPLOYED_GOOGLE_APPS_SCRIPT_URL")) {
+                 // Simulate a successful submission for testing purposes
+                console.log("Mock submission:", payload);
+                showModal("This is a mock submission. Data was not saved.");
+            } else {
+                const response = await fetch(SCRIPT_URL, {
+                    method: 'POST', mode: 'cors', headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ action: 'register', payload: payload }),
+                });
+                const result = await response.json();
+                if (result.result !== 'success') throw new Error(result.message);
+            }
             
             formMessage.textContent = 'Thank you! Your registration has been submitted.';
             formMessage.style.color = '#34d399';
@@ -321,11 +390,24 @@
         }
     });
 
+    function confirmStatusUpdate(fighterName, newStatus) {
+        if (!isAdmin) {
+             showModal("Permission Denied.");
+             return;
+        }
+        showModal(`Set status for ${fighterName} to "${newStatus}"?`, () => {
+            updateStatus(fighterName, newStatus);
+        });
+    }
+
     async function updateStatus(fighterName, newStatus) {
-        if (!isAdmin) return alert('Permission denied.');
-        if (!confirm(`Set status for ${fighterName} to "${newStatus}"?`)) return;
-        
         try {
+             if (SCRIPT_URL.includes("YOUR_DEPLOYED_GOOGLE_APPS_SCRIPT_URL")) {
+                console.log(`Mock status update for ${fighterName} to ${newStatus}`);
+                showModal(`Mock update successful for ${fighterName}.`);
+                // In a real app, you'd want to update the mock data array and re-render
+                return;
+            }
             const response = await fetch(SCRIPT_URL, {
                 method: 'POST', mode: 'cors', headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ action: 'updateStatus', payload: { name: fighterName, newStatus: newStatus } }),
@@ -339,18 +421,62 @@
         }
     }
 
+    // --- Custom Modal Logic ---
+    let confirmCallback = null;
+    function showModal(message, onConfirm = null) {
+        modalMessage.textContent = message;
+        confirmCallback = onConfirm;
+
+        if (onConfirm) {
+            modalConfirmBtn.classList.remove('hidden');
+            modalCancelBtn.textContent = 'Cancel';
+        } else {
+            modalConfirmBtn.classList.add('hidden');
+            modalCancelBtn.textContent = 'Close';
+        }
+        modal.classList.add('visible');
+    }
+
+    function hideModal() {
+        modal.classList.remove('visible');
+        confirmCallback = null;
+    }
+
+    modalConfirmBtn.addEventListener('click', () => {
+        if (confirmCallback) {
+            confirmCallback();
+        }
+        hideModal();
+    });
+    modalCancelBtn.addEventListener('click', hideModal);
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            hideModal();
+        }
+    });
+
+
     // --- Utilities ---
-    function jwt_decode(t){const e=t.split(".")[1].replace(/-/g,"+").replace(/_/g,"/");return JSON.parse(decodeURIComponent(atob(e).split("").map(t=>"%" + ("00" + t.charCodeAt(0).toString(16)).slice(-2)).join("")))}
     function handleError(error, message, element = document.getElementById('dashboard-container')) {
         console.error(message + ':', error);
+        const displayMessage = `${message}. ${error.message}`;
         if (element.id === 'dashboard-container') {
-            element.innerHTML = `<p class="text-center text-red-500">${message}. Please try again.</p>`;
+            element.innerHTML = `<p class="text-center text-red-500">${displayMessage}</p>`;
         } else {
-            element.textContent = `${message}. Please try again.`;
+            element.textContent = displayMessage;
             element.style.color = '#ef4444';
         }
     }
-    function escapeHtml(unsafe){return unsafe?String(unsafe).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;").replace(/'/g,"&#039;"):""}
+
+    function escapeHtml(unsafe) {
+        if (!unsafe) return "";
+        return String(unsafe)
+             .replace(/&/g, "&amp;")
+             .replace(/</g, "&lt;")
+             .replace(/>/g, "&gt;")
+             .replace(/"/g, "&quot;")
+             .replace(/'/g, "&#039;");
+    }
 
 </script>
 </body>
