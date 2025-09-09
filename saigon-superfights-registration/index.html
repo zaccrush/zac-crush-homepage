@@ -1,21 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Saigon Superfights | Event Hub</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Saigon Superfights | Grappling and Boxing Registration</title>
   
+  <!-- Social Media Meta Tags -->
+  <meta property="og:title" content="Saigon Superfights | Grappling and Boxing Registration">
+  <meta property="og:description" content="Register to compete in Saigon Superfights for grappling and boxing matches.">
+  <meta property="og:image" content="https://raw.githubusercontent.com/zaccrush/zac-crush-homepage/4f38e25754d34b0e66645603976bb5e4d4e24916/saigon%20superfights%20logo.jpg">
+  <meta property="og:image:alt" content="Saigon Superfights Logo">
+  <meta name="theme-color" content="#000000">
+
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    // Custom colors for header/footer hover effects from gmaregistration page
+    tailwind.config = {
+        theme: {
+            extend: {
+                fontFamily: {
+                    sans: ['Inter', 'sans-serif'],
+                },
+                colors: {
+                    'gma-gold': '#d4af37',
+                }
+            },
+        },
+    };
+  </script>
   
   <style>
-    /* Using Inter font for a cleaner look */
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
     
     body {  
         background-color: #111;  
         color: #eee;  
-        font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;  
+        font-family: 'Inter', sans-serif;
         background-image: url('https://github.com/zaccrush/zac-crush-homepage/blob/main/saigon-superfights-grappling-ram-muay-thai.jpeg?raw=true');
         background-size: cover;
         background-position: center center;
@@ -23,450 +44,138 @@
     }
     .body-overlay {
         background-color: rgba(0, 0, 0, 0.85);
-        min-height: 100vh;
     }
     .card {  
         background-color: rgba(30, 30, 30, 0.9);  
         border: 1px solid #444;  
-        transition: all 0.3s ease-in-out;  
         backdrop-filter: blur(4px);
         box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5), 0 5px 10px rgba(0, 0, 0, 0.2);
     }
-    .admin-badge { background-color: #d4af37; color: black; }
-    .status-badge { padding: 0.2rem 0.6rem; border-radius: 9999px; font-size: 0.7rem; font-weight: bold; text-transform: uppercase; }
-    .status-approved { background-color: #22c55e; color: white; }
-    .status-pending { background-color: #eab308; color: black; }
-    .status-rejected { background-color: #ef4444; color: white; }
     .input-field { background-color: #333; border-color: #555; transition: all 0.2s ease-in-out; }
     .input-field:focus { box-shadow: 0 0 0 2px #d4af37; border-color: #d4af37; ring: 0; outline: 0; }
-    .view-container { transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out; }
-    
-    /* Custom Modal Styles for better UX than alert/confirm */
-    .modal-backdrop {
-        position: fixed;
-        top: 0; left: 0;
-        width: 100%; height: 100%;
-        background-color: rgba(0, 0, 0, 0.7);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        z-index: 1000;
-        opacity: 0;
-        transition: opacity 0.3s ease;
-        pointer-events: none;
-    }
-    .modal-backdrop.visible {
-        opacity: 1;
-        pointer-events: auto;
-    }
-    .modal-content {
-        background-color: #2d2d2d;
-        padding: 1.5rem;
-        border-radius: 0.5rem;
-        border: 1px solid #555;
-        box-shadow: 0 10px 25px rgba(0,0,0,0.5);
-        transform: scale(0.95);
-        transition: transform 0.3s ease;
-        max-width: 90%;
-        width: 400px;
-    }
-    .modal-backdrop.visible .modal-content {
-        transform: scale(1);
-    }
+    .text-gold { color: #d4af37; }
+    .hover\:text-gold:hover { color: #d4af37; }
   </style>
 </head>
-<body>
-<div class="body-overlay p-4 sm:p-6">
-  <div class="max-w-2xl mx-auto">
-    <!-- Header Section -->
-    <header class="text-center mb-6">
-        <img src="https://raw.githubusercontent.com/zaccrush/zac-crush-homepage/4f38e25754d34b0e66645603976bb5e4d4e24916/saigon%20superfights%20logo.jpg" alt="Logo" class="w-72 sm:w-96 mx-auto mb-2 rounded-lg transition-transform duration-300 hover:scale-105">
-        <h1 id="page-title" class="text-2xl sm:text-3xl font-bold text-yellow-400 uppercase tracking-wider">Fight Card</h1>
-        <p id="user-status" class="text-gray-400 text-sm h-5 mt-1"></p>
+<body class="antialiased flex flex-col min-h-screen">
+
+    <!-- Sticky Header -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-[#111]/80 backdrop-blur-sm border-b border-b-[#444]">
+        <nav class="max-w-5xl mx-auto flex justify-center items-center p-4 text-sm">
+            <div class="flex flex-wrap justify-center items-center gap-x-4 sm:gap-x-6 gap-y-2">
+                <a href="https://zaccrush.com/" class="text-gray-300 hover:text-gold transition-colors font-semibold">Home</a>
+                <a href="https://www.youtube.com/@GMAFightingChampionship" target="_blank" class="text-gray-300 hover:text-gold transition-colors font-semibold">YouTube</a>
+                <a href="https://zaccrush.com/gmaregistration/" target="_blank" class="text-gray-300 hover:text-gold transition-colors font-semibold">GMA Fighter Registration</a>
+                <a href="/saigon-superfights-registration" class="text-gray-300 hover:text-gold transition-colors font-semibold">Saigon Superfights Registration</a>
+            </div>
+        </nav>
     </header>
 
     <!-- Main Content Area -->
-    <main>
-        <!-- View Toggler & Login -->
-        <div class="flex justify-between items-center mb-6">
-            <button id="view-toggle-btn" class="px-4 py-2 text-sm bg-gray-700 rounded-md hover:bg-gray-600 transition-colors">Register to Compete</button>
-            <div id="auth-section">
-                <form id="admin-login-form" class="flex items-center gap-2">
-                    <input type="email" id="admin-email" placeholder="Admin Email" class="input-field rounded-md p-2 text-sm w-48">
-                    <button type="submit" class="px-4 py-2 text-sm bg-blue-600 rounded-md hover:bg-blue-500 transition-colors">Sign In</button>
-                </form>
-                <button id="logout-btn" class="hidden px-4 py-2 text-sm bg-red-600 rounded-md">Sign Out</button>
-            </div>
-        </div>
+    <main class="flex-grow pt-24 body-overlay">
+        <div class="max-w-2xl mx-auto p-4 sm:p-6">
+            <!-- Page Header -->
+            <header class="text-center mb-6">
+                <img src="https://raw.githubusercontent.com/zaccrush/zac-crush-homepage/4f38e25754d34b0e66645603976bb5e4d4e24916/saigon%20superfights%20logo.jpg" alt="Logo" class="w-72 sm:w-96 mx-auto mb-2 rounded-lg">
+                <h1 class="text-2xl sm:text-3xl font-bold text-yellow-400 uppercase tracking-wider">Grappling and Boxing</h1>
+                <p class="text-gray-400 text-sm mt-1">Register to compete in an upcoming event.</p>
+            </header>
 
-        <!-- Dashboard View -->
-        <div id="dashboard-view" class="view-container">
-            <div id="dashboard-container" class="space-y-4">
-                <p id="loading-indicator" class="text-center text-gray-400">Loading fighters...</p>
-            </div>
-        </div>
+            <!-- Netlify Registration Form -->
+            <form name="ssf-registration" method="POST" action="/success.html" data-netlify="true" class="space-y-6">
+                <input type="hidden" name="form-name" value="ssf-registration" />
 
-        <!-- Registration View (hidden by default) -->
-        <div id="registration-view" class="view-container hidden opacity-0 scale-95">
-            <form id="ssf-form" class="space-y-6" autocomplete="off">
                 <div class="card p-4 sm:p-6 rounded-lg space-y-4">
-                    <!-- Personal Info -->
                     <div>
                         <label for="name" class="block text-sm font-medium text-gray-300">Full Name</label>
-                        <input type="text" id="name" required class="input-field mt-1 block w-full rounded-md p-3 text-white">
+                        <input type="text" id="name" name="name" required class="input-field mt-1 block w-full rounded-md p-3 text-white">
                     </div>
                     <div>
                         <label for="email" class="block text-sm font-medium text-gray-300">Email Address</label>
-                        <input type="email" id="email" required class="input-field mt-1 block w-full rounded-md p-3 text-white">
+                        <input type="email" id="email" name="email" required class="input-field mt-1 block w-full rounded-md p-3 text-white">
                     </div>
                     <div>
                         <label for="birthYear" class="block text-sm font-medium text-gray-300">Birth Year</label>
-                        <input type="number" id="birthYear" required placeholder="e.g., 1995" class="input-field mt-1 block w-full rounded-md p-3 text-white">
+                        <input type="number" id="birthYear" name="birthYear" required placeholder="e.g., 1995" class="input-field mt-1 block w-full rounded-md p-3 text-white">
                     </div>
                     <div>
                         <label for="team" class="block text-sm font-medium text-gray-300">Team</label>
-                        <input type="text" id="team" class="input-field mt-1 block w-full rounded-md p-3 text-white">
+                        <input type="text" id="team" name="team" class="input-field mt-1 block w-full rounded-md p-3 text-white">
                     </div>
                     <div>
                         <label for="weight" class="block text-sm font-medium text-gray-300">Weight (kg)</label>
-                        <input type="number" step="0.1" id="weight" required class="input-field mt-1 block w-full rounded-md p-3 text-white">
+                        <input type="number" step="0.1" id="weight" name="weight" required class="input-field mt-1 block w-full rounded-md p-3 text-white">
                     </div>
-                     <div>
-                        <label for="belt" class="block text-sm font-medium text-gray-300">BJJ Belt Level</label>
-                        <select id="belt" required class="input-field mt-1 block w-full rounded-md p-3 text-white">
-                            <option value="">Select Belt...</option>
-                            <option value="White">White</option><option value="Blue">Blue</option><option value="Purple">Purple</option><option value="Brown">Brown</option><option value="Black">Black</option>
+                    <div>
+                        <label for="matchType" class="block text-sm font-medium text-gray-300">What type of match would you like?</label>
+                        <select id="matchType" name="matchType" required class="input-field mt-1 block w-full rounded-md p-3 text-white">
+                            <option value="">Select Match Type...</option>
+                            <option value="Grappling">Grappling</option>
+                            <option value="Boxing">Boxing</option>
+                            <option value="Either Grappling or Boxing">Either Grappling or Boxing!</option>
                         </select>
                     </div>
-                    <!-- Fight Preferences -->
-                     <div>
+                    <div>
+                        <label for="belt" class="block text-sm font-medium text-gray-300">BJJ Belt Level (if applicable)</label>
+                        <select id="belt" name="belt" class="input-field mt-1 block w-full rounded-md p-3 text-white">
+                            <option value="">Select Belt...</option>
+                            <option value="White">White</option>
+                            <option value="Blue">Blue</option>
+                            <option value="Purple">Purple</option>
+                            <option value="Brown">Brown</option>
+                            <option value="Black">Black</option>
+                            <option value="N/A">N/A</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="boxingExperience" class="block text-sm font-medium text-gray-300">Years experience in boxing (short answer)</label>
+                        <input type="text" id="boxingExperience" name="boxingExperience" class="input-field mt-1 block w-full rounded-md p-3 text-white">
+                    </div>
+                    <div>
                         <label for="fightStatus" class="block text-sm font-medium text-gray-300">Status</label>
-                        <select id="fightStatus" required class="input-field mt-1 block w-full rounded-md p-3 text-white">
+                        <select id="fightStatus" name="fightStatus" required class="input-field mt-1 block w-full rounded-md p-3 text-white">
                             <option value="Ready to Fight!">Ready to Fight!</option>
                             <option value="Not Looking for Superfight">Not Looking for Superfight</option>
                         </select>
                     </div>
-                     <div>
+                    <div>
                         <label for="idealOpponent" class="block text-sm font-medium text-gray-300">Ideal Opponent (Optional)</label>
-                        <input type="text" id="idealOpponent" placeholder="Name, weight, belt, style..." class="input-field mt-1 block w-full rounded-md p-3 text-white">
+                        <input type="text" id="idealOpponent" name="idealOpponent" placeholder="Name, weight, belt, style..." class="input-field mt-1 block w-full rounded-md p-3 text-white">
                     </div>
                     <div>
                         <label for="opportunity" class="block text-sm font-medium text-gray-300">What's one opportunity you've always wanted in martial arts?</label>
-                        <textarea id="opportunity" rows="3" required class="input-field mt-1 block w-full rounded-md p-3 text-white"></textarea>
+                        <textarea id="opportunity" name="opportunity" rows="3" required class="input-field mt-1 block w-full rounded-md p-3 text-white"></textarea>
                     </div>
                     <div>
                         <label for="excitement" class="block text-sm font-medium text-gray-300">How could we make this app more exciting?</label>
-                        <textarea id="excitement" rows="3" required class="input-field mt-1 block w-full rounded-md p-3 text-white"></textarea>
+                        <textarea id="excitement" name="excitement" rows="3" required class="input-field mt-1 block w-full rounded-md p-3 text-white"></textarea>
                     </div>
                 </div>
                 <div>
-                    <button id="submit-btn" type="submit" class="w-full px-6 py-4 text-lg font-bold text-white bg-red-600 rounded-lg shadow-lg hover:bg-red-700 transition-all duration-300">
+                    <button type="submit" class="w-full px-6 py-4 text-lg font-bold text-white bg-red-600 rounded-lg shadow-lg hover:bg-red-700 transition-all duration-300">
                         Submit Registration
                     </button>
                 </div>
-                <div id="form-message" class="text-center text-sm h-4"></div>
             </form>
         </div>
     </main>
-  </div>
-</div>
 
-<!-- Custom Modal for Confirmations and Alerts -->
-<div id="custom-modal" class="modal-backdrop">
-    <div class="modal-content">
-        <p id="modal-message" class="text-white mb-4">Modal message goes here.</p>
-        <div id="modal-actions" class="flex justify-end gap-3">
-            <button id="modal-cancel-btn" class="px-4 py-2 text-sm bg-gray-600 rounded-md hover:bg-gray-500 transition-colors">Cancel</button>
-            <button id="modal-confirm-btn" class="px-4 py-2 text-sm bg-red-600 rounded-md hover:bg-red-500 transition-colors">Confirm</button>
+    <!-- Footer -->
+    <footer class="bg-[#111] border-t border-t-[#444] text-gray-400 text-center py-8 px-4">
+        <div class="max-w-4xl mx-auto">
+            <div class="flex flex-wrap justify-center items-center gap-x-6 gap-y-2 mb-6">
+                <a href="https://www.linkedin.com/in/zac-crush/" target="_blank" class="hover:text-gold transition-colors">LinkedIn</a>
+                <a href="https://www.instagram.com/zcrush13/" target="_blank" class="hover:text-gold transition-colors">Instagram</a>
+                <a href="https://www.youtube.com/@GMAFightingChampionship" target="_blank" class="hover:text-gold transition-colors">YouTube</a>
+                <a href="https://www.facebook.com/crushza" target="_blank" class="hover:text-gold transition-colors">Facebook</a>
+                <a href="mailto:hello@zaccrush.com" class="hover:text-gold transition-colors">hello@zaccrush.com</a>
+                <a href="/faq.html" class="hover:text-gold transition-colors">FAQ</a>
+            </div>
+            <p class="text-sm mb-2">© 2025 Zac Crush. All rights reserved.</p>
+            <p class="text-xs">Sponsored by <a href="https://shadeprotocol.io/" target="_blank" class="underline hover:text-gold transition-colors">Shade Protocol: New Generation of Private DeFi</a></p>
         </div>
-    </div>
-</div>
+    </footer>
 
-<script>
-    // =================================================================
-    // ============== CONFIGURATION - PASTE YOUR IDs HERE ==============
-    // =================================================================
-    // 1. Your script URL from deploying the Google Apps Script.
-    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbx-tEnwBQSLjBUqP8OB9S_XSX2f3dkQANfdQPXDe02NbksclQS57E3WAfy9tAW5qkOjWg/exec";
-    // 2. The email addresses that should have admin privileges.
-    const ADMIN_EMAILS = ['hello@zaccrush.com', 'zcrush13@gmail.com'];
-    // =================================================================
-
-    // --- App State ---
-    let isAdmin = false;
-    let currentView = 'dashboard'; // 'dashboard' or 'registration'
-
-    // --- DOM Elements ---
-    const pageTitle = document.getElementById('page-title');
-    const dashboardView = document.getElementById('dashboard-view');
-    const registrationView = document.getElementById('registration-view');
-    const viewToggleBtn = document.getElementById('view-toggle-btn');
-    const adminLoginForm = document.getElementById('admin-login-form');
-    const logoutBtn = document.getElementById('logout-btn');
-    const userStatusEl = document.getElementById('user-status');
-    const ssfForm = document.getElementById('ssf-form');
-    const modal = document.getElementById('custom-modal');
-    const modalMessage = document.getElementById('modal-message');
-    const modalConfirmBtn = document.getElementById('modal-confirm-btn');
-    const modalCancelBtn = document.getElementById('modal-cancel-btn');
-
-    // --- Initialization ---
-    window.onload = function () {
-      updateUI();
-      loadFighters();
-    };
-
-    // --- Authentication ---
-    adminLoginForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const emailInput = document.getElementById('admin-email');
-        const email = emailInput.value.trim().toLowerCase();
-        if (ADMIN_EMAILS.includes(email)) {
-            isAdmin = true;
-            updateUI();
-            loadFighters();
-            emailInput.value = '';
-        } else {
-            showModal("Invalid admin email.");
-            isAdmin = false;
-        }
-    });
-    
-    logoutBtn.addEventListener('click', () => {
-        isAdmin = false;
-        updateUI();
-        loadFighters();
-    });
-
-    // --- UI Management ---
-    function updateUI() {
-        // Auth section
-        if (isAdmin) {
-            adminLoginForm.classList.add('hidden');
-            logoutBtn.classList.remove('hidden');
-            userStatusEl.innerHTML = `Welcome, Admin <span class="admin-badge font-bold px-2 py-1 rounded-md text-xs">ADMIN</span>`;
-        } else {
-            adminLoginForm.classList.remove('hidden');
-            logoutBtn.classList.add('hidden');
-            userStatusEl.textContent = 'Sign in as Admin to manage fighters.';
-        }
-        
-        // View toggling with smooth transitions
-        if (currentView === 'dashboard') {
-            registrationView.classList.add('opacity-0', 'scale-95');
-            dashboardView.classList.remove('hidden');
-            setTimeout(() => {
-                dashboardView.classList.remove('opacity-0', 'scale-95');
-                registrationView.classList.add('hidden');
-            }, 50);
-            viewToggleBtn.textContent = 'Register to Compete';
-            pageTitle.textContent = 'Fight Card';
-        } else {
-            dashboardView.classList.add('opacity-0', 'scale-95');
-            registrationView.classList.remove('hidden');
-            setTimeout(() => {
-                registrationView.classList.remove('opacity-0', 'scale-95');
-                dashboardView.classList.add('hidden');
-            }, 50);
-            viewToggleBtn.textContent = 'View Fight Card';
-            pageTitle.textContent = 'Grappler Registration';
-        }
-    }
-    
-    viewToggleBtn.addEventListener('click', () => {
-        currentView = (currentView === 'dashboard') ? 'registration' : 'dashboard';
-        updateUI();
-    });
-
-    // --- Data Fetching & Rendering ---
-    async function loadFighters() {
-        const container = document.getElementById('dashboard-container');
-        container.innerHTML = `<p class="text-center text-gray-400">Loading fighters...</p>`;
-        
-        try {
-            // **FIX**: Changed to a POST request to avoid CORS issues with Google Script redirects.
-            const response = await fetch(SCRIPT_URL, {
-                method: 'POST',
-                mode: 'cors',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ action: 'getFighters' })
-            });
-            if (!response.ok) throw new Error(`Network response was not ok`);
-            const fighters = await response.json(); 
-
-            const fightersToDisplay = isAdmin ? fighters : fighters.filter(f => f.status && f.status.toLowerCase() === 'approved');
-            
-            if (fightersToDisplay.length === 0) {
-                container.innerHTML = `<p class="text-center text-gray-400">No fighters to display. Register or check back soon!</p>`;
-                return;
-            }
-            container.innerHTML = fightersToDisplay.map(renderFighterCard).join('');
-            
-        } catch (error) {
-            handleError(error, 'Failed to load fighters');
-        }
-    }
-    
-    function renderFighterCard(fighter) {
-        const adminControls = isAdmin ? `
-            <div class="admin-actions mt-3 pt-3 border-t border-gray-600 flex justify-end gap-2">
-                <button onclick="confirmStatusUpdate('${fighter.name}', 'approved')" class="px-3 py-1 text-xs bg-green-600 rounded-md hover:bg-green-500 transition-colors">Approve</button>
-                <button onclick="confirmStatusUpdate('${fighter.name}', 'rejected')" class="px-3 py-1 text-xs bg-red-700 rounded-md hover:bg-red-600 transition-colors">Reject</button>
-            </div>
-        ` : '';
-        
-        const fightStatusColor = fighter.fightStatus === 'Ready to Fight!' ? 'text-green-400' : 'text-yellow-500';
-
-        return `
-            <div class="card rounded-lg p-4">
-                <div class="flex flex-col sm:flex-row justify-between items-center text-center sm:text-left">
-                    <div class="mb-2 sm:mb-0">
-                        <p class="text-xl font-bold text-white">${escapeHtml(fighter.name)}</p>
-                        <p class="text-sm text-gray-400">${escapeHtml(fighter.team)} • ${escapeHtml(fighter.weight)}kg • ${escapeHtml(fighter.belt)} Belt</p>
-                        <p class="text-xs mt-1 ${fightStatusColor}">${escapeHtml(fighter.fightStatus)}</p>
-                    </div>
-                    <div class="text-right">
-                        <span class="status-badge status-${fighter.status ? fighter.status.toLowerCase() : 'pending'}">${escapeHtml(fighter.status)}</span>
-                    </div>
-                </div>
-                ${adminControls}
-            </div>
-        `;
-    }
-    
-    // --- Form & Admin Actions ---
-    ssfForm.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        const submitBtn = document.getElementById('submit-btn');
-        const formMessage = document.getElementById('form-message');
-        submitBtn.disabled = true;
-        submitBtn.textContent = 'Submitting...';
-        formMessage.textContent = '';
-
-        const payload = {
-            name: ssfForm.name.value.trim(),
-            email: ssfForm.email.value.trim(),
-            birthYear: ssfForm.birthYear.value,
-            team: ssfForm.team.value.trim(),
-            weight: parseFloat(ssfForm.weight.value) || null,
-            belt: ssfForm.belt.value,
-            fightStatus: ssfForm.fightStatus.value,
-            idealOpponent: ssfForm.idealOpponent.value.trim(),
-            opportunity: ssfForm.opportunity.value.trim(),
-            excitement: ssfForm.excitement.value.trim(),
-        };
-        
-        try {
-            const response = await fetch(SCRIPT_URL, {
-                method: 'POST', mode: 'cors', headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ action: 'register', payload: payload }),
-            });
-            if (!response.ok) {
-                // Try to get more specific error from the backend response
-                const errorResult = await response.json().catch(() => ({ message: 'Server returned an invalid response.' }));
-                throw new Error(errorResult.message || `HTTP error! status: ${response.status}`);
-            }
-            const result = await response.json();
-            if (result.result !== 'success') throw new Error(result.message);
-            
-            formMessage.textContent = 'Thank you! Your registration has been submitted.';
-            formMessage.style.color = '#34d399';
-            ssfForm.reset();
-            setTimeout(() => { 
-                currentView = 'dashboard'; 
-                updateUI(); 
-                loadFighters(); 
-            }, 2000);
-        } catch (error) {
-            handleError(error, 'Could not submit registration', formMessage);
-        } finally {
-            submitBtn.disabled = false;
-            submitBtn.textContent = 'Submit Registration';
-        }
-    });
-
-    function confirmStatusUpdate(fighterName, newStatus) {
-        if (!isAdmin) {
-             showModal("Permission Denied.");
-             return;
-        }
-        showModal(`Set status for ${fighterName} to "${newStatus}"?`, () => {
-            updateStatus(fighterName, newStatus);
-        });
-    }
-
-    async function updateStatus(fighterName, newStatus) {
-        try {
-            const response = await fetch(SCRIPT_URL, {
-                method: 'POST', mode: 'cors', headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ action: 'updateStatus', payload: { name: fighterName, newStatus: newStatus } }),
-            });
-            const result = await response.json();
-            if (result.result !== 'success') throw new Error(result.message);
-            
-            loadFighters();
-        } catch (error) {
-            handleError(error, 'Could not update status');
-        }
-    }
-
-    // --- Custom Modal Logic ---
-    let confirmCallback = null;
-    function showModal(message, onConfirm = null) {
-        modalMessage.textContent = message;
-        confirmCallback = onConfirm;
-
-        if (onConfirm) {
-            modalConfirmBtn.classList.remove('hidden');
-            modalCancelBtn.textContent = 'Cancel';
-        } else {
-            modalConfirmBtn.classList.add('hidden');
-            modalCancelBtn.textContent = 'Close';
-        }
-        modal.classList.add('visible');
-    }
-
-    function hideModal() {
-        modal.classList.remove('visible');
-        confirmCallback = null;
-    }
-
-    modalConfirmBtn.addEventListener('click', () => {
-        if (confirmCallback) {
-            confirmCallback();
-        }
-        hideModal();
-    });
-    modalCancelBtn.addEventListener('click', hideModal);
-    modal.addEventListener('click', (e) => {
-        if (e.target === modal) {
-            hideModal();
-        }
-    });
-
-
-    // --- Utilities ---
-    function handleError(error, message, element = document.getElementById('dashboard-container')) {
-        console.error(message + ':', error);
-        const displayMessage = `${message}. ${error.message}`;
-        if (element.id === 'dashboard-container') {
-            element.innerHTML = `<p class="text-center text-red-500">${displayMessage}</p>`;
-        } else {
-            element.textContent = displayMessage;
-            element.style.color = '#ef4444';
-        }
-    }
-
-    function escapeHtml(unsafe) {
-        if (!unsafe) return "";
-        return String(unsafe)
-             .replace(/&/g, "&amp;")
-             .replace(/</g, "&lt;")
-             .replace(/>/g, "&gt;")
-             .replace(/"/g, "&quot;")
-             .replace(/'/g, "&#039;");
-    }
-
-</script>
 </body>
 </html>
+
