@@ -1,38 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Saigon Superfights - Submission Successful</title>
-    <!-- Tailwind CSS for mobile-first, responsive styling -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap');
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #1a1a1a;
-            /* Using a common background for consistency */
-            background-image: url('https://raw.githubusercontent.com/zaccrush/zac-crush-homepage/4f38e25754d34b0e66645603976bb5e4d4e24916/saigon%20superfights%20logo.jpg');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            background-repeat: no-repeat;
-            color: #d4af37;
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registration Successful | Saigon Superfights</title>
+
+  <!-- SEO -->
+  <meta name="description" content="Your registration for Saigon Superfights was successful.">
+  <meta name="theme-color" content="#000000">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Registration Successful | Saigon Superfights">
+  <meta property="og:description" content="Your registration for Saigon Superfights was successful.">
+  <meta property="og:image" content="https://github.com/zaccrush/zac-crush-homepage/blob/main/saigon-superfights-registration/ssf-v-social-image.jpeg?raw=true">
+  <meta property="og:image:alt" content="Saigon Superfights Registration Success">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Registration Successful | Saigon Superfights">
+  <meta name="twitter:description" content="Your registration for Saigon Superfights was successful.">
+  <meta name="twitter:image" content="https://github.com/zaccrush/zac-crush-homepage/blob/main/saigon-superfights-registration/ssf-v-social-image.jpeg?raw=true">
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'sans-serif'] },
+          colors: { 'gma-gold': '#d4af37' }
         }
-        .hero-overlay {
-            background-color: rgba(0, 0, 0, 0.85); /* Dark overlay for readability */
-        }
-    </style>
+      }
+    };
+  </script>
+
+  <style>
+    body {
+      background-color: #111;
+      color: #eee;
+      font-family: 'Inter', sans-serif;
+      background-image: url('https://github.com/zaccrush/zac-crush-homepage/blob/main/saigon-superfights-grappling-ram-muay-thai.jpeg?raw=true');
+      background-size: cover;
+      background-position: center center;
+      background-attachment: fixed;
+    }
+    .body-overlay {
+      background-color: rgba(0, 0, 0, 0.85);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+      padding: 2rem;
+    }
+    .card {
+      background-color: rgba(30, 30, 30, 0.95);
+      border: 1px solid #444;
+      backdrop-filter: blur(4px);
+      padding: 2rem;
+      border-radius: 1rem;
+      max-width: 600px;
+      width: 100%;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+    }
+  </style>
 </head>
-<body class="min-h-screen flex items-center justify-center text-center">
-    <div class="hero-overlay p-8 space-y-6">
-        <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold text-gma-gold">Registration Received!</h1>
-        <p class="mt-4 text-xl text-gma-gray max-w-xl mx-auto">
-            Your interest in Saigon Superfights has been noted. We'll be in touch soon!
-        </p>
-        <a href="/" class="mt-8 inline-block px-8 py-3 text-lg font-bold text-white bg-gma-red rounded-lg shadow-lg hover:bg-red-700 focus:outline-none focus:ring-4 focus:ring-red-500 focus:ring-opacity-50 transition-all duration-300">
-            Return to Homepage
-        </a>
+<body>
+
+  <div class="body-overlay">
+    <div class="card">
+      <img src="https://raw.githubusercontent.com/zaccrush/zac-crush-homepage/4f38e25754d34b0e66645603976bb5e4d4e24916/saigon%20superfights%20logo.jpg" 
+           alt="Saigon Superfights Logo" 
+           class="w-48 mx-auto mb-4 rounded-lg">
+
+      <h1 class="text-2xl sm:text-3xl font-bold text-yellow-400 uppercase tracking-wider mb-2">
+        Registration Successful!
+      </h1>
+      <p class="text-gray-300 mb-6">
+        Thank you for signing up to compete in Saigon Superfights.  
+        We’ll review your registration and be in touch with more details soon.  
+      </p>
+
+      <a href="/saigon-superfights-registration" 
+         class="inline-block px-6 py-3 text-lg font-bold text-white bg-red-600 rounded-lg shadow-lg hover:bg-red-700 transition-all duration-300">
+        Back to Registration
+      </a>
+
+      <p class="text-sm text-gray-400 mt-4">
+        You’ll be redirected back automatically in <span id="countdown">5</span> seconds.
+      </p>
     </div>
+  </div>
+
+  <script>
+    let seconds = 5;
+    const countdown = document.getElementById('countdown');
+    const redirectUrl = "/saigon-superfights-registration";
+
+    const timer = setInterval(() => {
+      seconds--;
+      countdown.textContent = seconds;
+      if (seconds <= 0) {
+        clearInterval(timer);
+        window.location.href = redirectUrl;
+      }
+    }, 1000);
+  </script>
 </body>
 </html>
