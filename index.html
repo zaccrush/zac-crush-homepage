@@ -193,17 +193,14 @@
 <script type="importmap">
 {
   "imports": {
-    "react": "https://esm.sh/react@18.2.0",
-    "react-dom/client": "https://esm.sh/react-dom@18.2.0/client"
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/"
   }
 }
 </script>
-<!-- Babel for in-browser JSX/TSX transpilation -->
-<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 </head>
 <body class="antialiased flex flex-col min-h-screen">
     <div id="root"></div>
-    <!-- This script tag is what starts your React application -->
-    <script type="text/babel" data-type="module" src="./index.tsx"></script>
 </body>
 </html>
