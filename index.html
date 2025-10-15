@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- SEO & Core Meta Tags -->
-    <title>Zac Crush — Southeast Asia’s Grappling Ambassador & MMA Storyteller</title>
+    <title>Zac Crush — Southeast Asia's Grappling Ambassador & MMA Storyteller</title>
     <meta name="description" content="Bridging communities, inspiring fighters, and elevating martial arts across Southeast Asia. Join Zac Crush in growing the grappling and MMA scene through events, stories, and partnerships.">
-    <link rel="icon" type="image/jpeg" href="https://github.com/zaccrush/zac-crush-homepage/blob/main/favicon.jpg?raw=true" onerror="this.onerror=null;this.src='https://placehold.co/32x32/0d1117/c9d1d9?text=ZC';">
+    <link rel="icon" type="image/jpeg" href="https://github.com/zaccrush/zac-crush-homepage/blob/main/favicon.jpg?raw=true">
 
     <!-- Open Graph / Facebook / Social Media Meta Tags -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://zaccrush.com/">
-    <meta property="og:title" content="Zac Crush — Southeast Asia’s Grappling Ambassador & MMA Storyteller">
+    <meta property="og:title" content="Zac Crush — Southeast Asia's Grappling Ambassador & MMA Storyteller">
     <meta property="og:description" content="Bridging communities, inspiring fighters, and elevating martial arts across Southeast Asia.">
     <meta property="og:image" content="https://github.com/zaccrush/zac-crush-homepage/blob/main/zac-crush-raising-hand-winner-grappling-match-saigon-superfights.jpeg?raw=true">
     <meta property="og:image:width" content="1200">
@@ -22,7 +22,7 @@
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://zaccrush.com/">
-    <meta name="twitter:title" content="Zac Crush — Southeast Asia’s Grappling Ambassador & MMA Storyteller">
+    <meta name="twitter:title" content="Zac Crush — Southeast Asia's Grappling Ambassador & MMA Storyteller">
     <meta name="twitter:description" content="Bridging communities, inspiring fighters, and elevating martial arts across Southeast Asia.">
     <meta name="twitter:image" content="https://github.com/zaccrush/zac-crush-homepage/blob/main/zac-crush-raising-hand-winner-grappling-match-saigon-superfights.jpeg?raw=true">
 
@@ -48,104 +48,202 @@
     }
     </script>
 
-    <!-- Tailwind CSS & Google Fonts -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <!-- Preload critical resources -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" as="style">
+    <link rel="preload" href="https://github.com/zaccrush/zac-crush-homepage/blob/main/vietnam%20drone%20shot%20by%20zac%20crush.jpg?raw=true" as="image">
+
+    <!-- Tailwind CSS with SRI for security -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: {
+                            DEFAULT: '#d4af37',
+                            light: '#e5c158',
+                            dark: '#b8941f'
+                        },
+                        dark: {
+                            900: '#0d1117',
+                            800: '#161b22',
+                            700: '#21262d',
+                            600: '#30363d'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif']
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite'
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': {
+                                opacity: '0',
+                                transform: 'translateY(20px)'
+                            },
+                            '100%': {
+                                opacity: '1',
+                                transform: 'translateY(0)'
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
     
     <style>
-        @keyframes fade-in-up {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        /* CSS Custom Properties for better maintainability */
+        :root {
+            --color-gold: #d4af37;
+            --color-gold-light: #e5c158;
+            --color-dark-900: #0d1117;
+            --color-dark-800: #161b22;
+            --color-dark-700: #21262d;
+            --color-dark-600: #30363d;
+            --color-text: #c9d1d9;
+            --transition-fast: 200ms;
+            --transition-medium: 300ms;
+            --transition-slow: 500ms;
+        }
+
+        /* Base styles */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
         }
 
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #0d1117;
-            color: #c9d1d9;
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background-color: var(--color-dark-900);
+            color: var(--color-text);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
-        .animate-fade-in-up {
-            animation: fade-in-up 0.8s ease-out forwards;
+        /* Utility classes using CSS custom properties */
+        .text-gold { 
+            color: var(--color-gold); 
         }
-
-        .text-gold { color: #d4af37; }
-        .border-gold { border-color: #d4af37; }
         
-        /* Hero title styles */
-        .hero-title {
-            text-shadow: 0px 4px 6px rgba(0, 0, 0, 0.5), 0px 8px 24px rgba(0, 0, 0, 0.5);
-            transition: text-shadow 0.3s ease;
+        .bg-gold { 
+            background-color: var(--color-gold); 
         }
-        .hero-title:hover {
-            text-shadow: 0px 4px 6px rgba(0, 0, 0, 0.5), 0px 8px 24px rgba(0, 0, 0, 0.5), 0 0 15px rgba(212, 175, 55, 0.8);
-        }
-        .hero-subtitle {
-             text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.7);
+        
+        .border-gold { 
+            border-color: var(--color-gold); 
         }
 
-        /* Reusable Card Style */
+        /* Hero title with optimized shadows */
+        .hero-title {
+            text-shadow: 
+                0 4px 6px rgba(0, 0, 0, 0.5),
+                0 8px 24px rgba(0, 0, 0, 0.5);
+            transition: text-shadow var(--transition-medium) ease;
+            will-change: text-shadow;
+        }
+
+        .hero-title:hover {
+            text-shadow: 
+                0 4px 6px rgba(0, 0, 0, 0.5),
+                0 8px 24px rgba(0, 0, 0, 0.5),
+                0 0 15px rgba(212, 175, 55, 0.8);
+        }
+
+        .hero-subtitle {
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
+        }
+
+        /* Card component with better backdrop-filter performance */
         .styled-card {
             background-color: rgba(22, 27, 34, 0.85);
             backdrop-filter: blur(10px);
-            border: 1px solid #30363d;
-            border-radius: 0.5rem; /* rounded-lg */
-            padding: 1.5rem; /* p-6 */
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid var(--color-dark-600);
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            box-shadow: 
+                0 4px 6px rgba(0, 0, 0, 0.1),
+                0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: all var(--transition-medium) ease;
         }
+
         @media (min-width: 768px) {
             .styled-card {
-                padding: 2.5rem; /* md:p-10 */
+                padding: 2.5rem;
             }
         }
-        
-        /* Reusable Section Title */
+
+        /* Section title component */
         .section-title {
-            font-size: 1.875rem; /* text-3xl */
-            font-weight: 700; /* font-bold */
-            color: #d4af37; /* text-gold */
+            font-size: clamp(1.875rem, 4vw, 2.25rem);
+            font-weight: 700;
+            color: var(--color-gold);
             text-align: center;
-            margin-bottom: 2rem; /* mb-8 */
+            margin-bottom: 2rem;
+            letter-spacing: -0.02em;
         }
-        @media (min-width: 768px) {
-            .section-title {
-                font-size: 2.25rem; /* md:text-4xl */
-            }
-        }
-        
-        /* Reusable button style */
+
+        /* Button component with better states */
         .styled-button {
-            padding: 0.75rem 1.5rem; /* px-6 py-3 */
-            background-color: #374151; /* bg-gray-700 */
-            border-radius: 0.5rem; /* rounded-lg */
+            padding: 0.75rem 1.5rem;
+            background-color: #374151;
+            border-radius: 0.5rem;
             color: white;
-            font-weight: 600; /* font-semibold */
-            transition: all 0.3s ease-in-out;
+            font-weight: 600;
+            transition: all var(--transition-medium) cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            border: 2px solid transparent;
+            display: inline-block;
+            text-decoration: none;
         }
+
         .styled-button:hover {
-            background-color: #d4af37; /* hover:bg-gold */
-            color: black; /* hover:text-black */
+            background-color: var(--color-gold);
+            color: #000;
             transform: translateY(-4px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 8px 16px rgba(212, 175, 55, 0.3);
+            border-color: var(--color-gold-light);
         }
-        
-        /* General hover effect for cards/links */
+
+        .styled-button:active {
+            transform: translateY(-2px);
+        }
+
+        .styled-button:focus-visible {
+            outline: 2px solid var(--color-gold);
+            outline-offset: 2px;
+        }
+
+        /* Hover lift effect with GPU acceleration */
         .hover-lift {
-            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            transition: transform var(--transition-medium) cubic-bezier(0.4, 0, 0.2, 1),
+                        box-shadow var(--transition-medium) cubic-bezier(0.4, 0, 0.2, 1);
+            will-change: transform;
         }
+
         .hover-lift:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
+            transform: translateY(-8px) translateZ(0);
+            box-shadow: 
+                0 12px 24px rgba(0, 0, 0, 0.25),
+                0 4px 8px rgba(0, 0, 0, 0.15);
         }
-        
+
+        /* Optimized background with better performance */
         .main-content-bg {
+            background-color: var(--color-dark-900);
             background-image: 
                 radial-gradient(circle at 50% 0, rgba(22, 27, 34, 0.3) 0%, rgba(13, 17, 23, 1) 70%),
                 linear-gradient(rgba(13, 17, 23, 0.98), rgba(13, 17, 23, 0.98)), 
@@ -153,29 +251,52 @@
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
+            background-repeat: no-repeat;
         }
 
-        .hover\\:text-gold:hover {
-             color: #d4af37;
+        /* Better mobile background performance */
+        @media (max-width: 768px) {
+            .main-content-bg {
+                background-attachment: scroll;
+            }
         }
-        
-        /* Bulletin Board Styles */
+
+        /* Bulletin board styles with better transforms */
         .bulletin-note {
-            background-color: #ffffe0; /* Light yellow like a sticky note */
+            --note-rotation: 0deg;
+            background-color: #ffffe0;
             color: #333;
             padding: 1rem 1.5rem;
+            padding-top: 1.75rem; /* Space for pin */
             border-radius: 0.25rem;
-            box-shadow: 5px 5px 10px rgba(0,0,0,0.2);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            box-shadow: 
+                3px 3px 6px rgba(0, 0, 0, 0.15),
+                5px 5px 10px rgba(0, 0, 0, 0.1);
+            transition: 
+                transform var(--transition-fast) ease,
+                box-shadow var(--transition-fast) ease;
             position: relative;
-            overflow: hidden; /* To contain the pin */
+            transform: rotate(var(--note-rotation)) translateZ(0);
+            backface-visibility: hidden;
         }
+
+        .bulletin-note:nth-child(odd) {
+            --note-rotation: -2deg;
+        }
+
+        .bulletin-note:nth-child(even) {
+            --note-rotation: 2deg;
+        }
+
         .bulletin-note:hover {
-            transform: scale(1.05) rotate(0deg) !important; /* Reset rotation on hover and scale up */
-            box-shadow: 8px 8px 15px rgba(0,0,0,0.3);
+            transform: scale(1.05) rotate(0deg) translateZ(0);
+            box-shadow: 
+                5px 5px 12px rgba(0, 0, 0, 0.25),
+                8px 8px 15px rgba(0, 0, 0, 0.15);
             z-index: 10;
         }
-        /* Simple pin element */
+
+        /* Pin decoration */
         .bulletin-note::before {
             content: '';
             position: absolute;
@@ -184,30 +305,243 @@
             transform: translateX(-50%);
             width: 12px;
             height: 12px;
-            background-color: #ff4136; /* Red pin head */
+            background: radial-gradient(circle at 30% 30%, #ff6659, #ff4136);
             border-radius: 50%;
             border: 1px solid #a32921;
-            box-shadow: 0 0 3px rgba(0,0,0,0.4);
+            box-shadow: 
+                0 0 3px rgba(0, 0, 0, 0.4),
+                inset -1px -1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Pin shadow */
+        .bulletin-note::after {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 8px;
+            background: linear-gradient(180deg, rgba(163, 41, 33, 0.4), transparent);
+        }
+
+        /* Accessibility improvements */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+
+            .hero-title,
+            .styled-button,
+            .hover-lift,
+            .bulletin-note {
+                transition: none !important;
+            }
+        }
+
+        /* Focus styles for better accessibility */
+        *:focus-visible {
+            outline: 2px solid var(--color-gold);
+            outline-offset: 2px;
+            border-radius: 0.25rem;
+        }
+
+        /* Loading state */
+        .loading {
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        /* Skeleton loader for better UX */
+        @keyframes skeleton-loading {
+            0% {
+                background-position: -200% 0;
+            }
+            100% {
+                background-position: 200% 0;
+            }
+        }
+
+        .skeleton {
+            background: linear-gradient(
+                90deg,
+                var(--color-dark-800) 25%,
+                var(--color-dark-700) 50%,
+                var(--color-dark-800) 75%
+            );
+            background-size: 200% 100%;
+            animation: skeleton-loading 1.5s infinite;
+            border-radius: 0.25rem;
+        }
+
+        /* Print styles */
+        @media print {
+            .styled-button,
+            nav,
+            .hover-lift {
+                display: none;
+            }
+
+            body {
+                background: white;
+                color: black;
+            }
+
+            .styled-card {
+                border: 1px solid #ddd;
+                background: white;
+                page-break-inside: avoid;
+            }
+        }
+
+        /* High contrast mode support */
+        @media (prefers-contrast: high) {
+            .styled-card {
+                border: 2px solid var(--color-gold);
+            }
+
+            .styled-button {
+                border: 2px solid currentColor;
+            }
         }
     </style>
-<script type="importmap">
-{
-  "imports": {
-    "react": "https://esm.sh/react@18.2.0",
-    "react-dom/client": "https://esm.sh/react-dom@18.2.0/client",
-    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
-    "react/": "https://aistudiocdn.com/react@^19.2.0/"
-  }
-}
-</script>
+
+    <!-- Import map for modern module resolution -->
+    <script type="importmap">
+    {
+      "imports": {
+        "react": "https://esm.sh/react@18.3.1",
+        "react-dom/client": "https://esm.sh/react-dom@18.3.1/client"
+      }
+    }
+    </script>
 </head>
 <body class="antialiased flex flex-col min-h-screen">
+    <!-- Skip to main content for accessibility -->
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-gold text-black px-4 py-2 rounded-lg z-50">
+        Skip to main content
+    </a>
+
     <div id="root"></div>
 
-    <!-- Babel to transpile JSX/TSX on the fly for development -->
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <!-- Fallback for users without JavaScript -->
+    <noscript>
+        <div style="padding: 2rem; background: #ff4136; color: white; text-align: center;">
+            <h1>JavaScript Required</h1>
+            <p>Please enable JavaScript to view this website.</p>
+        </div>
+    </noscript>
+
+    <!-- Development: Babel Standalone (Remove in production!) -->
+    <script src="https://unpkg.com/@babel/standalone@7.23.5/babel.min.js"></script>
     
-    <!-- Your application's entry point -->
-    <script type="text/babel" data-type="module" src="./index.tsx"></script>
+    <!-- Application entry point -->
+    <script type="text/babel" data-type="module">
+        // Error boundary for better error handling
+        class ErrorBoundary extends React.Component {
+            constructor(props) {
+                super(props);
+                this.state = { hasError: false, error: null };
+            }
+
+            static getDerivedStateFromError(error) {
+                return { hasError: true, error };
+            }
+
+            componentDidCatch(error, errorInfo) {
+                console.error('Error caught by boundary:', error, errorInfo);
+            }
+
+            render() {
+                if (this.state.hasError) {
+                    return (
+                        <div className="flex items-center justify-center min-h-screen p-4">
+                            <div className="styled-card max-w-md text-center">
+                                <h1 className="text-2xl font-bold text-gold mb-4">
+                                    Something went wrong
+                                </h1>
+                                <p className="mb-4">
+                                    We're sorry for the inconvenience. Please try refreshing the page.
+                                </p>
+                                <button 
+                                    onClick={() => window.location.reload()} 
+                                    className="styled-button"
+                                >
+                                    Refresh Page
+                                </button>
+                            </div>
+                        </div>
+                    );
+                }
+
+                return this.props.children;
+            }
+        }
+
+        // Lazy load the main app
+        const loadApp = async () => {
+            try {
+                const module = await import('./index.tsx');
+                return module.default;
+            } catch (error) {
+                console.error('Failed to load app:', error);
+                throw error;
+            }
+        };
+
+        // Initialize app with error boundary
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        
+        loadApp().then(App => {
+            root.render(
+                <React.StrictMode>
+                    <ErrorBoundary>
+                        <App />
+                    </ErrorBoundary>
+                </React.StrictMode>
+            );
+        }).catch(error => {
+            root.render(
+                <div className="flex items-center justify-center min-h-screen p-4">
+                    <div className="styled-card max-w-md text-center">
+                        <h1 className="text-2xl font-bold text-gold mb-4">
+                            Failed to Load Application
+                        </h1>
+                        <p className="mb-4">
+                            Please check your connection and try again.
+                        </p>
+                        <button 
+                            onClick={() => window.location.reload()} 
+                            className="styled-button"
+                        >
+                            Retry
+                        </button>
+                    </div>
+                </div>
+            );
+        });
+    </script>
+
+    <!-- Performance monitoring (optional) -->
+    <script>
+        // Log Core Web Vitals
+        if ('PerformanceObserver' in window) {
+            const observer = new PerformanceObserver((list) => {
+                for (const entry of list.getEntries()) {
+                    console.log(`${entry.name}:`, entry.value);
+                }
+            });
+            
+            try {
+                observer.observe({ entryTypes: ['largest-contentful-paint', 'first-input', 'layout-shift'] });
+            } catch (e) {
+                // Browser doesn't support all metrics
+            }
+        }
+    </script>
 </body>
 </html>
