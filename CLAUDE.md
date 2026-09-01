@@ -28,9 +28,13 @@ Static marketing/site repo for **Crush Combat Agency** (deployed at zaccrush.com
 
 **Removed in the Crush Combat Agency relaunch** (do not recreate without being asked): `admin.html` (dead Netlify-Identity-gated duplicate form), `gmaregistration/success.html` and `saigon-superfights-registration/success.html` (unreachable once their forms were archived).
 
+## Design system
+
+Visual language is modeled on anthropic.com: warm cream background (`#FAF9F5`), near-black ink text (`#141413`), a single clay/rust accent (`#D97757`), serif body copy (Source Serif 4) paired with bold sans headlines (Inter), hairline borders instead of shadows/glassmorphism, 12px (`rounded-xl`) corner radius. Tokens are defined twice per page by necessity: as CSS custom properties in `assets/styles.css` (`--ink`, `--clay`, `--bg`, etc., used by the shared component classes) and as Tailwind color entries in each page's inline `tailwind.config` (`ink`, `clay`, `cream`, `cream-alt`, plus legacy `gma-gold`/`gma-gray`/`gma-red` aliases kept for `faq.html`'s long-form Q&A body so its ~85 existing `text-gma-gold`/`text-gma-gray` classes repoint to the new palette without per-instance edits). **Both places must be updated together** on any future palette change — updating only `assets/styles.css` leaves Tailwind utility classes like `text-clay` or `bg-cream` non-functional on pages that don't also carry the matching `tailwind.config` colors block.
+
 ## Brand assets pending
 
-The real Crush Combat Agency logo and final color palette are **not yet in this repo** — they exist only on the agency's Facebook Page as of the relaunch. The site currently ships with a styled text wordmark and the old gold/red palette as a placeholder, centralized in `assets/styles.css` (`--accent`, `--accent-2` custom properties) specifically so the real palette/logo can be swapped in one edit once supplied. Run `grep -rn "PLACEHOLDER" .` to find every spot still waiting on real content (roster cards, hero sub-copy, wordmark).
+The real Crush Combat Agency logo is **not yet in this repo** — it exists only on the agency's Facebook Page as of the relaunch (camera-lens mark with a kicking-fighter silhouette, paint-splatter accents). The site currently ships with a styled text wordmark as a placeholder. Run `grep -rn "PLACEHOLDER" .` to find every spot still waiting on real content (roster cards, wordmark).
 
 ## Forms
 

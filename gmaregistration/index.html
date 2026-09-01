@@ -9,8 +9,7 @@
     <meta property="og:description" content="Gods of Martial Arts was a past promotion founded by Zac Crush, now Crush Combat Agency. Registration for this event is closed.">
     <meta property="og:image" content="https://raw.githubusercontent.com/zaccrush/zac-crush-homepage/main/gmaregistration/%C4%90ai%20Tha%CC%82%CC%80n%20Vo%CC%83%20Myanmar%20(1).png?raw=true">
     <meta property="og:image:alt" content="Gods of Martial Arts Championship Belt">
-    <meta name="theme-color" content="#000000">
-    <!-- Tailwind CSS for mobile-first, responsive styling -->
+    <meta name="theme-color" content="#FAF9F5">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -18,132 +17,75 @@
                 extend: {
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
-                        display: ['Oswald', 'sans-serif'],
+                        serif: ['"Source Serif 4"', 'Georgia', 'serif'],
+                        display: ['Inter', 'sans-serif'],
                     },
                     colors: {
-                        'gma-gold': '#d4af37',
-                        'gma-gold-soft': '#f0d78c',
-                        'gma-red': '#dc2626',
-                        'gma-dark': '#0a0b0f',
-                        'gma-gray': '#a0a0a0',
-                    }
+                        ink: '#141413', 'ink-soft': '#3D3D3A', clay: '#D97757', 'clay-dark': '#C6613F',
+                        cream: '#FAF9F5', 'cream-alt': '#F0EEE6',
+                    },
                 },
             },
         };
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #0a0b0f;
-            color: #e5e7eb;
-            background-image: url('https://raw.githubusercontent.com/zaccrush/zac-crush-homepage/main/gma%20angels%20gods%20of%20martial%20arts.jpg?raw=true');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-        }
-        .font-display { font-family: 'Oswald', sans-serif; }
-        .hero-overlay {
-            background-color: rgba(10, 11, 15, 0.92); /* Dark overlay for readability */
-        }
-        .eyebrow { letter-spacing: 0.2em; text-transform: uppercase; font-size: 0.75rem; font-weight: 700; color: #d4af37; }
-        .form-section {
-            background-color: rgba(18, 20, 26, 0.85);
-            backdrop-filter: blur(8px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 1rem;
-            padding: 1.75rem;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-        }
-        .input-field, .select-field, .textarea-field {
-            background-color: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            border-radius: 0.6rem;
-            padding: 0.75rem 1rem;
-            color: #fff;
-            width: 100%;
-            transition: all 0.2s;
-        }
-        .input-field:focus, .select-field:focus, .textarea-field:focus {
-            outline: none;
-            box-shadow: 0 0 0 2px #d4af37;
-            border-color: #d4af37;
-        }
-        .input-field::placeholder, .textarea-field::placeholder { color: #6b7280; }
-        .text-gold { color: #d4af37; }
-        .hover\:text-gold:hover {
-            color: #d4af37;
-        }
-        .btn-primary {
-            background-color: #dc2626;
-            transition: background-color 0.25s, transform 0.25s;
-            box-shadow: 0 10px 25px rgba(220, 38, 38, 0.25);
-        }
-        .btn-primary:hover { background-color: #b91c1c; transform: translateY(-2px); }
-        /* Style for date input placeholder */
-        input[type="date"]::-webkit-calendar-picker-indicator {
-            filter: invert(1);
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/styles.css">
 </head>
-<body class="antialiased flex flex-col min-h-screen">
+<body class="antialiased flex flex-col min-h-screen bg-cream">
 
     <!-- Sticky Header -->
-    <header class="fixed top-0 left-0 right-0 z-50 bg-[#0a0b0f]/85 backdrop-blur-md border-b border-white/5">
+    <header class="fixed top-0 left-0 right-0 z-50 bg-cream/90 backdrop-blur-sm border-b border-black/10">
         <nav class="max-w-6xl mx-auto flex items-center justify-between px-4 sm:px-6 py-4">
-            <a href="https://zaccrush.com/" class="font-display text-xl tracking-wide text-white uppercase">Crush <span class="text-gold">Combat</span></a>
-            <button id="nav-toggle" class="sm:hidden text-gray-300 p-2" aria-label="Toggle menu" aria-expanded="false">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+            <a href="https://zaccrush.com/" class="font-display text-lg font-extrabold tracking-tight text-ink">CRUSH <span class="text-clay">COMBAT</span></a>
+            <button id="nav-toggle" class="sm:hidden text-ink p-2" aria-label="Toggle menu" aria-expanded="false">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
             </button>
-            <div id="nav-links" class="hidden sm:flex flex-col sm:flex-row items-center gap-x-6 gap-y-3 sm:gap-y-0 text-sm font-semibold absolute sm:static top-full inset-x-0 sm:inset-auto bg-[#0a0b0f] sm:bg-transparent border-t sm:border-0 border-white/5 px-4 sm:px-0 py-4 sm:py-0">
-                <a href="https://zaccrush.com/" class="text-gray-300 hover:text-gold transition-colors">Home</a>
-                <a href="https://zaccrush.com/roster/" class="text-gray-300 hover:text-gold transition-colors">Roster</a>
-                <a href="https://zaccrush.com/services/" class="text-gray-300 hover:text-gold transition-colors">Services</a>
-                <a href="https://zaccrush.com/faq.html" class="text-gray-300 hover:text-gold transition-colors">FAQ</a>
-                <a href="https://zaccrush.com/join-fighter/" class="text-gold font-bold hover:text-white transition-colors">Join as a Fighter</a>
+            <div id="nav-links" class="hidden sm:flex flex-col sm:flex-row items-center gap-x-8 gap-y-3 sm:gap-y-0 text-sm font-medium font-display absolute sm:static top-full inset-x-0 sm:inset-auto bg-cream sm:bg-transparent border-t sm:border-0 border-black/10 px-4 sm:px-0 py-4 sm:py-0">
+                <a href="https://zaccrush.com/" class="text-ink/70 hover:text-ink transition-colors">Home</a>
+                <a href="https://zaccrush.com/roster/" class="text-ink/70 hover:text-ink transition-colors">Roster</a>
+                <a href="https://zaccrush.com/services/" class="text-ink/70 hover:text-ink transition-colors">Services</a>
+                <a href="https://zaccrush.com/faq.html" class="text-ink/70 hover:text-ink transition-colors">FAQ</a>
+                <a href="https://zaccrush.com/join-fighter/" class="btn-clay !py-2 !px-4 text-sm">Join as a Fighter</a>
             </div>
         </nav>
     </header>
 
-    <main class="flex-grow pt-24 hero-overlay">
-        <div class="p-4 sm:p-8">
-            <div class="w-full max-w-lg mx-auto bg-[#12141a] border border-white/10 p-8 rounded-2xl shadow-2xl space-y-6">
-                <!-- Header with logo and titles -->
-                <div class="text-center space-y-2 mb-8">
-                    <img src="https://github.com/zaccrush/zac-crush-homepage/blob/main/gmaregistration/%C4%90ai%20Tha%CC%82%CC%80n%20Vo%CC%83%20Myanmar%20(1).png?raw=true" alt="Gods of Martial Arts Championship Belt" class="mx-auto w-4/5 h-auto rounded-lg" onerror="this.onerror=null;this.src='https://placehold.co/400x200/000000/FFFFFF?text=GMA+Belt';">
-                    <p class="eyebrow">Past Promotion</p>
-                    <h1 class="font-display text-3xl font-semibold uppercase text-gma-gold mt-2">Gods of Martial Arts</h1>
-                </div>
+    <main class="flex-grow pt-28 pb-16 px-4 sm:px-8">
+        <div class="w-full max-w-lg mx-auto space-y-6">
+            <div class="text-center space-y-2 mb-4">
+                <img src="https://github.com/zaccrush/zac-crush-homepage/blob/main/gmaregistration/%C4%90ai%20Tha%CC%82%CC%80n%20Vo%CC%83%20Myanmar%20(1).png?raw=true" alt="Gods of Martial Arts Championship Belt" class="mx-auto w-4/5 h-auto rounded-lg border border-black/10" onerror="this.onerror=null;this.src='https://placehold.co/400x200/F0EEE6/141413?text=GMA+Belt';">
+                <p class="eyebrow">Past Promotion</p>
+                <h1 class="font-display text-3xl font-extrabold text-ink mt-2">Gods of Martial Arts</h1>
+            </div>
 
-                <div class="form-section text-center space-y-4">
-                    <span class="inline-block text-xs font-bold uppercase tracking-widest bg-white/10 text-gray-300 px-3 py-1 rounded-full">Archived — Registration Closed</span>
-                    <p class="text-gray-300 leading-relaxed">
-                        Gods of Martial Arts (GMA) was a premier Vietnamese combat sports promotion built by Zac Crush and the GMA team — a media-first platform for athletic competition, talent development, and cultural promotion across Vietnam's fight scene. Fighter registration for GMA is now closed.
-                    </p>
-                    <p class="text-gray-300 leading-relaxed">
-                        Fighting under Crush Combat Agency starts here.
-                    </p>
-                    <a href="https://zaccrush.com/join-fighter/" class="btn-primary inline-block px-6 py-3 rounded-lg font-bold text-white">Join as a Fighter</a>
-                </div>
+            <div class="glass-card rounded-2xl p-7 text-center space-y-4">
+                <span class="inline-block text-xs font-bold uppercase tracking-widest bg-cream-alt text-ink-soft px-3 py-1 rounded-full border border-black/10">Archived — Registration Closed</span>
+                <p class="font-serif text-ink-soft leading-relaxed">
+                    Gods of Martial Arts (GMA) was a premier Vietnamese combat sports promotion built by Zac Crush and the GMA team — a media-first platform for athletic competition, talent development, and cultural promotion across Vietnam's fight scene. Fighter registration for GMA is now closed.
+                </p>
+                <p class="font-serif text-ink-soft leading-relaxed">
+                    Fighting under Crush Combat Agency starts here.
+                </p>
+                <a href="https://zaccrush.com/join-fighter/" class="btn-clay inline-block">Join as a Fighter</a>
             </div>
         </div>
     </main>
 
     <!-- Footer -->
-    <footer class="bg-[#0a0b0f] border-t border-white/5 text-gray-400 text-center py-10 px-4">
+    <footer class="bg-cream border-t border-black/10 text-center py-10 px-4">
         <div class="max-w-4xl mx-auto">
-            <div class="flex flex-wrap justify-center items-center gap-x-6 gap-y-2 mb-6">
-                <a href="https://www.linkedin.com/in/zac-crush/" target="_blank" rel="noopener" class="hover:text-gold transition-colors">LinkedIn</a>
-                <a href="https://www.instagram.com/zcrush13/" target="_blank" rel="noopener" class="hover:text-gold transition-colors">Instagram</a>
-                <a href="https://www.youtube.com/@GMAFightingChampionship" target="_blank" rel="noopener" class="hover:text-gold transition-colors">YouTube</a>
-                <a href="https://www.facebook.com/crushza" target="_blank" rel="noopener" class="hover:text-gold transition-colors">Facebook</a>
-                <a href="mailto:hello@zaccrush.com" class="hover:text-gold transition-colors">hello@zaccrush.com</a>
-                <a href="https://zaccrush.com/faq.html" class="hover:text-gold transition-colors">FAQ</a>
+            <div class="flex flex-wrap justify-center items-center gap-x-6 gap-y-2 mb-6 font-display text-sm text-ink/70">
+                <a href="https://www.linkedin.com/in/zac-crush/" target="_blank" rel="noopener" class="hover:text-ink transition-colors">LinkedIn</a>
+                <a href="https://www.instagram.com/zcrush13/" target="_blank" rel="noopener" class="hover:text-ink transition-colors">Instagram</a>
+                <a href="https://www.youtube.com/@GMAFightingChampionship" target="_blank" rel="noopener" class="hover:text-ink transition-colors">YouTube</a>
+                <a href="https://www.facebook.com/crushza" target="_blank" rel="noopener" class="hover:text-ink transition-colors">Facebook</a>
+                <a href="mailto:hello@zaccrush.com" class="hover:text-ink transition-colors">hello@zaccrush.com</a>
+                <a href="https://zaccrush.com/faq.html" class="hover:text-ink transition-colors">FAQ</a>
             </div>
-            <p class="text-sm mb-2">© 2026 Crush Combat Agency. All rights reserved.</p>
-            <p class="text-xs">Sponsored by <a href="https://shadeprotocol.io/" target="_blank" rel="noopener" class="underline hover:text-gold transition-colors">Shade Protocol: New Generation of Private DeFi</a></p>
+            <p class="text-sm mb-2 text-ink/60 font-display">© 2026 Crush Combat Agency. All rights reserved.</p>
+            <p class="text-xs text-ink/40 font-display">Sponsored by <a href="https://shadeprotocol.io/" target="_blank" rel="noopener" class="underline hover:text-ink transition-colors">Shade Protocol: New Generation of Private DeFi</a></p>
         </div>
     </footer>
 
@@ -151,6 +93,3 @@
 
 </body>
 </html>
-
-
-

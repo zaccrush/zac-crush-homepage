@@ -8,43 +8,50 @@
     <meta property="og:title" content="Partner With Us | Crush Combat Agency">
     <meta property="og:description" content="Sponsorship, endorsement, and media partnership inquiries for Crush Combat Agency.">
     <meta property="og:url" content="https://zaccrush.com/partner-inquiry/">
-    <meta name="theme-color" content="#0a0b0f">
+    <meta name="theme-color" content="#FAF9F5">
 
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-        tailwind.config = { theme: { extend: { fontFamily: { sans: ['Inter', 'sans-serif'], display: ['Oswald', 'sans-serif'] } } } };
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['"Source Serif 4"', 'Georgia', 'serif'],
+                        display: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        ink: '#141413', 'ink-soft': '#3D3D3A', clay: '#D97757', 'clay-dark': '#C6613F',
+                        cream: '#FAF9F5', 'cream-alt': '#F0EEE6',
+                    },
+                },
+            },
+        };
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/styles.css">
-    <style>
-        body {
-            background-image: linear-gradient(rgba(10,11,15,0.92), rgba(10,11,15,0.92)), url('https://raw.githubusercontent.com/zaccrush/zac-crush-homepage/main/vietnam%20drone%20shot%20by%20zac%20crush.jpg?raw=true');
-            background-size: cover;
-            background-position: center;
-        }
-    </style>
 </head>
-<body class="min-h-screen flex flex-col">
+<body class="min-h-screen flex flex-col bg-cream">
     <div id="loading-overlay">
         <div class="spinner"></div>
-        <p class="text-lg font-semibold">Sending your inquiry...</p>
+        <p class="text-lg font-semibold font-display">Sending your inquiry...</p>
     </div>
 
-    <header class="fixed top-0 left-0 right-0 z-50 bg-[#0a0b0f]/85 backdrop-blur-md border-b border-white/5">
+    <header class="fixed top-0 left-0 right-0 z-50 bg-cream/90 backdrop-blur-sm border-b border-black/10">
         <nav class="max-w-6xl mx-auto flex items-center justify-between px-4 sm:px-6 py-4">
-            <a href="/" class="font-display text-xl tracking-wide text-white uppercase">Crush <span class="text-gold">Combat</span></a>
-            <button id="nav-toggle" class="sm:hidden text-gray-300 p-2" aria-label="Toggle menu" aria-expanded="false">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+            <a href="/" class="font-display text-lg font-extrabold tracking-tight text-ink">CRUSH <span class="text-clay">COMBAT</span></a>
+            <button id="nav-toggle" class="sm:hidden text-ink p-2" aria-label="Toggle menu" aria-expanded="false">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
             </button>
-            <div id="nav-links" class="hidden sm:flex flex-col sm:flex-row items-center gap-x-6 gap-y-3 sm:gap-y-0 text-sm font-semibold absolute sm:static top-full inset-x-0 sm:inset-auto bg-[#0a0b0f] sm:bg-transparent border-t sm:border-0 border-white/5 px-4 sm:px-0 py-4 sm:py-0">
-                <a href="/" class="text-gray-300 hover:text-gold transition-colors">Home</a>
-                <a href="/roster/" class="text-gray-300 hover:text-gold transition-colors">Roster</a>
-                <a href="/services/" class="text-gray-300 hover:text-gold transition-colors">Services</a>
-                <a href="/media/" class="text-gray-300 hover:text-gold transition-colors">Media</a>
-                <a href="/faq.html" class="text-gray-300 hover:text-gold transition-colors">FAQ</a>
-                <a href="/join-fighter/" class="text-gold font-bold hover:text-white transition-colors">Join as a Fighter</a>
+            <div id="nav-links" class="hidden sm:flex flex-col sm:flex-row items-center gap-x-8 gap-y-3 sm:gap-y-0 text-sm font-medium font-display absolute sm:static top-full inset-x-0 sm:inset-auto bg-cream sm:bg-transparent border-t sm:border-0 border-black/10 px-4 sm:px-0 py-4 sm:py-0">
+                <a href="/" class="text-ink/70 hover:text-ink transition-colors">Home</a>
+                <a href="/roster/" class="text-ink/70 hover:text-ink transition-colors">Roster</a>
+                <a href="/services/" class="text-ink/70 hover:text-ink transition-colors">Services</a>
+                <a href="/media/" class="text-ink/70 hover:text-ink transition-colors">Media</a>
+                <a href="/faq.html" class="text-ink/70 hover:text-ink transition-colors">FAQ</a>
+                <a href="/join-fighter/" class="btn-clay !py-2 !px-4 text-sm">Join as a Fighter</a>
             </div>
         </nav>
     </header>
@@ -53,8 +60,8 @@
         <div class="max-w-2xl mx-auto">
             <header class="text-center mb-8">
                 <p class="eyebrow">Sponsors &amp; Partners</p>
-                <h1 class="font-display text-3xl sm:text-4xl font-semibold text-white uppercase tracking-wide mt-2">Partner With Us</h1>
-                <p class="text-gray-400 mt-2">Sponsorship, endorsement, venue, or media partnership — tell us what you're looking for.</p>
+                <h1 class="font-display text-3xl sm:text-4xl font-extrabold text-ink mt-2">Partner With Us</h1>
+                <p class="font-serif text-lg text-ink-soft mt-3">Sponsorship, endorsement, venue, or media partnership — tell us what you're looking for.</p>
             </header>
 
             <form name="partner-inquiry" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="space-y-6" id="partner-inquiry-form">
@@ -64,27 +71,27 @@
 
                 <div class="glass-card p-6 sm:p-8 rounded-2xl space-y-4">
                     <div>
-                        <label for="contact-name" class="block text-sm font-medium text-gray-300">Contact Name</label>
+                        <label for="contact-name" class="block text-sm font-medium text-ink-soft">Contact Name</label>
                         <input type="text" id="contact-name" name="contact-name" required class="input-field mt-1 block rounded-lg">
                     </div>
                     <div>
-                        <label for="company" class="block text-sm font-medium text-gray-300">Company / Brand / Organization</label>
+                        <label for="company" class="block text-sm font-medium text-ink-soft">Company / Brand / Organization</label>
                         <input type="text" id="company" name="company" required class="input-field mt-1 block rounded-lg">
                     </div>
                     <div>
-                        <label for="email" class="block text-sm font-medium text-gray-300">Email Address</label>
+                        <label for="email" class="block text-sm font-medium text-ink-soft">Email Address</label>
                         <input type="email" id="email" name="email" required class="input-field mt-1 block rounded-lg">
                     </div>
                     <div>
-                        <label for="phone" class="block text-sm font-medium text-gray-300">Phone</label>
+                        <label for="phone" class="block text-sm font-medium text-ink-soft">Phone</label>
                         <input type="text" id="phone" name="phone" class="input-field mt-1 block rounded-lg">
                     </div>
                     <div>
-                        <label for="role" class="block text-sm font-medium text-gray-300">Role / Title</label>
+                        <label for="role" class="block text-sm font-medium text-ink-soft">Role / Title</label>
                         <input type="text" id="role" name="role" class="input-field mt-1 block rounded-lg">
                     </div>
                     <div>
-                        <label for="inquiry-type" class="block text-sm font-medium text-gray-300">Inquiry Type</label>
+                        <label for="inquiry-type" class="block text-sm font-medium text-ink-soft">Inquiry Type</label>
                         <select id="inquiry-type" name="inquiry-type" required class="input-field mt-1 block rounded-lg">
                             <option value="">Select...</option>
                             <option value="Event Sponsorship">Event Sponsorship</option>
@@ -95,7 +102,7 @@
                         </select>
                     </div>
                     <div>
-                        <label for="budget" class="block text-sm font-medium text-gray-300">Budget Range (optional)</label>
+                        <label for="budget" class="block text-sm font-medium text-ink-soft">Budget Range (optional)</label>
                         <select id="budget" name="budget" class="input-field mt-1 block rounded-lg">
                             <option value="">Prefer not to say</option>
                             <option value="Under $1k">Under $1k</option>
@@ -106,29 +113,29 @@
                         </select>
                     </div>
                     <div>
-                        <label for="website" class="block text-sm font-medium text-gray-300">Website / Social Link</label>
+                        <label for="website" class="block text-sm font-medium text-ink-soft">Website / Social Link</label>
                         <input type="url" id="website" name="website" placeholder="https://..." class="input-field mt-1 block rounded-lg">
                     </div>
                     <div>
-                        <label for="message" class="block text-sm font-medium text-gray-300">Message / Details</label>
+                        <label for="message" class="block text-sm font-medium text-ink-soft">Message / Details</label>
                         <textarea id="message" name="message" rows="5" required class="input-field mt-1 block rounded-lg"></textarea>
                     </div>
                 </div>
 
-                <button type="submit" class="btn-primary w-full py-4 text-lg rounded-xl">Send Inquiry</button>
+                <button type="submit" class="btn-clay w-full py-4 text-lg rounded-xl">Send Inquiry</button>
             </form>
         </div>
     </main>
 
-    <footer class="bg-[#0a0b0f] border-t border-white/5 text-gray-400 text-center py-10 px-4">
+    <footer class="bg-cream border-t border-black/10 py-10 px-4">
         <div class="max-w-4xl mx-auto">
-            <div class="flex flex-wrap justify-center items-center gap-x-6 gap-y-2 mb-6">
-                <a href="https://www.linkedin.com/in/zac-crush/" target="_blank" rel="noopener" class="hover:text-gold transition-colors">LinkedIn</a>
-                <a href="https://www.instagram.com/zcrush13/" target="_blank" rel="noopener" class="hover:text-gold transition-colors">Instagram</a>
-                <a href="https://www.facebook.com/crushza" target="_blank" rel="noopener" class="hover:text-gold transition-colors">Facebook</a>
-                <a href="mailto:hello@zaccrush.com" class="hover:text-gold transition-colors">hello@zaccrush.com</a>
+            <div class="flex flex-wrap justify-center items-center gap-x-6 gap-y-2 mb-6 font-display text-sm text-ink/70">
+                <a href="https://www.linkedin.com/in/zac-crush/" target="_blank" rel="noopener" class="hover:text-ink transition-colors">LinkedIn</a>
+                <a href="https://www.instagram.com/zcrush13/" target="_blank" rel="noopener" class="hover:text-ink transition-colors">Instagram</a>
+                <a href="https://www.facebook.com/crushza" target="_blank" rel="noopener" class="hover:text-ink transition-colors">Facebook</a>
+                <a href="mailto:hello@zaccrush.com" class="hover:text-ink transition-colors">hello@zaccrush.com</a>
             </div>
-            <p class="text-sm">© 2026 Crush Combat Agency. All rights reserved.</p>
+            <p class="text-sm text-center text-ink/60 font-display">© 2026 Crush Combat Agency. All rights reserved.</p>
         </div>
     </footer>
 

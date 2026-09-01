@@ -15,7 +15,7 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&display=swap" rel="stylesheet">
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -25,43 +25,43 @@
                 extend: {
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
-                        display: ['Oswald', 'sans-serif'],
+                        serif: ['"Source Serif 4"', 'Georgia', 'serif'],
+                        display: ['Inter', 'sans-serif'],
                     },
                     colors: {
-                        'gma-gold': '#d4af37',
-                        'gma-red': '#dc2626',
-                        'gma-dark': '#0a0b0f',
-                        'gma-gray': '#9aa1ac',
+                        ink: '#141413', 'ink-soft': '#3D3D3A', clay: '#D97757', 'clay-dark': '#C6613F',
+                        cream: '#FAF9F5', 'cream-alt': '#F0EEE6',
+                        'gma-gold': '#D97757',
+                        'gma-red': '#C6613F',
+                        'gma-dark': '#141413',
+                        'gma-gray': '#6B6A66',
                     }
                 },
             },
         };
     </script>
+    <link rel="stylesheet" href="/assets/styles.css">
 
     <style>
         :root {
-            --gma-gold: #d4af37;
-            --gma-red: #dc2626;
-            --gma-gray: #9aa1ac;
+            --gma-gold: #D97757;
+            --gma-red: #C6613F;
+            --gma-gray: #6B6A66;
         }
 
         body {
-            font-family: 'Inter', sans-serif;
-            color: #e5e7eb;
-            background-color: #0a0b0f;
-            background-image: url('https://raw.githubusercontent.com/zaccrush/zac-crush-homepage/main/vietnam%20drone%20shot%20by%20zac%20crush.jpg?raw=true');
-            background-size: cover;
-            background-position: center;
-
-            background-repeat: no-repeat;
+            font-family: 'Source Serif 4', Georgia, serif;
+            color: #141413;
+            background-color: #FAF9F5;
         }
 
-        .font-display { font-family: 'Oswald', sans-serif; }
-        .hero-overlay { background-color: rgba(10, 11, 15, 0.94); }
-        .text-gold { color: var(--gma-gold); }
-        .eyebrow { letter-spacing: 0.2em; text-transform: uppercase; font-size: 0.75rem; font-weight: 700; color: var(--gma-gold); }
+        .faq-answer { font-family: 'Source Serif 4', Georgia, serif; }
 
-        .faq-item { border-bottom: 1px solid rgba(255,255,255,0.08); }
+        .hero-overlay { background-color: transparent; }
+        .text-gold { color: var(--gma-gold); }
+        .eyebrow { font-family: 'Inter', sans-serif; letter-spacing: 0.12em; text-transform: uppercase; font-size: 0.75rem; font-weight: 600; color: var(--gma-gold); }
+
+        .faq-item { border-bottom: 1px solid rgba(20,20,19,0.1); }
         .faq-item:last-child { border-bottom: 0; }
 
         .faq-question-btn {
@@ -72,8 +72,9 @@
             gap: 1rem;
             text-align: left;
             padding: 1.1rem 0.25rem;
-            color: #f3f4f6;
+            color: #141413;
             font-weight: 600;
+            font-family: 'Inter', sans-serif;
             transition: color 0.2s;
         }
 
@@ -98,7 +99,7 @@
             width: 2rem;
             height: 2rem;
             border-radius: 9999px;
-            border: 1px solid rgba(212, 175, 55, 0.4);
+            border: 1px solid rgba(217, 119, 87, 0.4);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -108,25 +109,25 @@
         .faq-question-btn[aria-expanded="true"] .faq-icon {
             transform: rotate(45deg);
             background-color: var(--gma-gold);
-            color: #0a0b0f;
+            color: #FAF9F5;
         }
     </style>
 </head>
 <body class="min-h-screen flex flex-col">
     <!-- Sticky Header -->
-    <header class="fixed top-0 left-0 right-0 z-50 bg-[#0a0b0f]/85 backdrop-blur-md border-b border-white/5">
+    <header class="fixed top-0 left-0 right-0 z-50 bg-cream/90 backdrop-blur-sm border-b border-black/10">
         <nav class="max-w-6xl mx-auto flex items-center justify-between px-4 sm:px-6 py-4">
-            <a href="/" class="font-display text-xl tracking-wide text-white uppercase">Crush <span class="text-gold">Combat</span></a>
-            <button id="nav-toggle" class="sm:hidden text-gray-300 p-2" aria-label="Toggle menu" aria-expanded="false">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+            <a href="/" class="font-display text-lg font-extrabold tracking-tight text-ink">CRUSH <span class="text-clay">COMBAT</span></a>
+            <button id="nav-toggle" class="sm:hidden text-ink p-2" aria-label="Toggle menu" aria-expanded="false">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
             </button>
-            <div id="nav-links" class="hidden sm:flex flex-col sm:flex-row items-center gap-x-6 gap-y-3 sm:gap-y-0 text-sm font-semibold absolute sm:static top-full inset-x-0 sm:inset-auto bg-[#0a0b0f] sm:bg-transparent border-t sm:border-0 border-white/5 px-4 sm:px-0 py-4 sm:py-0">
-                <a href="/" class="text-gray-300 hover:text-gold transition-colors">Home</a>
-                <a href="/roster/" class="text-gray-300 hover:text-gold transition-colors">Roster</a>
-                <a href="/services/" class="text-gray-300 hover:text-gold transition-colors">Services</a>
-                <a href="/media/" class="text-gray-300 hover:text-gold transition-colors">Media</a>
-                <a href="/partner-inquiry/" class="text-gray-300 hover:text-gold transition-colors">Partner With Us</a>
-                <a href="/join-fighter/" class="text-gold font-bold hover:text-white transition-colors">Join as a Fighter</a>
+            <div id="nav-links" class="hidden sm:flex flex-col sm:flex-row items-center gap-x-8 gap-y-3 sm:gap-y-0 text-sm font-medium font-display absolute sm:static top-full inset-x-0 sm:inset-auto bg-cream sm:bg-transparent border-t sm:border-0 border-black/10 px-4 sm:px-0 py-4 sm:py-0">
+                <a href="/" class="text-ink/70 hover:text-ink transition-colors">Home</a>
+                <a href="/roster/" class="text-ink/70 hover:text-ink transition-colors">Roster</a>
+                <a href="/services/" class="text-ink/70 hover:text-ink transition-colors">Services</a>
+                <a href="/media/" class="text-ink/70 hover:text-ink transition-colors">Media</a>
+                <a href="/partner-inquiry/" class="text-ink/70 hover:text-ink transition-colors">Partner With Us</a>
+                <a href="/join-fighter/" class="btn-clay !py-2 !px-4 text-sm">Join as a Fighter</a>
             </div>
         </nav>
     </header>
@@ -136,12 +137,12 @@
         <div class="w-full max-w-4xl mx-auto space-y-12 pb-10">
             <header class="text-center space-y-3 mb-4">
                 <p class="eyebrow">Answers</p>
-                <h1 class="font-display text-4xl sm:text-5xl font-semibold text-white">Frequently Asked Questions</h1>
-                <p class="text-lg text-gray-400">Everything you need to know about competing and getting involved in Vietnam's combat sports scene.</p>
+                <h1 class="font-display text-4xl sm:text-5xl font-extrabold text-ink">Frequently Asked Questions</h1>
+                <p class="font-serif text-lg text-ink-soft">Everything you need to know about competing and getting involved in Vietnam's combat sports scene.</p>
             </header>
 
             <!-- FAQ Section -->
-            <section id="faq-content" class="bg-[#12141a]/85 backdrop-blur-sm border border-white/10 shadow-2xl p-6 md:p-10 rounded-2xl">
+            <section id="faq-content" class="bg-cream-alt border border-black/10 shadow-none p-6 md:p-10 rounded-2xl">
                 <div>
 
                     <!-- FAQ Item 1 -->
@@ -489,30 +490,30 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-[#0a0b0f] border-t border-white/5 text-gray-400 text-center py-10 px-4">
+    <footer class="bg-cream border-t border-black/10 text-center py-10 px-4">
         <div class="max-w-4xl mx-auto">
-            <div class="flex flex-wrap justify-center items-center gap-x-6 gap-y-2 mb-4">
-                <a href="/roster/" class="hover:text-gold transition-colors">Roster</a>
-                <a href="/services/" class="hover:text-gold transition-colors">Services</a>
-                <a href="/media/" class="hover:text-gold transition-colors">Media</a>
-                <a href="/faq.html" class="hover:text-gold transition-colors">FAQ</a>
-                <a href="/partner-inquiry/" class="hover:text-gold transition-colors">Partner With Us</a>
-                <a href="/join-fighter/" class="hover:text-gold transition-colors">Join as a Fighter</a>
+            <div class="flex flex-wrap justify-center items-center gap-x-6 gap-y-2 mb-4 font-display text-sm text-ink/70">
+                <a href="/roster/" class="hover:text-ink transition-colors">Roster</a>
+                <a href="/services/" class="hover:text-ink transition-colors">Services</a>
+                <a href="/media/" class="hover:text-ink transition-colors">Media</a>
+                <a href="/faq.html" class="hover:text-ink transition-colors">FAQ</a>
+                <a href="/partner-inquiry/" class="hover:text-ink transition-colors">Partner With Us</a>
+                <a href="/join-fighter/" class="hover:text-ink transition-colors">Join as a Fighter</a>
             </div>
-            <div class="flex flex-wrap justify-center items-center gap-x-4 gap-y-2 mb-4 text-sm text-gray-500">
+            <div class="flex flex-wrap justify-center items-center gap-x-4 gap-y-2 mb-4 text-sm text-ink/50 font-display">
                 <span>Past Promotions:</span>
-                <a href="/gmaregistration/" class="hover:text-gold transition-colors">Gods of Martial Arts</a>
-                <a href="/saigon-superfights-registration/" class="hover:text-gold transition-colors">Saigon Superfights</a>
+                <a href="/gmaregistration/" class="hover:text-ink transition-colors">Gods of Martial Arts</a>
+                <a href="/saigon-superfights-registration/" class="hover:text-ink transition-colors">Saigon Superfights</a>
             </div>
-            <div class="flex flex-wrap justify-center items-center gap-x-6 gap-y-2 mb-6">
-                <a href="https://www.linkedin.com/in/zac-crush/" target="_blank" class="hover:text-gold transition-colors">LinkedIn</a>
-                <a href="https://www.instagram.com/zcrush13/" target="_blank" class="hover:text-gold transition-colors">Instagram</a>
-                <a href="https://www.youtube.com/@GMAFightingChampionship" target="_blank" class="hover:text-gold transition-colors">YouTube</a>
-                <a href="https://www.facebook.com/crushza" target="_blank" class="hover:text-gold transition-colors">Facebook</a>
-                <a href="mailto:hello@zaccrush.com" class="hover:text-gold transition-colors">hello@zaccrush.com</a>
+            <div class="flex flex-wrap justify-center items-center gap-x-6 gap-y-2 mb-6 font-display text-sm text-ink/70">
+                <a href="https://www.linkedin.com/in/zac-crush/" target="_blank" class="hover:text-ink transition-colors">LinkedIn</a>
+                <a href="https://www.instagram.com/zcrush13/" target="_blank" class="hover:text-ink transition-colors">Instagram</a>
+                <a href="https://www.youtube.com/@GMAFightingChampionship" target="_blank" class="hover:text-ink transition-colors">YouTube</a>
+                <a href="https://www.facebook.com/crushza" target="_blank" class="hover:text-ink transition-colors">Facebook</a>
+                <a href="mailto:hello@zaccrush.com" class="hover:text-ink transition-colors">hello@zaccrush.com</a>
             </div>
-            <p class="text-sm mb-2">© 2026 Crush Combat Agency. All rights reserved.</p>
-            <p class="text-xs">Sponsored by <a href="https://shadeprotocol.io/" target="_blank" class="underline hover:text-gold transition-colors">Shade Protocol: New Generation of Private DeFi</a></p>
+            <p class="text-sm mb-2 text-ink/60 font-display">© 2026 Crush Combat Agency. All rights reserved.</p>
+            <p class="text-xs text-ink/40 font-display">Sponsored by <a href="https://shadeprotocol.io/" target="_blank" class="underline hover:text-ink transition-colors">Shade Protocol: New Generation of Private DeFi</a></p>
         </div>
     </footer>
 

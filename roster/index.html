@@ -8,96 +8,103 @@
     <meta property="og:title" content="Roster | Crush Combat Agency">
     <meta property="og:description" content="Fighters represented by Crush Combat Agency across Southeast Asia.">
     <meta property="og:url" content="https://zaccrush.com/roster/">
-    <meta name="theme-color" content="#0a0b0f">
+    <meta name="theme-color" content="#FAF9F5">
 
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-        tailwind.config = { theme: { extend: { fontFamily: { sans: ['Inter', 'sans-serif'], display: ['Oswald', 'sans-serif'] } } } };
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['"Source Serif 4"', 'Georgia', 'serif'],
+                        display: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        ink: '#141413', 'ink-soft': '#3D3D3A', clay: '#D97757', 'clay-dark': '#C6613F',
+                        cream: '#FAF9F5', 'cream-alt': '#F0EEE6',
+                    },
+                },
+            },
+        };
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/styles.css">
-    <style>
-        body {
-            background-image: linear-gradient(rgba(10,11,15,0.92), rgba(10,11,15,0.92)), url('https://raw.githubusercontent.com/zaccrush/zac-crush-homepage/main/vietnam%20drone%20shot%20by%20zac%20crush.jpg?raw=true');
-            background-size: cover;
-            background-position: center;
-        }
-    </style>
 </head>
-<body class="min-h-screen flex flex-col">
-    <header class="fixed top-0 left-0 right-0 z-50 bg-[#0a0b0f]/85 backdrop-blur-md border-b border-white/5">
+<body class="min-h-screen flex flex-col bg-cream">
+    <header class="fixed top-0 left-0 right-0 z-50 bg-cream/90 backdrop-blur-sm border-b border-black/10">
         <nav class="max-w-6xl mx-auto flex items-center justify-between px-4 sm:px-6 py-4">
-            <a href="/" class="font-display text-xl tracking-wide text-white uppercase">Crush <span class="text-gold">Combat</span></a>
-            <button id="nav-toggle" class="sm:hidden text-gray-300 p-2" aria-label="Toggle menu" aria-expanded="false">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+            <a href="/" class="font-display text-lg font-extrabold tracking-tight text-ink">CRUSH <span class="text-clay">COMBAT</span></a>
+            <button id="nav-toggle" class="sm:hidden text-ink p-2" aria-label="Toggle menu" aria-expanded="false">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
             </button>
-            <div id="nav-links" class="hidden sm:flex flex-col sm:flex-row items-center gap-x-6 gap-y-3 sm:gap-y-0 text-sm font-semibold absolute sm:static top-full inset-x-0 sm:inset-auto bg-[#0a0b0f] sm:bg-transparent border-t sm:border-0 border-white/5 px-4 sm:px-0 py-4 sm:py-0">
-                <a href="/" class="text-gray-300 hover:text-gold transition-colors">Home</a>
-                <a href="/services/" class="text-gray-300 hover:text-gold transition-colors">Services</a>
-                <a href="/media/" class="text-gray-300 hover:text-gold transition-colors">Media</a>
-                <a href="/faq.html" class="text-gray-300 hover:text-gold transition-colors">FAQ</a>
-                <a href="/partner-inquiry/" class="text-gray-300 hover:text-gold transition-colors">Partner With Us</a>
-                <a href="/join-fighter/" class="text-gold font-bold hover:text-white transition-colors">Join as a Fighter</a>
+            <div id="nav-links" class="hidden sm:flex flex-col sm:flex-row items-center gap-x-8 gap-y-3 sm:gap-y-0 text-sm font-medium font-display absolute sm:static top-full inset-x-0 sm:inset-auto bg-cream sm:bg-transparent border-t sm:border-0 border-black/10 px-4 sm:px-0 py-4 sm:py-0">
+                <a href="/" class="text-ink/70 hover:text-ink transition-colors">Home</a>
+                <a href="/services/" class="text-ink/70 hover:text-ink transition-colors">Services</a>
+                <a href="/media/" class="text-ink/70 hover:text-ink transition-colors">Media</a>
+                <a href="/faq.html" class="text-ink/70 hover:text-ink transition-colors">FAQ</a>
+                <a href="/partner-inquiry/" class="text-ink/70 hover:text-ink transition-colors">Partner With Us</a>
+                <a href="/join-fighter/" class="btn-clay !py-2 !px-4 text-sm">Join as a Fighter</a>
             </div>
         </nav>
     </header>
 
     <main class="flex-grow pt-28 pb-16 px-4 sm:px-8">
-        <div class="max-w-5xl mx-auto space-y-10">
-            <header class="text-center space-y-3">
-                <p class="eyebrow">Talent</p>
-                <h1 class="font-display text-4xl sm:text-5xl font-semibold text-white">The Roster</h1>
-                <p class="text-lg text-gray-400 max-w-2xl mx-auto">Fighters represented by Crush Combat Agency across Southeast Asia.</p>
+        <div class="max-w-5xl mx-auto space-y-12">
+            <header class="max-w-2xl">
+                <p class="eyebrow mb-3">Talent</p>
+                <h1 class="font-display text-4xl sm:text-5xl font-extrabold text-ink leading-tight">The roster</h1>
+                <p class="font-serif text-xl text-ink-soft mt-5 leading-relaxed">Fighters represented by Crush Combat Agency across Southeast Asia.</p>
             </header>
 
             <!-- PLACEHOLDER: real roster not yet supplied — replace this card, add one per fighter -->
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
                 <div class="glass-card rounded-2xl overflow-hidden hover-lift">
-                    <div class="aspect-square bg-black/60 flex items-center justify-center">
-                        <span class="text-gray-600 text-sm">[PLACEHOLDER — fighter photo]</span>
+                    <div class="aspect-square bg-cream-alt flex items-center justify-center border-b border-black/10">
+                        <span class="text-ink/40 text-sm font-display">[PLACEHOLDER — fighter photo]</span>
                     </div>
                     <div class="p-5">
-                        <h2 class="font-display text-xl font-semibold text-white">[PLACEHOLDER — Fighter Name]</h2>
-                        <p class="text-gold text-sm font-semibold mb-2">[Weight Class · Discipline]</p>
-                        <p class="text-gray-400 text-sm">[Short bio / record — replace with real roster copy]</p>
+                        <h2 class="font-display text-xl font-bold text-ink">[PLACEHOLDER — Fighter Name]</h2>
+                        <p class="text-clay text-sm font-display font-semibold mb-2">[Weight Class · Discipline]</p>
+                        <p class="font-serif text-ink-soft text-sm">[Short bio / record — replace with real roster copy]</p>
                     </div>
                 </div>
             </div>
 
-            <section class="glass-card rounded-2xl p-8 sm:p-12 text-center">
-                <h2 class="font-display text-2xl font-semibold text-white mb-3">Fighting Under Crush Combat Agency</h2>
-                <p class="text-gray-300 max-w-2xl mx-auto mb-6">If you're a fighter looking for real representation across Southeast Asia, this is where it starts.</p>
-                <a href="/join-fighter/" class="btn-primary">Join as a Fighter</a>
+            <section class="bg-cream-alt border border-black/10 rounded-2xl p-8 sm:p-12 text-center">
+                <h2 class="font-display text-2xl font-extrabold text-ink mb-3">Fighting under Crush Combat Agency</h2>
+                <p class="font-serif text-lg text-ink-soft max-w-2xl mx-auto mb-6">If you're a fighter looking for real representation across Southeast Asia, this is where it starts.</p>
+                <a href="/join-fighter/" class="btn-clay">Join as a Fighter</a>
             </section>
         </div>
     </main>
 
-    <footer class="bg-[#0a0b0f] border-t border-white/5 text-gray-400 text-center py-10 px-4">
-        <div class="max-w-4xl mx-auto">
-            <div class="flex flex-wrap justify-center items-center gap-x-6 gap-y-2 mb-4">
-                <a href="/roster/" class="hover:text-gold transition-colors">Roster</a>
-                <a href="/services/" class="hover:text-gold transition-colors">Services</a>
-                <a href="/media/" class="hover:text-gold transition-colors">Media</a>
-                <a href="/faq.html" class="hover:text-gold transition-colors">FAQ</a>
-                <a href="/partner-inquiry/" class="hover:text-gold transition-colors">Partner With Us</a>
-                <a href="/join-fighter/" class="hover:text-gold transition-colors">Join as a Fighter</a>
+    <footer class="bg-cream border-t border-black/10 py-14 px-4">
+        <div class="max-w-5xl mx-auto">
+            <div class="flex flex-wrap justify-center items-center gap-x-6 gap-y-2 mb-4 font-display text-sm">
+                <a href="/roster/" class="text-ink/70 hover:text-ink transition-colors">Roster</a>
+                <a href="/services/" class="text-ink/70 hover:text-ink transition-colors">Services</a>
+                <a href="/media/" class="text-ink/70 hover:text-ink transition-colors">Media</a>
+                <a href="/faq.html" class="text-ink/70 hover:text-ink transition-colors">FAQ</a>
+                <a href="/partner-inquiry/" class="text-ink/70 hover:text-ink transition-colors">Partner With Us</a>
+                <a href="/join-fighter/" class="text-ink/70 hover:text-ink transition-colors">Join as a Fighter</a>
             </div>
-            <div class="flex flex-wrap justify-center items-center gap-x-4 gap-y-2 mb-4 text-sm text-gray-500">
+            <div class="flex flex-wrap justify-center items-center gap-x-4 gap-y-2 mb-4 text-sm text-ink/50 font-display">
                 <span>Past Promotions:</span>
-                <a href="/gmaregistration/" class="hover:text-gold transition-colors">Gods of Martial Arts</a>
-                <a href="/saigon-superfights-registration/" class="hover:text-gold transition-colors">Saigon Superfights</a>
+                <a href="/gmaregistration/" class="hover:text-ink transition-colors">Gods of Martial Arts</a>
+                <a href="/saigon-superfights-registration/" class="hover:text-ink transition-colors">Saigon Superfights</a>
             </div>
-            <div class="flex flex-wrap justify-center items-center gap-x-6 gap-y-2 mb-6">
-                <a href="https://www.linkedin.com/in/zac-crush/" target="_blank" rel="noopener" class="hover:text-gold transition-colors">LinkedIn</a>
-                <a href="https://www.instagram.com/zcrush13/" target="_blank" rel="noopener" class="hover:text-gold transition-colors">Instagram</a>
-                <a href="https://www.youtube.com/@GMAFightingChampionship" target="_blank" rel="noopener" class="hover:text-gold transition-colors">YouTube</a>
-                <a href="https://www.facebook.com/crushza" target="_blank" rel="noopener" class="hover:text-gold transition-colors">Facebook</a>
-                <a href="mailto:hello@zaccrush.com" class="hover:text-gold transition-colors">hello@zaccrush.com</a>
+            <div class="flex flex-wrap justify-center items-center gap-x-6 gap-y-2 mb-6 font-display text-sm text-ink/70">
+                <a href="https://www.linkedin.com/in/zac-crush/" target="_blank" rel="noopener" class="hover:text-ink transition-colors">LinkedIn</a>
+                <a href="https://www.instagram.com/zcrush13/" target="_blank" rel="noopener" class="hover:text-ink transition-colors">Instagram</a>
+                <a href="https://www.youtube.com/@GMAFightingChampionship" target="_blank" rel="noopener" class="hover:text-ink transition-colors">YouTube</a>
+                <a href="https://www.facebook.com/crushza" target="_blank" rel="noopener" class="hover:text-ink transition-colors">Facebook</a>
+                <a href="mailto:hello@zaccrush.com" class="hover:text-ink transition-colors">hello@zaccrush.com</a>
             </div>
-            <p class="text-sm mb-2">© 2026 Crush Combat Agency. All rights reserved.</p>
-            <p class="text-xs">Sponsored by <a href="https://shadeprotocol.io/" target="_blank" rel="noopener" class="underline hover:text-gold transition-colors">Shade Protocol: New Generation of Private DeFi</a></p>
+            <p class="text-sm mb-2 text-center text-ink/60 font-display">© 2026 Crush Combat Agency. All rights reserved.</p>
+            <p class="text-xs text-center text-ink/40 font-display">Sponsored by <a href="https://shadeprotocol.io/" target="_blank" rel="noopener" class="underline hover:text-ink transition-colors">Shade Protocol: New Generation of Private DeFi</a></p>
         </div>
     </footer>
 

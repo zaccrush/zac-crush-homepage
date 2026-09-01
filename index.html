@@ -7,7 +7,7 @@
     <!-- SEO & Core Meta Tags -->
     <title>Crush Combat Agency — Architects of the Combat Economy</title>
     <meta name="description" content="Elite MMA talent management & live broadcast media house powering Southeast Asia's fastest-growing fight ecosystem. Founded by Zac Crush.">
-    <link rel="icon" type="image/jpeg" href="https://github.com/zaccrush/zac-crush-homepage/blob/main/favicon.jpg?raw=true" onerror="this.onerror=null;this.src='https://placehold.co/32x32/0d1117/c9d1d9?text=CCA';">
+    <link rel="icon" type="image/jpeg" href="https://github.com/zaccrush/zac-crush-homepage/blob/main/favicon.jpg?raw=true" onerror="this.onerror=null;this.src='https://placehold.co/32x32/141413/FAF9F5?text=CCA';">
 
     <!-- Open Graph / Facebook / Social Media Meta Tags -->
     <meta property="og:type" content="website">
@@ -60,7 +60,16 @@
                 extend: {
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
-                        display: ['Oswald', 'sans-serif'],
+                        serif: ['"Source Serif 4"', 'Georgia', 'serif'],
+                        display: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        ink: '#141413',
+                        'ink-soft': '#3D3D3A',
+                        clay: '#D97757',
+                        'clay-dark': '#C6613F',
+                        cream: '#FAF9F5',
+                        'cream-alt': '#F0EEE6',
                     },
                 },
             },
@@ -68,211 +77,209 @@
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/styles.css">
-
-    <style>
-        .hero-gradient {
-            background: linear-gradient(180deg, rgba(10,11,15,0.35) 0%, rgba(10,11,15,0.55) 55%, var(--bg) 100%);
-        }
-        .main-content-bg {
-            background-image: linear-gradient(rgba(10, 11, 15, 0.88), rgba(10, 11, 15, 0.88)), url('https://github.com/zaccrush/zac-crush-homepage/blob/main/vietnam%20drone%20shot%20by%20zac%20crush.jpg?raw=true');
-            background-size: cover;
-            background-position: center;
-        }
-    </style>
 </head>
 <body class="antialiased flex flex-col min-h-screen">
 
     <!-- Sticky Header -->
-    <header class="fixed top-0 left-0 right-0 z-50 bg-[#0a0b0f]/85 backdrop-blur-md border-b border-white/5">
+    <header class="fixed top-0 left-0 right-0 z-50 bg-[#FAF9F5]/90 backdrop-blur-sm border-b border-black/10">
         <nav class="max-w-6xl mx-auto flex items-center justify-between px-4 sm:px-6 py-4">
-            <a href="/" class="font-display text-xl tracking-wide text-white uppercase">Crush <span class="text-gold">Combat</span></a>
-            <button id="nav-toggle" class="sm:hidden text-gray-300 p-2" aria-label="Toggle menu" aria-expanded="false">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+            <a href="/" class="font-display text-lg font-extrabold tracking-tight text-ink">CRUSH <span class="text-clay">COMBAT</span></a>
+            <button id="nav-toggle" class="sm:hidden text-ink p-2" aria-label="Toggle menu" aria-expanded="false">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
             </button>
-            <div id="nav-links" class="hidden sm:flex flex-col sm:flex-row items-center gap-x-6 gap-y-3 sm:gap-y-0 text-sm font-semibold absolute sm:static top-full inset-x-0 sm:inset-auto bg-[#0a0b0f] sm:bg-transparent border-t sm:border-0 border-white/5 px-4 sm:px-0 py-4 sm:py-0">
-                <a href="/roster/" class="text-gray-300 hover:text-gold transition-colors">Roster</a>
-                <a href="/services/" class="text-gray-300 hover:text-gold transition-colors">Services</a>
-                <a href="/media/" class="text-gray-300 hover:text-gold transition-colors">Media</a>
-                <a href="/faq.html" class="text-gray-300 hover:text-gold transition-colors">FAQ</a>
-                <a href="/partner-inquiry/" class="text-gray-300 hover:text-gold transition-colors">Partner With Us</a>
-                <a href="/join-fighter/" class="text-gold font-bold hover:text-white transition-colors">Join as a Fighter</a>
+            <div id="nav-links" class="hidden sm:flex flex-col sm:flex-row items-center gap-x-8 gap-y-3 sm:gap-y-0 text-sm font-medium font-display absolute sm:static top-full inset-x-0 sm:inset-auto bg-[#FAF9F5] sm:bg-transparent border-t sm:border-0 border-black/10 px-4 sm:px-0 py-4 sm:py-0">
+                <a href="/roster/" class="text-ink/70 hover:text-ink transition-colors">Roster</a>
+                <a href="/services/" class="text-ink/70 hover:text-ink transition-colors">Services</a>
+                <a href="/media/" class="text-ink/70 hover:text-ink transition-colors">Media</a>
+                <a href="/faq.html" class="text-ink/70 hover:text-ink transition-colors">FAQ</a>
+                <a href="/partner-inquiry/" class="text-ink/70 hover:text-ink transition-colors">Partner With Us</a>
+                <a href="/join-fighter/" class="btn-clay !py-2 !px-4 text-sm">Join as a Fighter</a>
             </div>
         </nav>
     </header>
 
-    <main class="flex-grow">
-        <!-- Hero Section -->
-        <section class="relative h-screen flex items-end justify-center text-center text-white overflow-hidden">
-            <div class="absolute inset-0 z-0">
-                <img src="https://github.com/zaccrush/zac-crush-homepage/blob/main/zac-crush-raising-hand-winner-grappling-match-saigon-superfights.jpeg?raw=true" alt="Zac Crush, founder of Crush Combat Agency" class="w-full h-full object-cover object-center" onerror="this.onerror=null;this.src='https://placehold.co/1920x1080/000000/ffffff?text=Crush+Combat+Agency';">
-                <div class="absolute inset-0 hero-gradient"></div>
+    <main class="flex-grow pt-24">
+
+        <!-- Hero -->
+        <section class="max-w-5xl mx-auto px-4 sm:px-6 pt-16 pb-12">
+            <p class="eyebrow mb-5">Now Launching</p>
+            <h1 class="font-display text-4xl sm:text-6xl md:text-7xl font-extrabold text-ink leading-[1.05] tracking-tight max-w-4xl">
+                <span class="headline-mark"><a href="/services/" class="text-ink">Talent management</a></span> and <span class="headline-mark"><a href="/media/" class="text-ink">live broadcast</a></span> that puts fighters at the center
+            </h1>
+            <p class="font-serif text-xl sm:text-2xl text-ink-soft max-w-2xl mt-8 leading-relaxed">
+                Architects of the Combat Economy. Crush Combat Agency is an elite MMA talent management and live broadcast media house powering Southeast Asia's fastest-growing fight ecosystem.
+            </p>
+            <div class="mt-10 flex flex-wrap gap-4">
+                <a href="/join-fighter/" class="btn-clay">Join as a Fighter</a>
+                <a href="/partner-inquiry/" class="btn-outline">Partner With Us</a>
             </div>
-            <div class="relative z-10 px-4 pb-20 sm:pb-28 max-w-4xl">
-                <p class="eyebrow mb-4">Now Launching</p>
-                <h1 class="font-display text-5xl sm:text-6xl md:text-7xl font-bold uppercase text-white tracking-tight drop-shadow-[0_4px_20px_rgba(0,0,0,0.6)]">
-                    Crush Combat Agency
-                </h1>
-                <p class="mt-5 max-w-2xl mx-auto text-xl md:text-2xl font-semibold text-gold drop-shadow-[0_2px_10px_rgba(0,0,0,0.7)]">
-                    Architects of the Combat Economy.
-                </p>
-                <h2 class="mt-4 max-w-2xl mx-auto text-base md:text-lg font-medium text-gray-200 drop-shadow-[0_2px_10px_rgba(0,0,0,0.7)]">
-                    Elite MMA talent management &amp; live broadcast media house powering Southeast Asia's fastest-growing fight ecosystem.
-                </h2>
-                <div class="mt-8 flex flex-wrap justify-center gap-4">
-                    <a href="/join-fighter/" class="btn-primary">Join as a Fighter</a>
-                    <a href="/partner-inquiry/" class="btn-outline">Partner With Us</a>
-                </div>
-            </div>
-            <a href="#story" aria-label="Scroll down" class="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 text-gold animate-bounce-slow">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
-            </a>
         </section>
 
-        <!-- Main Content Area -->
-        <div class="main-content-bg relative z-10 border-t-4 border-gold">
-            <div class="max-w-5xl mx-auto p-4 sm:p-8 space-y-16 md:space-y-24 py-16 md:py-24">
-
-                <!-- Footprint strip -->
-                <section class="glass-card rounded-2xl p-6 md:p-10 text-center">
-                    <p class="eyebrow mb-3">On the Ground Across SE Asia</p>
-                    <p class="text-lg md:text-xl text-gray-300 leading-relaxed">
-                        Singapore &middot; Phnom Penh, Cambodia &middot; Da Nang, Vietnam &middot; Kuala Lumpur, Malaysia &middot; Ho Chi Minh City, Vietnam &middot; Jakarta, Indonesia &middot; Manila, Philippines &middot; Siem Reap, Cambodia
-                    </p>
-                </section>
-
-                <!-- Story Section -->
-                <section id="story" class="glass-card rounded-2xl p-6 md:p-12 shadow-2xl scroll-mt-24">
-                    <p class="eyebrow text-center mb-3">The Story</p>
-                    <h2 class="font-display text-3xl md:text-4xl font-semibold text-center text-white mb-8">From Humble Beginnings to Regional Grappling Ambassador</h2>
-                    <p class="text-lg md:text-xl leading-relaxed text-gray-300">
-                        I know what it’s like to walk around scared — unsure if you could protect yourself or trust anything else about who you were. For me, that all changed when I was fourteen, humiliated one last time in front of everyone during a playful wrestling match. Everyone was staring, and that moment lit a fire inside me. Since that moment, I dedicated myself to martial arts to build not just skill, but real confidence. My mission became clear: to build a community where no one would ever have to feel that way.
-                        <br><br>
-                        When I moved to Southeast Asia, I saw a passionate fight scene that lacked professional opportunities. I knew I couldn't build something alone, so I partnered with the respected leaders of the Vietnam martial arts and grappling community. We quickly realized we shared the same vision: to elevate local athletes and give them the platform they deserved.
-                        <br><br>
-                        From that partnership, we created and executed events like Saigon Superfights. Together, we handled everything from matchmaking to running the event, always focused on the fighters. Our goal was to build a professional stage for athletes to showcase their skills and grow the sport.
-                        <br><br>
-                        Everything we do is about creating a strong community where people feel confident and supported, never powerless or alone. Crush Combat Agency is the next chapter of that mission — scaled across Southeast Asia.
-                    </p>
-                </section>
-
-                <!-- Specialties Section -->
-                <section id="specialties" class="glass-card rounded-2xl p-6 md:p-12 shadow-2xl">
-                    <p class="eyebrow text-center mb-3">What We Do</p>
-                    <h2 class="font-display text-3xl md:text-4xl font-semibold text-center text-white mb-10">Five Specialties, One Agency</h2>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                        <div class="hover-lift rounded-xl border border-white/10 p-6">
-                            <h3 class="text-lg font-bold text-gold mb-2">Live Broadcast Production</h3>
-                            <p class="text-gray-300">Cinema-grade livestream production for combat sports. We capture the cage's speed and violence with international-tier fidelity.</p>
-                        </div>
-                        <div class="hover-lift rounded-xl border border-white/10 p-6">
-                            <h3 class="text-lg font-bold text-gold mb-2">Strategic Sponsorships</h3>
-                            <p class="text-gray-300">Moving sponsors beyond logo placement. We integrate brands into the event narrative for measurable ROI and authentic community connection.</p>
-                        </div>
-                        <div class="hover-lift rounded-xl border border-white/10 p-6">
-                            <h3 class="text-lg font-bold text-gold mb-2">Global Fighter Scouting</h3>
-                            <p class="text-gray-300">The direct talent pipeline for regional promotions. We scout and recruit elite international fighters for the Southeast Asian stage.</p>
-                        </div>
-                        <div class="hover-lift rounded-xl border border-white/10 p-6">
-                            <h3 class="text-lg font-bold text-gold mb-2">Digital Media &amp; Podcasts</h3>
-                            <p class="text-gray-300">Full-scale digital content creation. We produce professional podcasts, fighter highlight reels, and targeted media campaigns.</p>
-                        </div>
-                        <div class="hover-lift rounded-xl border border-white/10 p-6 sm:col-span-2">
-                            <h3 class="text-lg font-bold text-gold mb-2">Elite Athlete Management</h3>
-                            <p class="text-gray-300">We architect careers. We manage elite MMA fighters, handling purse negotiations, career planning, and brand development in SE Asia.</p>
-                        </div>
-                    </div>
-                    <div class="text-center mt-8">
-                        <a href="/services/" class="btn-outline">See Full Services</a>
-                    </div>
-                </section>
-
-                <!-- Roster teaser -->
-                <section class="glass-card rounded-2xl p-6 md:p-12 text-center shadow-2xl">
-                    <p class="eyebrow mb-3">Talent</p>
-                    <h2 class="font-display text-2xl md:text-3xl font-semibold text-white mb-4">Meet the Roster</h2>
-                    <p class="text-gray-300 max-w-2xl mx-auto mb-6">The fighters Crush Combat Agency represents across Southeast Asia.</p>
-                    <a href="/roster/" class="btn-primary">View Roster</a>
-                </section>
-
-                <!-- Legacy promotions teaser -->
-                <section id="legacy" class="glass-card rounded-2xl p-6 md:p-12 shadow-2xl">
-                    <p class="eyebrow text-center mb-3">Where It Started</p>
-                    <h2 class="font-display text-2xl md:text-3xl font-semibold text-center text-white mb-8">Past Promotions</h2>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
-                        <a href="/gmaregistration/" class="group block text-center hover-lift rounded-xl overflow-hidden border-2 border-transparent bg-black/40">
-                            <div class="bg-black p-8">
-                                <img src="https://raw.githubusercontent.com/zaccrush/zac-crush-homepage/4f38e25754d34b0e66645603976bb5e4d4e24916/GMA_Emblem%202K.jpeg" alt="Gods of Martial Arts Emblem" class="w-32 h-32 sm:w-40 sm:h-40 mx-auto object-contain transition-transform duration-300 group-hover:scale-105" onerror="this.onerror=null;this.src='https://placehold.co/192x192/000000/ffffff?text=GMA';">
-                            </div>
-                            <span class="text-gold text-base sm:text-lg font-bold flex items-center justify-center gap-2 bg-[#111318] py-4 group-hover:bg-gold group-hover:text-black transition-colors">
-                                Gods of Martial Arts
-                            </span>
-                        </a>
-                        <a href="/saigon-superfights-registration/" class="group block text-center hover-lift rounded-xl overflow-hidden border-2 border-transparent bg-black/40">
-                            <div class="bg-black p-8">
-                                <img src="https://raw.githubusercontent.com/zaccrush/zac-crush-homepage/4f38e25754d34b0e66645603976bb5e4d4e24916/saigon%20superfights%20logo.jpg" alt="Saigon Superfights Logo" class="w-32 h-32 sm:w-40 sm:h-40 mx-auto object-contain transition-transform duration-300 group-hover:scale-105" onerror="this.onerror=null;this.src='https://placehold.co/192x192/000000/ffffff?text=SSF';">
-                            </div>
-                            <span class="text-gold text-base sm:text-lg font-bold flex items-center justify-center gap-2 bg-[#111318] py-4 group-hover:bg-gold group-hover:text-black transition-colors">
-                                Saigon Superfights
-                            </span>
-                        </a>
-                    </div>
-                </section>
-
-                <!-- Media teaser -->
-                <section class="glass-card rounded-2xl p-6 md:p-12 text-center shadow-2xl">
-                    <p class="eyebrow mb-3">Media</p>
-                    <h2 class="font-display text-2xl md:text-3xl font-semibold text-white mb-6">Podcasts &amp; Broadcasts</h2>
-                    <a href="https://www.youtube.com/watch?v=5xoRhcy-qKU" target="_blank" class="thumb-play relative block rounded-xl overflow-hidden mb-6">
-                        <img src="https://raw.githubusercontent.com/zaccrush/zac-crush-homepage/main/EP%2011%20GMA%20Beyond%20The%20Fight%20Podcast%20Robson%20Thumbnail.png?raw=true" alt="GMA Beyond The Fight Podcast Thumbnail" class="w-full" onerror="this.onerror=null;this.src='https://placehold.co/1280x720/000000/ffffff?text=Podcast';">
-                    </a>
-                    <a href="/media/" class="btn-outline">View All Episodes</a>
-                </section>
-
-                <!-- Contact/CTA Section -->
-                <section id="contact" class="glass-card rounded-2xl p-6 md:p-12 text-center shadow-2xl">
-                    <p class="eyebrow mb-3">Get Involved</p>
-                    <h2 class="font-display text-2xl md:text-3xl font-semibold text-white mb-6">Your Gateway to the Combat Economy</h2>
-                    <div class="max-w-3xl mx-auto text-lg text-gray-300 space-y-6 text-left sm:text-center">
-                        <p>
-                            Whether you're a fighter looking for real representation, or a brand looking to reach a passionate, fast-growing audience across Southeast Asia — Crush Combat Agency is your point of entry.
-                        </p>
-                    </div>
-                    <div class="flex flex-wrap justify-center gap-4 mt-8">
-                        <a href="/join-fighter/" class="btn-primary">Join as a Fighter</a>
-                        <a href="/partner-inquiry/" class="btn-outline">Partner / Sponsor Inquiry</a>
-                    </div>
-                </section>
+        <!-- Hero image, editorial style rather than full-bleed dark overlay -->
+        <section class="max-w-5xl mx-auto px-4 sm:px-6 pb-20">
+            <div class="rounded-2xl overflow-hidden border border-black/10">
+                <img src="https://github.com/zaccrush/zac-crush-homepage/blob/main/zac-crush-raising-hand-winner-grappling-match-saigon-superfights.jpeg?raw=true" alt="Zac Crush, founder of Crush Combat Agency" class="w-full h-[280px] sm:h-[420px] object-cover" onerror="this.onerror=null;this.src='https://placehold.co/1200x420/141413/FAF9F5?text=Crush+Combat+Agency';">
             </div>
-        </div>
+        </section>
+
+        <!-- Footprint strip -->
+        <section class="bg-[#F0EEE6] border-y border-black/10 py-8">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 flex flex-wrap items-center justify-between gap-4">
+                <p class="eyebrow">On the ground across SE Asia</p>
+                <p class="font-serif text-base sm:text-lg text-ink-soft">
+                    Singapore &middot; Phnom Penh &middot; Da Nang &middot; Kuala Lumpur &middot; Ho Chi Minh City &middot; Jakarta &middot; Manila &middot; Siem Reap
+                </p>
+            </div>
+        </section>
+
+        <!-- Editorial "hard questions" style section -->
+        <section class="max-w-5xl mx-auto px-4 sm:px-6 py-20">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16">
+                <div>
+                    <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-ink leading-tight">Crush Combat Agency is built on the fighter's side of the table.</h2>
+                    <p class="font-serif text-lg text-ink-soft mt-6 leading-relaxed">
+                        Most fighters in Southeast Asia have no one negotiating for them, no one shopping their highlight reel, no one building their brand. We exist to change that — with real management, real broadcast infrastructure, and real sponsorship relationships.
+                    </p>
+                    <a href="/services/" class="inline-block mt-6 font-display font-semibold text-ink border-b-2 border-clay hover:text-clay transition-colors">See what we do →</a>
+                </div>
+                <div class="space-y-6 font-display text-xl sm:text-2xl font-semibold text-ink">
+                    <p class="border-t border-black/10 pt-6">Who negotiates a fighter's purse?</p>
+                    <p class="border-t border-black/10 pt-6">Who gets a fighter's highlight reel in front of promotions abroad?</p>
+                    <p class="border-t border-black/10 pt-6">Who builds the broadcast that makes a regional card feel world-class?</p>
+                    <p class="border-t border-black/10 pt-6 border-b pb-6">Who turns a sponsor into a partner, not just a logo?</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Specialties: card grid, "Latest releases" style -->
+        <section class="bg-[#F0EEE6] border-y border-black/10 py-20">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6">
+                <p class="eyebrow mb-3">What we do</p>
+                <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-ink mb-12">Five specialties, one agency</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <article class="glass-card hover-lift rounded-2xl p-7">
+                        <h3 class="font-display text-lg font-bold text-ink mb-2">Live Broadcast Production</h3>
+                        <p class="font-serif text-ink-soft leading-relaxed">Cinema-grade livestream production for combat sports. We capture the cage's speed and violence with international-tier fidelity.</p>
+                    </article>
+                    <article class="glass-card hover-lift rounded-2xl p-7">
+                        <h3 class="font-display text-lg font-bold text-ink mb-2">Strategic Sponsorships</h3>
+                        <p class="font-serif text-ink-soft leading-relaxed">Moving sponsors beyond logo placement. We integrate brands into the event narrative for measurable ROI and authentic community connection.</p>
+                    </article>
+                    <article class="glass-card hover-lift rounded-2xl p-7">
+                        <h3 class="font-display text-lg font-bold text-ink mb-2">Global Fighter Scouting</h3>
+                        <p class="font-serif text-ink-soft leading-relaxed">The direct talent pipeline for regional promotions. We scout and recruit elite international fighters for the Southeast Asian stage.</p>
+                    </article>
+                    <article class="glass-card hover-lift rounded-2xl p-7">
+                        <h3 class="font-display text-lg font-bold text-ink mb-2">Digital Media &amp; Podcasts</h3>
+                        <p class="font-serif text-ink-soft leading-relaxed">Full-scale digital content creation. We produce professional podcasts, fighter highlight reels, and targeted media campaigns.</p>
+                    </article>
+                    <article class="glass-card hover-lift rounded-2xl p-7 sm:col-span-2">
+                        <h3 class="font-display text-lg font-bold text-ink mb-2">Elite Athlete Management</h3>
+                        <p class="font-serif text-ink-soft leading-relaxed">We architect careers. We manage elite MMA fighters, handling purse negotiations, career planning, and brand development in SE Asia.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Roster teaser -->
+        <section class="max-w-5xl mx-auto px-4 sm:px-6 py-20 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+            <div>
+                <p class="eyebrow mb-3">Talent</p>
+                <h2 class="font-display text-3xl font-extrabold text-ink mb-4">Meet the roster</h2>
+                <p class="font-serif text-lg text-ink-soft mb-6 leading-relaxed">The fighters Crush Combat Agency represents across Southeast Asia.</p>
+                <a href="/roster/" class="btn-primary">View Roster</a>
+            </div>
+            <div class="rounded-2xl overflow-hidden border border-black/10">
+                <img src="https://raw.githubusercontent.com/zaccrush/zac-crush-homepage/main/EP%2011%20GMA%20Beyond%20The%20Fight%20Podcast%20Robson%20Thumbnail.png?raw=true" alt="Crush Combat Agency" class="w-full h-56 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x300/F0EEE6/141413?text=Roster';">
+            </div>
+        </section>
+
+        <!-- Legacy promotions teaser -->
+        <section class="border-t border-black/10 py-20">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6">
+                <p class="eyebrow mb-3">Where it started</p>
+                <h2 class="font-display text-3xl font-extrabold text-ink mb-10">Past promotions</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <a href="/gmaregistration/" class="group glass-card hover-lift rounded-2xl overflow-hidden flex items-center gap-5 p-5">
+                        <img src="https://raw.githubusercontent.com/zaccrush/zac-crush-homepage/4f38e25754d34b0e66645603976bb5e4d4e24916/GMA_Emblem%202K.jpeg" alt="Gods of Martial Arts Emblem" class="w-20 h-20 rounded-xl object-contain bg-white flex-shrink-0" onerror="this.onerror=null;this.src='https://placehold.co/80x80/F0EEE6/141413?text=GMA';">
+                        <span class="font-display font-bold text-ink group-hover:text-clay transition-colors">Gods of Martial Arts</span>
+                    </a>
+                    <a href="/saigon-superfights-registration/" class="group glass-card hover-lift rounded-2xl overflow-hidden flex items-center gap-5 p-5">
+                        <img src="https://raw.githubusercontent.com/zaccrush/zac-crush-homepage/4f38e25754d34b0e66645603976bb5e4d4e24916/saigon%20superfights%20logo.jpg" alt="Saigon Superfights Logo" class="w-20 h-20 rounded-xl object-contain bg-white flex-shrink-0" onerror="this.onerror=null;this.src='https://placehold.co/80x80/F0EEE6/141413?text=SSF';">
+                        <span class="font-display font-bold text-ink group-hover:text-clay transition-colors">Saigon Superfights</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Story Section -->
+        <section id="story" class="bg-[#F0EEE6] border-y border-black/10 py-20">
+            <div class="max-w-3xl mx-auto px-4 sm:px-6">
+                <p class="eyebrow mb-3 text-center">The Story</p>
+                <h2 class="font-display text-3xl font-extrabold text-ink mb-8 text-center">From Humble Beginnings to Regional Grappling Ambassador</h2>
+                <p class="font-serif text-lg leading-relaxed text-ink-soft">
+                    I know what it’s like to walk around scared — unsure if you could protect yourself or trust anything else about who you were. For me, that all changed when I was fourteen, humiliated one last time in front of everyone during a playful wrestling match. Everyone was staring, and that moment lit a fire inside me. Since that moment, I dedicated myself to martial arts to build not just skill, but real confidence. My mission became clear: to build a community where no one would ever have to feel that way.
+                    <br><br>
+                    When I moved to Southeast Asia, I saw a passionate fight scene that lacked professional opportunities. I knew I couldn't build something alone, so I partnered with the respected leaders of the Vietnam martial arts and grappling community. We quickly realized we shared the same vision: to elevate local athletes and give them the platform they deserved.
+                    <br><br>
+                    From that partnership, we created and executed events like Saigon Superfights. Together, we handled everything from matchmaking to running the event, always focused on the fighters. Our goal was to build a professional stage for athletes to showcase their skills and grow the sport.
+                    <br><br>
+                    Everything we do is about creating a strong community where people feel confident and supported, never powerless or alone. Crush Combat Agency is the next chapter of that mission — scaled across Southeast Asia.
+                </p>
+            </div>
+        </section>
+
+        <!-- Media teaser -->
+        <section class="max-w-5xl mx-auto px-4 sm:px-6 py-20">
+            <p class="eyebrow mb-3">Media</p>
+            <h2 class="font-display text-3xl font-extrabold text-ink mb-8">Podcasts &amp; broadcasts</h2>
+            <a href="https://www.youtube.com/watch?v=5xoRhcy-qKU" target="_blank" rel="noopener" class="thumb-play relative block rounded-2xl overflow-hidden border border-black/10 mb-8">
+                <img src="https://raw.githubusercontent.com/zaccrush/zac-crush-homepage/main/EP%2011%20GMA%20Beyond%20The%20Fight%20Podcast%20Robson%20Thumbnail.png?raw=true" alt="GMA Beyond The Fight Podcast Thumbnail" class="w-full" onerror="this.onerror=null;this.src='https://placehold.co/1280x720/F0EEE6/141413?text=Podcast';">
+            </a>
+            <a href="/media/" class="btn-outline">View All Episodes</a>
+        </section>
+
+        <!-- Closing statement, ink section -->
+        <section class="ink-section py-20">
+            <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+                <p class="font-display text-2xl sm:text-3xl font-semibold leading-snug">
+                    At Crush Combat Agency, we build the infrastructure fighters deserve — real management, real broadcast, real opportunity, across Southeast Asia.
+                </p>
+                <div class="mt-10 flex flex-wrap justify-center gap-4">
+                    <a href="/join-fighter/" class="btn-clay">Join as a Fighter</a>
+                    <a href="/partner-inquiry/" class="inline-block font-display font-semibold border border-white/30 text-[#FAF9F5] px-7 py-3 rounded-xl hover:bg-white/10 transition-colors">Partner / Sponsor Inquiry</a>
+                </div>
+            </div>
+        </section>
     </main>
 
     <!-- Footer -->
-    <footer class="bg-[#0a0b0f] border-t border-white/5 text-gray-400 text-center py-10 px-4">
-        <div class="max-w-4xl mx-auto">
-            <div class="flex flex-wrap justify-center items-center gap-x-6 gap-y-2 mb-4">
-                <a href="/roster/" class="hover:text-gold transition-colors">Roster</a>
-                <a href="/services/" class="hover:text-gold transition-colors">Services</a>
-                <a href="/media/" class="hover:text-gold transition-colors">Media</a>
-                <a href="/faq.html" class="hover:text-gold transition-colors">FAQ</a>
-                <a href="/partner-inquiry/" class="hover:text-gold transition-colors">Partner With Us</a>
-                <a href="/join-fighter/" class="hover:text-gold transition-colors">Join as a Fighter</a>
+    <footer class="bg-[#FAF9F5] border-t border-black/10 py-14 px-4">
+        <div class="max-w-5xl mx-auto">
+            <div class="flex flex-wrap justify-center items-center gap-x-6 gap-y-2 mb-4 font-display text-sm">
+                <a href="/roster/" class="text-ink/70 hover:text-ink transition-colors">Roster</a>
+                <a href="/services/" class="text-ink/70 hover:text-ink transition-colors">Services</a>
+                <a href="/media/" class="text-ink/70 hover:text-ink transition-colors">Media</a>
+                <a href="/faq.html" class="text-ink/70 hover:text-ink transition-colors">FAQ</a>
+                <a href="/partner-inquiry/" class="text-ink/70 hover:text-ink transition-colors">Partner With Us</a>
+                <a href="/join-fighter/" class="text-ink/70 hover:text-ink transition-colors">Join as a Fighter</a>
             </div>
-            <div class="flex flex-wrap justify-center items-center gap-x-4 gap-y-2 mb-4 text-sm text-gray-500">
+            <div class="flex flex-wrap justify-center items-center gap-x-4 gap-y-2 mb-4 text-sm text-ink/50 font-display">
                 <span>Past Promotions:</span>
-                <a href="/gmaregistration/" class="hover:text-gold transition-colors">Gods of Martial Arts</a>
-                <a href="/saigon-superfights-registration/" class="hover:text-gold transition-colors">Saigon Superfights</a>
+                <a href="/gmaregistration/" class="hover:text-ink transition-colors">Gods of Martial Arts</a>
+                <a href="/saigon-superfights-registration/" class="hover:text-ink transition-colors">Saigon Superfights</a>
             </div>
-            <div class="flex flex-wrap justify-center items-center gap-x-6 gap-y-2 mb-6">
-                <a href="https://www.linkedin.com/in/zac-crush/" target="_blank" rel="noopener" class="hover:text-gold transition-colors">LinkedIn</a>
-                <a href="https://www.instagram.com/zcrush13/" target="_blank" rel="noopener" class="hover:text-gold transition-colors">Instagram</a>
-                <a href="https://www.youtube.com/@GMAFightingChampionship" target="_blank" rel="noopener" class="hover:text-gold transition-colors">YouTube</a>
-                <a href="https://www.facebook.com/crushza" target="_blank" rel="noopener" class="hover:text-gold transition-colors">Facebook</a>
-                <a href="mailto:hello@zaccrush.com" class="hover:text-gold transition-colors">hello@zaccrush.com</a>
+            <div class="flex flex-wrap justify-center items-center gap-x-6 gap-y-2 mb-6 font-display text-sm text-ink/70">
+                <a href="https://www.linkedin.com/in/zac-crush/" target="_blank" rel="noopener" class="hover:text-ink transition-colors">LinkedIn</a>
+                <a href="https://www.instagram.com/zcrush13/" target="_blank" rel="noopener" class="hover:text-ink transition-colors">Instagram</a>
+                <a href="https://www.youtube.com/@GMAFightingChampionship" target="_blank" rel="noopener" class="hover:text-ink transition-colors">YouTube</a>
+                <a href="https://www.facebook.com/crushza" target="_blank" rel="noopener" class="hover:text-ink transition-colors">Facebook</a>
+                <a href="mailto:hello@zaccrush.com" class="hover:text-ink transition-colors">hello@zaccrush.com</a>
             </div>
-            <p class="text-sm mb-2">© 2026 Crush Combat Agency. All rights reserved.</p>
-            <p class="text-xs">Sponsored by <a href="https://shadeprotocol.io/" target="_blank" rel="noopener" class="underline hover:text-gold transition-colors">Shade Protocol: New Generation of Private DeFi</a></p>
+            <p class="text-sm mb-2 text-center text-ink/60 font-display">© 2026 Crush Combat Agency. All rights reserved.</p>
+            <p class="text-xs text-center text-ink/40 font-display">Sponsored by <a href="https://shadeprotocol.io/" target="_blank" rel="noopener" class="underline hover:text-ink transition-colors">Shade Protocol: New Generation of Private DeFi</a></p>
         </div>
     </footer>
 

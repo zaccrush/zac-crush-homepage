@@ -6,21 +6,35 @@
     <title>Application Received | Crush Combat Agency</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-        tailwind.config = { theme: { extend: { fontFamily: { sans: ['Inter', 'sans-serif'], display: ['Oswald', 'sans-serif'] } } } };
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['"Source Serif 4"', 'Georgia', 'serif'],
+                        display: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        ink: '#141413', 'ink-soft': '#3D3D3A', clay: '#D97757', 'clay-dark': '#C6613F',
+                        cream: '#FAF9F5', 'cream-alt': '#F0EEE6',
+                    },
+                },
+            },
+        };
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&family=Oswald:wght@600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/styles.css">
 </head>
-<body class="min-h-screen flex items-center justify-center text-center dark-overlay p-8">
+<body class="min-h-screen flex items-center justify-center text-center bg-cream p-8">
     <div class="glass-card rounded-2xl p-8 sm:p-12 max-w-lg w-full space-y-6">
-        <div class="mx-auto w-16 h-16 rounded-full border border-gold flex items-center justify-center" style="background-color: rgba(212,175,55,0.15)">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-gold"><path d="M20 6L9 17l-5-5"/></svg>
+        <div class="mx-auto w-16 h-16 rounded-full border border-clay flex items-center justify-center" style="background-color: rgba(217,119,87,0.12)">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-clay"><path d="M20 6L9 17l-5-5"/></svg>
         </div>
-        <h1 class="font-display text-3xl sm:text-4xl font-bold uppercase text-gold">Application Received!</h1>
-        <p class="text-gray-300">Thanks for applying to Crush Combat Agency. We review every fighter submission and will reach out if it's a fit.</p>
-        <a href="/" class="btn-primary inline-block">Return to Homepage</a>
+        <h1 class="font-display text-3xl sm:text-4xl font-extrabold text-ink">Application Received!</h1>
+        <p class="font-serif text-lg text-ink-soft">Thanks for applying to Crush Combat Agency. We review every fighter submission and will reach out if it's a fit.</p>
+        <a href="/" class="btn-clay inline-block">Return to Homepage</a>
     </div>
 </body>
 </html>
