@@ -42,7 +42,6 @@
             background-image: url('https://raw.githubusercontent.com/zaccrush/zac-crush-homepage/main/gma%20angels%20gods%20of%20martial%20arts.jpg?raw=true');
             background-size: cover;
             background-position: center;
-
             background-repeat: no-repeat;
         }
         .font-display { font-family: 'Oswald', sans-serif; }
@@ -57,14 +56,6 @@
             border-radius: 1rem;
             padding: 1.75rem;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-        }
-        .form-section h2 {
-            display: flex;
-            align-items: center;
-            gap: 0.65rem;
-        }
-        .form-input-group > div {
-            margin-bottom: 1rem; /* Added spacing between form fields */
         }
         .input-field, .select-field, .textarea-field {
             background-color: rgba(255, 255, 255, 0.05);
@@ -91,6 +82,10 @@
             box-shadow: 0 10px 25px rgba(220, 38, 38, 0.25);
         }
         .btn-primary:hover { background-color: #b91c1c; transform: translateY(-2px); }
+        /* Style for date input placeholder */
+        input[type="date"]::-webkit-calendar-picker-indicator {
+            filter: invert(1);
+        }
     </style>
 </head>
 <body class="antialiased flex flex-col min-h-screen">
@@ -106,7 +101,7 @@
                 <a href="https://zaccrush.com/" class="text-gray-300 hover:text-gold transition-colors">Home</a>
                 <a href="https://zaccrush.com/faq.html" class="text-gray-300 hover:text-gold transition-colors">FAQ</a>
                 <a href="https://zaccrush.com/saigon-superfights-registration" class="text-gray-300 hover:text-gold transition-colors">Saigon Superfights Registration</a>
-                <a href="https://www.youtube.com/@GMAFightingChampionship" target="_blank" class="text-gray-300 hover:text-gold transition-colors">YouTube</a>
+                <a href="https://www.youtube.com/@GMAFightingChampionship" target="_blank" rel="noopener" class="text-gray-300 hover:text-gold transition-colors">YouTube</a>
             </div>
         </nav>
     </header>
@@ -116,7 +111,6 @@
             <div class="w-full max-w-lg mx-auto bg-[#12141a] border border-white/10 p-8 rounded-2xl shadow-2xl space-y-6">
                 <!-- Header with logo and titles -->
                 <div class="text-center space-y-2 mb-8">
-                    <!-- GMA Championship Belt -->
                     <img src="https://github.com/zaccrush/zac-crush-homepage/blob/main/gmaregistration/%C4%90ai%20Tha%CC%82%CC%80n%20Vo%CC%83%20Myanmar%20(1).png?raw=true" alt="Gods of Martial Arts Championship Belt" class="mx-auto w-4/5 h-auto rounded-lg" onerror="this.onerror=null;this.src='https://placehold.co/400x200/000000/FFFFFF?text=GMA+Belt';">
                     <p class="eyebrow">Fighter Registration</p>
                     <h1 class="font-display text-3xl font-semibold uppercase text-gma-gold mt-2">Gods of Martial Arts</h1>
@@ -125,23 +119,61 @@
                 <!-- The form with the 'netlify' attribute for automatic submissions -->
                 <form name="mma-registration" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="space-y-6">
                     <input type="hidden" name="form-name" value="mma-registration">
-                    <input type="hidden" name="redirect" value="/gmaregistration/success.html">
+                    <input type="hidden" name="redirect" value="./success.html">
                     <div hidden>
                         <label>Don’t fill this out: <input name="bot-field"></label>
                     </div>
 
-                    <!-- Personal & Contact Information -->
+                    <!-- Fighter Information -->
                     <div class="form-section space-y-4">
-                        <h2 class="text-xl font-semibold text-gma-gold">Personal & Contact Information</h2>
+                         <h2 class="text-xl font-semibold text-gma-gold">Fighter Details</h2>
                         <div>
-                            <label for="name" class="block text-sm font-medium text-gma-gray">Full Name</label>
-                            <input type="text" id="name" name="name" required
-                                class="input-field mt-1 block">
+                            <label for="name" class="block text-sm font-medium text-gma-gray">Fighter Name</label>
+                            <input type="text" id="name" name="name" required class="input-field mt-1 block">
                         </div>
                         <div>
-                            <label for="country-citizenship" class="block text-sm font-medium text-gma-gray">Country of Citizenship</label>
-                            <select id="country-citizenship" name="country-citizenship" required
-                                    class="select-field mt-1 block">
+                            <label for="ring-name" class="block text-sm font-medium text-gma-gray">Ring Name (English)</label>
+                            <input type="text" id="ring-name" name="ring-name" class="input-field mt-1 block">
+                        </div>
+                        <div>
+                            <label for="dob" class="block text-sm font-medium text-gma-gray">Date of Birth</label>
+                            <input type="date" id="dob" name="dob" required class="input-field mt-1 block">
+                        </div>
+                        <div>
+                            <label for="height" class="block text-sm font-medium text-gma-gray">Height (cm)</label>
+                            <input type="number" id="height" name="height" required class="input-field mt-1 block">
+                        </div>
+                        <div>
+                            <label for="weight" class="block text-sm font-medium text-gma-gray">Weight (kg)</label>
+                            <input type="number" step="0.1" id="weight" name="weight" required class="input-field mt-1 block">
+                        </div>
+                        <div>
+                            <label for="preferred-weight-class" class="block text-sm font-medium text-gma-gray">First Weight Class</label>
+                            <select id="preferred-weight-class" name="preferred-weight-class" required class="select-field mt-1 block">
+                                <option value="">Select a weight class</option>
+                                <option value="53kg (Mantis)">53kg (Mantis)</option>
+                                <option value="55kg (Cobra)">55kg (Cobra)</option>
+                                <option value="57kg (Bantam)">57kg (Bantam)</option>
+                                <option value="59kg (Eagle)">59kg (Eagle)</option>
+                                <option value="63kg (Panther)">63kg (Panther)</option>
+                                <option value="68kg (Tiger)">68kg (Tiger)</option>
+                            </select>
+                        </div>
+                         <div>
+                            <label for="secondary-weight-class" class="block text-sm font-medium text-gma-gray">Second Weight Class</label>
+                            <select id="secondary-weight-class" name="secondary-weight-class" class="select-field mt-1 block">
+                                <option value="">Select a weight class</option>
+                                <option value="53kg (Mantis)">53kg (Mantis)</option>
+                                <option value="55kg (Cobra)">55kg (Cobra)</option>
+                                <option value="57kg (Bantam)">57kg (Bantam)</option>
+                                <option value="59kg (Eagle)">59kg (Eagle)</option>
+                                <option value="63kg (Panther)">63kg (Panther)</option>
+                                <option value="68kg (Tiger)">68kg (Tiger)</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="citizenship" class="block text-sm font-medium text-gma-gray">Citizenship</label>
+                            <select id="citizenship" name="citizenship" required class="select-field mt-1 block">
                                 <option value="">Select a country</option>
                                 <option value="Afghanistan">Afghanistan</option>
                                 <option value="Albania">Albania</option>
@@ -343,195 +375,84 @@
                             </select>
                         </div>
                         <div>
-                            <label for="passport" class="block text-sm font-medium text-gma-gray">Passport Number</label>
-                            <input type="text" id="passport" name="passport" required
-                                class="input-field mt-1 block">
+                            <label for="hometown" class="block text-sm font-medium text-gma-gray">Home Town</label>
+                            <input type="text" id="hometown" name="hometown" class="input-field mt-1 block">
                         </div>
                         <div>
-                            <label for="hometown" class="block text-sm font-medium text-gma-gray">Hometown</label>
-                            <input type="text" id="hometown" name="hometown"
-                                class="input-field mt-1 block">
+                            <label for="gym" class="block text-sm font-medium text-gma-gray">Team - Dojo - Gym</label>
+                            <input type="text" id="gym" name="gym" class="input-field mt-1 block">
                         </div>
                         <div>
-                            <label for="fighter-contact" class="block text-sm font-medium text-gma-gray">Best way to contact me...</label>
-                            <input type="text" id="fighter-contact" name="fighter-contact" required
-                                class="input-field mt-1 block">
-                        </div>
-                        <div>
-                            <label for="gym-name" class="block text-sm font-medium text-gma-gray">Name of Gym</label>
-                            <input type="text" id="gym-name" name="gym-name"
-                                class="input-field mt-1 block">
-                        </div>
-                        <div>
-                            <label for="gym-city" class="block text-sm font-medium text-gma-gray">City of Gym</label>
-                            <input type="text" id="gym-city" name="gym-city"
-                                class="input-field mt-1 block">
-                        </div>
-                        <div>
-                            <label for="gym-country" class="block text-sm font-medium text-gma-gray">Country of Gym</label>
-                            <input type="text" id="gym-country" name="gym-country"
-                                class="input-field mt-1 block">
-                        </div>
-                        <div>
-                            <label for="coach-name" class="block text-sm font-medium text-gma-gray">Name of Coach</label>
-                            <input type="text" id="coach-name" name="coach-name"
-                                class="input-field mt-1 block">
-                        </div>
-                        <div>
-                            <label for="coach-contact" class="block text-sm font-medium text-gma-gray">Best way to reach coach...</label>
-                            <input type="text" id="coach-contact" name="coach-contact"
-                                class="input-field mt-1 block">
+                            <label for="gym-location" class="block text-sm font-medium text-gma-gray">Location of Gym</label>
+                            <input type="text" id="gym-location" name="gym-location" class="input-field mt-1 block">
                         </div>
                     </div>
 
-                    <!-- Physical Attributes & Weight Class -->
+                    <!-- Experience & Media -->
                     <div class="form-section space-y-4">
-                        <h2 class="text-xl font-semibold text-gma-gold">Physical Attributes & Weight Class</h2>
-                        <div>
-                            <label for="height" class="block text-sm font-medium text-gma-gray">Height (cm)</label>
-                            <input type="number" id="height" name="height" required
-                                class="input-field mt-1 block">
-                        </div>
-                        <div>
-                            <label for="walk-around-weight" class="block text-sm font-medium text-gma-gray">Walk Around Weight (kg)</label>
-                            <input type="number" step="0.1" id="walk-around-weight" name="walk-around-weight"
-                                class="input-field mt-1 block">
-                        </div>
-                        <div>
-                            <label for="preferred-weight-class" class="block text-sm font-medium text-gma-gray">Preferred Weight Class</label>
-                            <select id="preferred-weight-class" name="preferred-weight-class" required
-                                    class="select-field mt-1 block">
-                                <option value="">Select a weight class</option>
-                                <option value="53kg (Mantis)">53kg (Mantis)</option>
-                                <option value="55kg (Cobra)">55kg (Cobra)</option>
-                                <option value="57kg (Bantam)">57kg (Bantam)</option>
-                                <option value="59kg (Eagle)">59kg (Eagle)</option>
-                                <option value="63kg (Panther)">63kg (Panther)</option>
-                                <option value="68kg (Tiger)">68kg (Tiger)</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label for="secondary-weight-class" class="block text-sm font-medium text-gma-gray">Secondary Weight Class</label>
-                            <select id="secondary-weight-class" name="secondary-weight-class"
-                                    class="select-field mt-1 block">
-                                <option value="">Select a weight class</option>
-                                <option value="53kg (Mantis)">53kg (Mantis)</option>
-                                <option value="55kg (Cobra)">55kg (Cobra)</option>
-                                <option value="57kg (Bantam)">57kg (Bantam)</option>
-                                <option value="59kg (Eagle)">59kg (Eagle)</option>
-                                <option value="63kg (Panther)">63kg (Panther)</option>
-                                <option value="68kg (Tiger)">68kg (Tiger)</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <!-- Fighter Records & Experience -->
-                    <div class="form-section space-y-4">
-                        <h2 class="text-xl font-semibold text-gma-gold">Fighter Records & Experience</h2>
-                        <div class="space-y-4">
-                            <h3 class="text-lg font-semibold text-gma-gray">MMA Record</h3>
+                        <h2 class="text-xl font-semibold text-gma-gold">Experience & Media</h2>
+                         <div class="space-y-2">
+                            <label class="block text-sm font-medium text-gma-gray">MMA Record (Win/Loss/Draw)</label>
                             <div class="grid grid-cols-3 gap-4">
-                                <label for="wins" class="sr-only">Wins</label>
-                                <input type="number" id="wins" name="pro-wins" placeholder="W" min="0" class="input-field px-4 py-3">
-                                <label for="losses" class="sr-only">Losses</label>
-                                <input type="number" id="losses" name="pro-losses" placeholder="L" min="0" class="input-field px-4 py-3">
-                                <label for="draws" class="sr-only">Draws</label>
-                                <input type="number" id="draws" name="pro-draws" placeholder="D" min="0" class="input-field px-4 py-3">
-                            </div>
-                            <h3 class="text-md font-semibold text-gma-gray">Method of Victory</h3>
-                            <div class="grid grid-cols-3 gap-4">
-                                <label for="ko" class="sr-only">KO</label>
-                                <input type="number" id="ko" name="pro-ko" placeholder="KO" min="0" class="input-field px-4 py-3">
-                                <label for="submission" class="sr-only">Submission</label>
-                                <input type="number" id="submission" name="pro-submission" placeholder="Sub" min="0" class="input-field px-4 py-3">
-                                <label for="other-methods" class="sr-only">Other</label>
-                                <input type="number" id="other-methods" name="pro-other-methods" placeholder="Other" min="0" class="input-field px-4 py-3">
+                                <input type="number" id="wins" name="pro-wins" placeholder="Wins" min="0" class="input-field text-center">
+                                <input type="number" id="losses" name="pro-losses" placeholder="Losses" min="0" class="input-field text-center">
+                                <input type="number" id="draws" name="draws" placeholder="Draws" min="0" class="input-field text-center">
                             </div>
                         </div>
                         <div>
-                            <label for="other-martial-arts" class="block text-sm font-medium text-gma-gray">Experience in Other Martial Arts</label>
-                            <textarea id="other-martial-arts" name="other-martial-arts" rows="3"
-                                    class="textarea-field mt-1 block"></textarea>
+                            <label for="forfeit" class="block text-sm font-medium text-gma-gray">Forfeit / Withdrawal / Disqualified</label>
+                            <input type="number" id="forfeit" name="forfeit" min="0" class="input-field mt-1 block">
+                        </div>
+                        <div class="space-y-2">
+                            <label class="block text-sm font-medium text-gma-gray">Wins by</label>
+                            <div class="grid grid-cols-2 gap-4">
+                                <input type="number" id="ko-wins" name="ko-wins" placeholder="KO" min="0" class="input-field text-center">
+                                <input type="number" id="sub-wins" name="sub-wins" placeholder="Submission" min="0" class="input-field text-center">
+                            </div>
                         </div>
                         <div>
-                            <label for="titles" class="block text-sm font-medium text-gma-gray">Titles & Career Achievements</label>
-                            <textarea id="titles" name="titles" rows="3"
-                                    class="textarea-field mt-1 block"></textarea>
+                            <label for="achievements" class="block text-sm font-medium text-gma-gray">Notable Experience and Achievements</label>
+                            <textarea id="achievements" name="achievements" rows="4" class="textarea-field mt-1 block"></textarea>
                         </div>
                         <div>
-                            <label for="fighting-style" class="block text-sm font-medium text-gma-gray">Fighting Style</label>
-                            <textarea id="fighting-style" name="fighting-style" rows="3"
-                                    class="textarea-field mt-1 block"></textarea>
+                            <label for="highlight-video-1" class="block text-sm font-medium text-gma-gray">Highlight Video 1</label>
+                            <input type="url" id="highlight-video-1" name="highlight-video-1" class="input-field mt-1 block">
                         </div>
                         <div>
-                            <label for="special-fighter" class="block text-sm font-medium text-gma-gray">What makes you a special fighter?</label>
-                            <textarea id="special-fighter" name="special-fighter" rows="3"
-                                    class="textarea-field mt-1 block"></textarea>
-                        </div>
-                        <div>
-                            <label for="why-gma" class="block text-sm font-medium text-gma-gray">Why fight in Gods of Martial Arts?</label>
-                            <textarea id="why-gma" name="why-gma" rows="3"
-                                    class="textarea-field mt-1 block"></textarea>
-                        </div>
-                    </div>
-
-                    <!-- Highlight Videos & Social Media -->
-                    <div class="form-section space-y-4">
-                        <h2 class="text-xl font-semibold text-gma-gold">Highlight Videos & Social Media</h2>
-                        <div>
-                            <label for="highlight-video-1" class="block text-sm font-medium text-gma-gray">Highlight Video 1 (YouTube, Facebook, etc.)</label>
-                            <input type="text" id="highlight-video-1" name="highlight-video-1"
-                                class="input-field mt-1 block">
-                        </div>
-                        <div>
-                            <label for="highlight-video-2" class="block text-sm font-medium text-gma-gray">Highlight Video 2 (YouTube, Facebook, etc.)</label>
-                            <input type="text" id="highlight-video-2" name="highlight-video-2"
-                                class="input-field mt-1 block">
+                            <label for="highlight-video-2" class="block text-sm font-medium text-gma-gray">Highlight Video 2</label>
+                            <input type="url" id="highlight-video-2" name="highlight-video-2" class="input-field mt-1 block">
                         </div>
                         <div>
                             <label for="tapology" class="block text-sm font-medium text-gma-gray">Tapology Link</label>
-                            <input type="text" id="tapology" name="tapology"
-                                class="input-field mt-1 block">
-                        </div>
-                        <div>
-                            <label for="sherdog" class="block text-sm font-medium text-gma-gray">Sherdog Link</label>
-                            <input type="text" id="sherdog" name="sherdog"
-                                class="input-field mt-1 block">
-                        </div>
-                        <div>
-                            <label for="instagram" class="block text-sm font-medium text-gma-gray">Instagram Link</label>
-                            <input type="text" id="instagram" name="instagram"
-                                class="input-field mt-1 block">
+                            <input type="url" id="tapology" name="tapology" class="input-field mt-1 block">
                         </div>
                         <div>
                             <label for="facebook" class="block text-sm font-medium text-gma-gray">Facebook Link</label>
-                            <input type="text" id="facebook" name="facebook"
-                                class="input-field mt-1 block">
+                            <input type="url" id="facebook" name="facebook" class="input-field mt-1 block">
                         </div>
                         <div>
-                            <label for="additional-links" class="block text-sm font-medium text-gma-gray">Additional Links</label>
-                            <textarea id="additional-links" name="additional-links" rows="2"
-                                        class="textarea-field mt-1 block"></textarea>
+                            <label for="instagram" class="block text-sm font-medium text-gma-gray">Instagram Link</label>
+                            <input type="url" id="instagram" name="instagram" class="input-field mt-1 block">
                         </div>
                     </div>
 
-                    <!-- Notes -->
+                    <!-- Additional Information -->
                     <div class="form-section space-y-4">
-                        <h2 class="text-xl font-semibold text-gma-gold">Notes</h2>
+                        <h2 class="text-xl font-semibold text-gma-gold">Additional Information</h2>
                         <div>
-                            <label for="notes" class="block text-sm font-medium text-gma-gray">Additional Notes for the Promoter</label>
-                            <textarea id="notes" name="notes" rows="5"
-                                        class="textarea-field mt-1 block"></textarea>
+                            <label for="special-note" class="block text-sm font-medium text-gma-gray">Special Note</label>
+                            <textarea id="special-note" name="special-note" rows="4" class="textarea-field mt-1 block"></textarea>
+                        </div>
+                        <div>
+                            <label for="additional-info" class="block text-sm font-medium text-gma-gray">Additional Information</label>
+                            <textarea id="additional-info" name="additional-info" rows="4" class="textarea-field mt-1 block"></textarea>
+                        </div>
+                        <div>
+                            <label for="passport" class="block text-sm font-medium text-gma-gray">Passport Number</label>
+                            <input type="text" id="passport" name="passport" required class="input-field mt-1 block">
                         </div>
                     </div>
 
-                    <!-- Data Privacy Disclaimer -->
-                    <div class="text-center text-sm text-gma-gray px-4">
-                        <p class="text-sm italic">
-                            All data submitted in this form will be treated with strict confidentiality. It will not be sold, shared, or used for any purpose other than for Gods of Martial Arts event registration and internal communication.
-                        </p>
-                    </div>
-                    
                     <div class="flex items-center justify-center pt-4">
                         <button type="submit"
                                 class="btn-primary w-full px-6 py-3 text-lg font-bold text-white rounded-lg shadow-lg focus:outline-none focus:ring-4 focus:ring-red-500 focus:ring-opacity-50">
@@ -547,15 +468,15 @@
     <footer class="bg-[#0a0b0f] border-t border-white/5 text-gray-400 text-center py-10 px-4">
         <div class="max-w-4xl mx-auto">
             <div class="flex flex-wrap justify-center items-center gap-x-6 gap-y-2 mb-6">
-                <a href="https://www.linkedin.com/in/zac-crush/" target="_blank" class="hover:text-gold transition-colors">LinkedIn</a>
-                <a href="https://www.instagram.com/zcrush13/" target="_blank" class="hover:text-gold transition-colors">Instagram</a>
-                <a href="https://www.youtube.com/@GMAFightingChampionship" target="_blank" class="hover:text-gold transition-colors">YouTube</a>
-                <a href="https://www.facebook.com/crushza" target="_blank" class="hover:text-gold transition-colors">Facebook</a>
+                <a href="https://www.linkedin.com/in/zac-crush/" target="_blank" rel="noopener" class="hover:text-gold transition-colors">LinkedIn</a>
+                <a href="https://www.instagram.com/zcrush13/" target="_blank" rel="noopener" class="hover:text-gold transition-colors">Instagram</a>
+                <a href="https://www.youtube.com/@GMAFightingChampionship" target="_blank" rel="noopener" class="hover:text-gold transition-colors">YouTube</a>
+                <a href="https://www.facebook.com/crushza" target="_blank" rel="noopener" class="hover:text-gold transition-colors">Facebook</a>
                 <a href="mailto:hello@zaccrush.com" class="hover:text-gold transition-colors">hello@zaccrush.com</a>
                 <a href="https://zaccrush.com/faq.html" class="hover:text-gold transition-colors">FAQ</a>
             </div>
             <p class="text-sm mb-2">© 2025 Zac Crush. All rights reserved.</p>
-            <p class="text-xs">Sponsored by <a href="https://shadeprotocol.io/" target="_blank" class="underline hover:text-gold transition-colors">Shade Protocol: New Generation of Private DeFi</a></p>
+            <p class="text-xs">Sponsored by <a href="https://shadeprotocol.io/" target="_blank" rel="noopener" class="underline hover:text-gold transition-colors">Shade Protocol: New Generation of Private DeFi</a></p>
         </div>
     </footer>
 
@@ -571,3 +492,6 @@
 
 </body>
 </html>
+
+
+
