@@ -18,88 +18,110 @@
                 extend: {
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
+                        display: ['Oswald', 'sans-serif'],
                     },
                     colors: {
                         'gma-gold': '#d4af37',
+                        'gma-gold-soft': '#f0d78c',
                         'gma-red': '#dc2626',
-                        'gma-dark': '#151515',
+                        'gma-dark': '#0a0b0f',
                         'gma-gray': '#a0a0a0',
                     }
                 },
             },
         };
     </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap');
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #0d1117;
-            color: #c9d1d9;
+            background-color: #0a0b0f;
+            color: #e5e7eb;
             background-image: url('https://raw.githubusercontent.com/zaccrush/zac-crush-homepage/main/gma%20angels%20gods%20of%20martial%20arts.jpg?raw=true');
             background-size: cover;
             background-position: center;
-            background-attachment: fixed;
+
             background-repeat: no-repeat;
         }
+        .font-display { font-family: 'Oswald', sans-serif; }
         .hero-overlay {
-            background-color: rgba(0, 0, 0, 0.85); /* Dark overlay for readability */
+            background-color: rgba(10, 11, 15, 0.92); /* Dark overlay for readability */
         }
+        .eyebrow { letter-spacing: 0.2em; text-transform: uppercase; font-size: 0.75rem; font-weight: 700; color: #d4af37; }
         .form-section {
-            background-color: rgba(30, 30, 30, 0.9);
-            backdrop-filter: blur(5px);
-            border: 1px solid rgba(51, 51, 51, 0.8);
+            background-color: rgba(18, 20, 26, 0.85);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 1rem;
-            padding: 2rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 1.75rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        .form-section h2 {
+            display: flex;
+            align-items: center;
+            gap: 0.65rem;
         }
         .form-input-group > div {
             margin-bottom: 1rem; /* Added spacing between form fields */
         }
         .input-field, .select-field, .textarea-field {
-            background-color: #4a5568; /* Darker gray for inputs */
-            border: 1px solid #718096; /* Lighter border */
-            border-radius: 0.5rem; /* Smoother rounded corners */
-            padding: 0.75rem 1rem; /* Better padding for spacing */
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 0.6rem;
+            padding: 0.75rem 1rem;
             color: #fff;
             width: 100%;
             transition: all 0.2s;
         }
         .input-field:focus, .select-field:focus, .textarea-field:focus {
             outline: none;
-            box-shadow: 0 0 0 2px #dc2626; /* Red focus ring */
-            border-color: #dc2626;
+            box-shadow: 0 0 0 2px #d4af37;
+            border-color: #d4af37;
         }
+        .input-field::placeholder, .textarea-field::placeholder { color: #6b7280; }
         .text-gold { color: #d4af37; }
         .hover\:text-gold:hover {
             color: #d4af37;
         }
+        .btn-primary {
+            background-color: #dc2626;
+            transition: background-color 0.25s, transform 0.25s;
+            box-shadow: 0 10px 25px rgba(220, 38, 38, 0.25);
+        }
+        .btn-primary:hover { background-color: #b91c1c; transform: translateY(-2px); }
     </style>
 </head>
 <body class="antialiased flex flex-col min-h-screen">
 
     <!-- Sticky Header -->
-    <header class="fixed top-0 left-0 right-0 z-50 bg-[#0d1117]/80 backdrop-blur-sm border-b border-b-[#30363d]">
-        <nav class="max-w-5xl mx-auto flex justify-center items-center p-4 text-sm">
-            <div class="flex flex-wrap justify-center items-center gap-x-4 sm:gap-x-6 gap-y-2">
-                <a href="https://zaccrush.com/" class="text-gray-300 hover:text-gold transition-colors font-semibold">Home</a>
-                <a href="https://www.youtube.com/@GMAFightingChampionship" target="_blank" class="text-gray-300 hover:text-gold transition-colors font-semibold">YouTube</a>
-                <a href="https://zaccrush.com/gmaregistration/" target="_blank" class="text-gray-300 hover:text-gold transition-colors font-semibold">GMA Fighter Registration</a>
-                <a href="/saigon-superfights-registration" class="text-gray-300 hover:text-gold transition-colors font-semibold">Saigon Superfights Registration</a>
+    <header class="fixed top-0 left-0 right-0 z-50 bg-[#0a0b0f]/85 backdrop-blur-md border-b border-white/5">
+        <nav class="max-w-6xl mx-auto flex items-center justify-between px-4 sm:px-6 py-4">
+            <a href="https://zaccrush.com/" class="font-display text-xl tracking-wide text-white uppercase">Zac <span class="text-gold">Crush</span></a>
+            <button id="nav-toggle" class="sm:hidden text-gray-300 p-2" aria-label="Toggle menu" aria-expanded="false">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+            </button>
+            <div id="nav-links" class="hidden sm:flex flex-col sm:flex-row items-center gap-x-6 gap-y-3 sm:gap-y-0 text-sm font-semibold absolute sm:static top-full inset-x-0 sm:inset-auto bg-[#0a0b0f] sm:bg-transparent border-t sm:border-0 border-white/5 px-4 sm:px-0 py-4 sm:py-0">
+                <a href="https://zaccrush.com/" class="text-gray-300 hover:text-gold transition-colors">Home</a>
+                <a href="https://zaccrush.com/faq.html" class="text-gray-300 hover:text-gold transition-colors">FAQ</a>
+                <a href="https://zaccrush.com/saigon-superfights-registration" class="text-gray-300 hover:text-gold transition-colors">Saigon Superfights Registration</a>
+                <a href="https://www.youtube.com/@GMAFightingChampionship" target="_blank" class="text-gray-300 hover:text-gold transition-colors">YouTube</a>
             </div>
         </nav>
     </header>
 
-    <main class="flex-grow pt-20 hero-overlay"> <!-- Moved hero-overlay class here -->
-        <div class="p-4 sm:p-8"> <!-- Removed hero-overlay from here -->
-            <div class="w-full max-w-lg mx-auto bg-gray-800 p-8 rounded-2xl shadow-xl space-y-6">
+    <main class="flex-grow pt-24 hero-overlay">
+        <div class="p-4 sm:p-8">
+            <div class="w-full max-w-lg mx-auto bg-[#12141a] border border-white/10 p-8 rounded-2xl shadow-2xl space-y-6">
                 <!-- Header with logo and titles -->
                 <div class="text-center space-y-2 mb-8">
                     <!-- GMA Championship Belt -->
                     <img src="https://github.com/zaccrush/zac-crush-homepage/blob/main/gmaregistration/%C4%90ai%20Tha%CC%82%CC%80n%20Vo%CC%83%20Myanmar%20(1).png?raw=true" alt="Gods of Martial Arts Championship Belt" class="mx-auto w-4/5 h-auto rounded-lg" onerror="this.onerror=null;this.src='https://placehold.co/400x200/000000/FFFFFF?text=GMA+Belt';">
-                    <h1 class="text-3xl font-bold uppercase text-gma-gold mt-4">GODS OF MARTIAL ARTS</h1>
-                    <p class="text-lg text-gma-gray">Fighter Registration</p>
+                    <p class="eyebrow">Fighter Registration</p>
+                    <h1 class="font-display text-3xl font-semibold uppercase text-gma-gold mt-2">Gods of Martial Arts</h1>
                 </div>
-                
+
                 <!-- The form with the 'netlify' attribute for automatic submissions -->
                 <form name="mma-registration" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="space-y-6">
                     <input type="hidden" name="form-name" value="mma-registration">
@@ -512,7 +534,7 @@
                     
                     <div class="flex items-center justify-center pt-4">
                         <button type="submit"
-                                class="w-full px-6 py-3 text-lg font-bold text-white bg-gma-red rounded-lg shadow-lg hover:bg-red-700 focus:outline-none focus:ring-4 focus:ring-red-500 focus:ring-opacity-50 transition-all duration-300">
+                                class="btn-primary w-full px-6 py-3 text-lg font-bold text-white rounded-lg shadow-lg focus:outline-none focus:ring-4 focus:ring-red-500 focus:ring-opacity-50">
                             Submit Registration
                         </button>
                     </div>
@@ -522,7 +544,7 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-[#0d1117] border-t border-t-[#30363d] text-gray-400 text-center py-8 px-4">
+    <footer class="bg-[#0a0b0f] border-t border-white/5 text-gray-400 text-center py-10 px-4">
         <div class="max-w-4xl mx-auto">
             <div class="flex flex-wrap justify-center items-center gap-x-6 gap-y-2 mb-6">
                 <a href="https://www.linkedin.com/in/zac-crush/" target="_blank" class="hover:text-gold transition-colors">LinkedIn</a>
@@ -530,12 +552,22 @@
                 <a href="https://www.youtube.com/@GMAFightingChampionship" target="_blank" class="hover:text-gold transition-colors">YouTube</a>
                 <a href="https://www.facebook.com/crushza" target="_blank" class="hover:text-gold transition-colors">Facebook</a>
                 <a href="mailto:hello@zaccrush.com" class="hover:text-gold transition-colors">hello@zaccrush.com</a>
-                <a href="/faq.html" class="hover:text-gold transition-colors">FAQ</a>
+                <a href="https://zaccrush.com/faq.html" class="hover:text-gold transition-colors">FAQ</a>
             </div>
             <p class="text-sm mb-2">© 2025 Zac Crush. All rights reserved.</p>
             <p class="text-xs">Sponsored by <a href="https://shadeprotocol.io/" target="_blank" class="underline hover:text-gold transition-colors">Shade Protocol: New Generation of Private DeFi</a></p>
         </div>
     </footer>
+
+    <script>
+        const navToggle = document.getElementById('nav-toggle');
+        const navLinks = document.getElementById('nav-links');
+        navToggle.addEventListener('click', () => {
+            const isOpen = navLinks.classList.toggle('flex');
+            navLinks.classList.toggle('hidden');
+            navToggle.setAttribute('aria-expanded', isOpen);
+        });
+    </script>
 
 </body>
 </html>

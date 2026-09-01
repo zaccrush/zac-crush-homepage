@@ -4,69 +4,89 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Saigon Superfights | Grappling and Boxing Registration</title>
-  
+
   <!-- Social Media Meta Tags -->
   <meta property="og:title" content="Saigon Superfights | Grappling and Boxing Registration">
   <meta property="og:description" content="Register to compete in Saigon Superfights for grappling and boxing matches.">
   <meta property="og:image" content="https://raw.githubusercontent.com/zaccrush/zac-crush-homepage/4f38e25754d34b0e66645603976bb5e4d4e24916/saigon%20superfights%20logo.jpg">
   <meta property="og:image:alt" content="Saigon Superfights Logo">
-  <meta name="theme-color" content="#000000">
+  <meta name="theme-color" content="#0a0b0f">
 
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
-    // Custom colors for header/footer hover effects from gmaregistration page
     tailwind.config = {
         theme: {
             extend: {
                 fontFamily: {
                     sans: ['Inter', 'sans-serif'],
+                    display: ['Oswald', 'sans-serif'],
                 },
                 colors: {
                     'gma-gold': '#d4af37',
+                    'gma-gold-soft': '#f0d78c',
+                    'gma-red': '#dc2626',
+                    'gma-dark': '#0a0b0f',
+                    'gma-gray': '#a0a0a0',
                 }
             },
         },
     };
   </script>
-  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
+
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
-    
-    body {  
-        background-color: #111;  
-        color: #eee;  
+    body {
+        background-color: #0a0b0f;
+        color: #e5e7eb;
         font-family: 'Inter', sans-serif;
         background-image: url('https://github.com/zaccrush/zac-crush-homepage/blob/main/saigon-superfights-grappling-ram-muay-thai.jpeg?raw=true');
         background-size: cover;
         background-position: center center;
-        background-attachment: fixed;
+
     }
-    .body-overlay {
-        background-color: rgba(0, 0, 0, 0.85);
+    .font-display { font-family: 'Oswald', sans-serif; }
+    .body-overlay { background-color: rgba(10, 11, 15, 0.92); }
+    .eyebrow { letter-spacing: 0.2em; text-transform: uppercase; font-size: 0.75rem; font-weight: 700; color: #d4af37; }
+    .card {
+        background-color: rgba(18, 20, 26, 0.88);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(8px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
     }
-    .card {  
-        background-color: rgba(30, 30, 30, 0.9);  
-        border: 1px solid #444;  
-        backdrop-filter: blur(4px);
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5), 0 5px 10px rgba(0, 0, 0, 0.2);
+    .input-field {
+        background-color: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        transition: all 0.2s ease-in-out;
     }
-    .input-field { background-color: #333; border-color: #555; transition: all 0.2s ease-in-out; }
-    .input-field:focus { box-shadow: 0 0 0 2px #d4af37; border-color: #d4af37; ring: 0; outline: 0; }
+    .input-field:focus { box-shadow: 0 0 0 2px #d4af37; border-color: #d4af37; outline: 0; }
+    .input-field::placeholder { color: #6b7280; }
     .text-gold { color: #d4af37; }
     .hover\:text-gold:hover { color: #d4af37; }
+    .btn-primary {
+        background-color: #dc2626;
+        transition: background-color 0.25s, transform 0.25s;
+        box-shadow: 0 10px 25px rgba(220, 38, 38, 0.25);
+    }
+    .btn-primary:hover { background-color: #b91c1c; transform: translateY(-2px); }
   </style>
 </head>
 <body class="antialiased flex flex-col min-h-screen">
 
     <!-- Sticky Header -->
-    <header class="fixed top-0 left-0 right-0 z-50 bg-[#111]/80 backdrop-blur-sm border-b border-b-[#444]">
-        <nav class="max-w-5xl mx-auto flex justify-center items-center p-4 text-sm">
-            <div class="flex flex-wrap justify-center items-center gap-x-4 sm:gap-x-6 gap-y-2">
-                <a href="https://zaccrush.com/" class="text-gray-300 hover:text-gold transition-colors font-semibold">Home</a>
-                <a href="https://www.youtube.com/@GMAFightingChampionship" target="_blank" class="text-gray-300 hover:text-gold transition-colors font-semibold">YouTube</a>
-                <a href="https://zaccrush.com/gmaregistration/" target="_blank" class="text-gray-300 hover:text-gold transition-colors font-semibold">GMA Fighter Registration</a>
-                <a href="/saigon-superfights-registration" class="text-gray-300 hover:text-gold transition-colors font-semibold">Saigon Superfights Registration</a>
+    <header class="fixed top-0 left-0 right-0 z-50 bg-[#0a0b0f]/85 backdrop-blur-md border-b border-white/5">
+        <nav class="max-w-6xl mx-auto flex items-center justify-between px-4 sm:px-6 py-4">
+            <a href="https://zaccrush.com/" class="font-display text-xl tracking-wide text-white uppercase">Zac <span class="text-gold">Crush</span></a>
+            <button id="nav-toggle" class="sm:hidden text-gray-300 p-2" aria-label="Toggle menu" aria-expanded="false">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+            </button>
+            <div id="nav-links" class="hidden sm:flex flex-col sm:flex-row items-center gap-x-6 gap-y-3 sm:gap-y-0 text-sm font-semibold absolute sm:static top-full inset-x-0 sm:inset-auto bg-[#0a0b0f] sm:bg-transparent border-t sm:border-0 border-white/5 px-4 sm:px-0 py-4 sm:py-0">
+                <a href="https://zaccrush.com/" class="text-gray-300 hover:text-gold transition-colors">Home</a>
+                <a href="https://zaccrush.com/faq.html" class="text-gray-300 hover:text-gold transition-colors">FAQ</a>
+                <a href="https://zaccrush.com/gmaregistration/" class="text-gray-300 hover:text-gold transition-colors">GMA Fighter Registration</a>
+                <a href="https://www.youtube.com/@GMAFightingChampionship" target="_blank" class="text-gray-300 hover:text-gold transition-colors">YouTube</a>
             </div>
         </nav>
     </header>
@@ -75,40 +95,41 @@
     <main class="flex-grow pt-24 body-overlay">
         <div class="max-w-2xl mx-auto p-4 sm:p-6">
             <!-- Page Header -->
-            <header class="text-center mb-6">
-                <img src="https://raw.githubusercontent.com/zaccrush/zac-crush-homepage/4f38e25754d34b0e66645603976bb5e4d4e24916/saigon%20superfights%20logo.jpg" alt="Logo" class="w-72 sm:w-96 mx-auto mb-2 rounded-lg">
-                <h1 class="text-2xl sm:text-3xl font-bold text-yellow-400 uppercase tracking-wider">Grappling and Boxing</h1>
-                <p class="text-gray-400 text-sm mt-1">Register to compete in an upcoming event.</p>
+            <header class="text-center mb-8">
+                <img src="https://raw.githubusercontent.com/zaccrush/zac-crush-homepage/4f38e25754d34b0e66645603976bb5e4d4e24916/saigon%20superfights%20logo.jpg" alt="Logo" class="w-64 sm:w-80 mx-auto mb-4 rounded-xl shadow-lg">
+                <p class="eyebrow">Fighter Registration</p>
+                <h1 class="font-display text-3xl sm:text-4xl font-semibold text-white uppercase tracking-wide mt-2">Grappling and Boxing</h1>
+                <p class="text-gray-400 text-sm mt-2">Register to compete in an upcoming event.</p>
             </header>
 
             <!-- Netlify Registration Form -->
             <form name="ssf-registration" method="POST" action="/success.html" data-netlify="true" class="space-y-6">
                 <input type="hidden" name="form-name" value="ssf-registration" />
 
-                <div class="card p-4 sm:p-6 rounded-lg space-y-4">
+                <div class="card p-6 sm:p-8 rounded-2xl space-y-4">
                     <div>
                         <label for="name" class="block text-sm font-medium text-gray-300">Full Name</label>
-                        <input type="text" id="name" name="name" required class="input-field mt-1 block w-full rounded-md p-3 text-white">
+                        <input type="text" id="name" name="name" required class="input-field mt-1 block w-full rounded-lg p-3 text-white">
                     </div>
                     <div>
                         <label for="email" class="block text-sm font-medium text-gray-300">Email Address</label>
-                        <input type="email" id="email" name="email" required class="input-field mt-1 block w-full rounded-md p-3 text-white">
+                        <input type="email" id="email" name="email" required class="input-field mt-1 block w-full rounded-lg p-3 text-white">
                     </div>
                     <div>
                         <label for="birthYear" class="block text-sm font-medium text-gray-300">Birth Year</label>
-                        <input type="number" id="birthYear" name="birthYear" required placeholder="e.g., 1995" class="input-field mt-1 block w-full rounded-md p-3 text-white">
+                        <input type="number" id="birthYear" name="birthYear" required placeholder="e.g., 1995" class="input-field mt-1 block w-full rounded-lg p-3 text-white">
                     </div>
                     <div>
                         <label for="team" class="block text-sm font-medium text-gray-300">Team</label>
-                        <input type="text" id="team" name="team" class="input-field mt-1 block w-full rounded-md p-3 text-white">
+                        <input type="text" id="team" name="team" class="input-field mt-1 block w-full rounded-lg p-3 text-white">
                     </div>
                     <div>
                         <label for="weight" class="block text-sm font-medium text-gray-300">Weight (kg)</label>
-                        <input type="number" step="0.1" id="weight" name="weight" required class="input-field mt-1 block w-full rounded-md p-3 text-white">
+                        <input type="number" step="0.1" id="weight" name="weight" required class="input-field mt-1 block w-full rounded-lg p-3 text-white">
                     </div>
                     <div>
                         <label for="matchType" class="block text-sm font-medium text-gray-300">What type of match would you like?</label>
-                        <select id="matchType" name="matchType" required class="input-field mt-1 block w-full rounded-md p-3 text-white">
+                        <select id="matchType" name="matchType" required class="input-field mt-1 block w-full rounded-lg p-3 text-white">
                             <option value="">Select Match Type...</option>
                             <option value="Grappling">Grappling</option>
                             <option value="Boxing">Boxing</option>
@@ -117,7 +138,7 @@
                     </div>
                     <div>
                         <label for="belt" class="block text-sm font-medium text-gray-300">BJJ Belt Level (if applicable)</label>
-                        <select id="belt" name="belt" class="input-field mt-1 block w-full rounded-md p-3 text-white">
+                        <select id="belt" name="belt" class="input-field mt-1 block w-full rounded-lg p-3 text-white">
                             <option value="">Select Belt...</option>
                             <option value="White">White</option>
                             <option value="Blue">Blue</option>
@@ -129,30 +150,30 @@
                     </div>
                     <div>
                         <label for="boxingExperience" class="block text-sm font-medium text-gray-300">Years experience in boxing (short answer)</label>
-                        <input type="text" id="boxingExperience" name="boxingExperience" class="input-field mt-1 block w-full rounded-md p-3 text-white">
+                        <input type="text" id="boxingExperience" name="boxingExperience" class="input-field mt-1 block w-full rounded-lg p-3 text-white">
                     </div>
                     <div>
                         <label for="fightStatus" class="block text-sm font-medium text-gray-300">Status</label>
-                        <select id="fightStatus" name="fightStatus" required class="input-field mt-1 block w-full rounded-md p-3 text-white">
+                        <select id="fightStatus" name="fightStatus" required class="input-field mt-1 block w-full rounded-lg p-3 text-white">
                             <option value="Ready to Fight!">Ready to Fight!</option>
                             <option value="Not Looking for Superfight">Not Looking for Superfight</option>
                         </select>
                     </div>
                     <div>
                         <label for="idealOpponent" class="block text-sm font-medium text-gray-300">Ideal Opponent (Optional)</label>
-                        <input type="text" id="idealOpponent" name="idealOpponent" placeholder="Name, weight, belt, style..." class="input-field mt-1 block w-full rounded-md p-3 text-white">
+                        <input type="text" id="idealOpponent" name="idealOpponent" placeholder="Name, weight, belt, style..." class="input-field mt-1 block w-full rounded-lg p-3 text-white">
                     </div>
                     <div>
                         <label for="opportunity" class="block text-sm font-medium text-gray-300">What's one opportunity you've always wanted in martial arts?</label>
-                        <textarea id="opportunity" name="opportunity" rows="3" required class="input-field mt-1 block w-full rounded-md p-3 text-white"></textarea>
+                        <textarea id="opportunity" name="opportunity" rows="3" required class="input-field mt-1 block w-full rounded-lg p-3 text-white"></textarea>
                     </div>
                     <div>
                         <label for="excitement" class="block text-sm font-medium text-gray-300">How could we make this app more exciting?</label>
-                        <textarea id="excitement" name="excitement" rows="3" required class="input-field mt-1 block w-full rounded-md p-3 text-white"></textarea>
+                        <textarea id="excitement" name="excitement" rows="3" required class="input-field mt-1 block w-full rounded-lg p-3 text-white"></textarea>
                     </div>
                 </div>
                 <div>
-                    <button type="submit" class="w-full px-6 py-4 text-lg font-bold text-white bg-red-600 rounded-lg shadow-lg hover:bg-red-700 transition-all duration-300">
+                    <button type="submit" class="btn-primary w-full px-6 py-4 text-lg font-bold text-white rounded-xl shadow-lg">
                         Submit Registration
                     </button>
                 </div>
@@ -161,7 +182,7 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-[#111] border-t border-t-[#444] text-gray-400 text-center py-8 px-4">
+    <footer class="bg-[#0a0b0f] border-t border-white/5 text-gray-400 text-center py-10 px-4">
         <div class="max-w-4xl mx-auto">
             <div class="flex flex-wrap justify-center items-center gap-x-6 gap-y-2 mb-6">
                 <a href="https://www.linkedin.com/in/zac-crush/" target="_blank" class="hover:text-gold transition-colors">LinkedIn</a>
@@ -169,13 +190,22 @@
                 <a href="https://www.youtube.com/@GMAFightingChampionship" target="_blank" class="hover:text-gold transition-colors">YouTube</a>
                 <a href="https://www.facebook.com/crushza" target="_blank" class="hover:text-gold transition-colors">Facebook</a>
                 <a href="mailto:hello@zaccrush.com" class="hover:text-gold transition-colors">hello@zaccrush.com</a>
-                <a href="/faq.html" class="hover:text-gold transition-colors">FAQ</a>
+                <a href="https://zaccrush.com/faq.html" class="hover:text-gold transition-colors">FAQ</a>
             </div>
             <p class="text-sm mb-2">© 2025 Zac Crush. All rights reserved.</p>
             <p class="text-xs">Sponsored by <a href="https://shadeprotocol.io/" target="_blank" class="underline hover:text-gold transition-colors">Shade Protocol: New Generation of Private DeFi</a></p>
         </div>
     </footer>
 
+    <script>
+        const navToggle = document.getElementById('nav-toggle');
+        const navLinks = document.getElementById('nav-links');
+        navToggle.addEventListener('click', () => {
+            const isOpen = navLinks.classList.toggle('flex');
+            navLinks.classList.toggle('hidden');
+            navToggle.setAttribute('aria-expanded', isOpen);
+        });
+    </script>
+
 </body>
 </html>
-
