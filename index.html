@@ -297,6 +297,7 @@
           muted loop playsinline preload="metadata"
           poster="/assets/video/zac-crush-brand-reel-poster.jpg"
           aria-label="Zac Crush brand reel: motorbike roads, wrestling roots, grappling across Southeast Asia, and the broadcaster behind the mic">
+          <source src="/assets/video/zac-crush-brand-reel-720.mp4" type="video/mp4" media="(max-width: 820px)">
           <source src="/assets/video/zac-crush-brand-reel.mp4" type="video/mp4">
         </video>
         <div class="frame" aria-hidden="true"></div>
@@ -342,8 +343,8 @@
       document.getElementById('yr').textContent = new Date().getFullYear();
 
       // No file yet / failed load: keep the branded slate on screen.
-      var src = v.querySelector('source');
-      src.addEventListener('error', function () { monitor.classList.add('no-signal'); });
+      var srcs = v.querySelectorAll('source');
+      srcs[srcs.length - 1].addEventListener('error', function () { monitor.classList.add('no-signal'); });
 
       function pad(n) { return (n < 10 ? '0' : '') + n; }
       function tick() {
