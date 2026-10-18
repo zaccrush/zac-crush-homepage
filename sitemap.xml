@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+  <url>
+    <loc>https://zaccrush.com/</loc>
+    <lastmod>2026-10-18</lastmod>
+    <video:video>
+      <video:thumbnail_loc>https://zaccrush.com/assets/video/zac-crush-brand-reel-poster.jpg</video:thumbnail_loc>
+      <video:title>Zac Crush — Brand Reel</video:title>
+      <video:description>24 seconds with Zac Crush: motorbike roads, high-school wrestling roots, grappling across Southeast Asia, and the broadcaster telling the story.</video:description>
+      <video:content_loc>https://zaccrush.com/assets/video/zac-crush-brand-reel.mp4</video:content_loc>
+      <video:duration>24</video:duration>
+      <video:publication_date>2026-10-18T09:00:00+07:00</video:publication_date>
+    </video:video>
+  </url>
+</urlset>

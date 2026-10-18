@@ -1,0 +1,19 @@
+# Retired Crush Combat Agency pages -> new homepage (permanent, keeps link equity)
+/roster                          /  301
+/roster/*                        /  301
+/services                        /  301
+/services/*                      /  301
+/media                           /  301
+/media/*                         /  301
+/faq                             /  301
+/faq.html                        /  301
+/partner-inquiry                 /  301
+/partner-inquiry/*               /  301
+/join-fighter                    /  301
+/join-fighter/*                  /  301
+/gmaregistration                 /  301
+/gmaregistration/*               /  301
+/saigon-superfights-registration    /  301
+/saigon-superfights-registration/*  /  301
+/admin.html                      /  301
+/SEA%20GRAPPLING%20UNITED/*      /  301
