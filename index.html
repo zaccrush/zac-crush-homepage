@@ -1,289 +1,388 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 
-    <!-- SEO & Core Meta Tags -->
-    <title>Crush Combat Agency — Architects of the Combat Economy</title>
-    <meta name="description" content="Elite MMA talent management & live broadcast media house powering Southeast Asia's fastest-growing fight ecosystem. Founded by Zac Crush.">
-    <link rel="icon" type="image/jpeg" href="https://github.com/zaccrush/zac-crush-homepage/blob/main/favicon.jpg?raw=true" onerror="this.onerror=null;this.src='https://placehold.co/32x32/141413/FAF9F5?text=CCA';">
+  <!-- Primary SEO -->
+  <title>Zac Crush | Combat Sports Broadcaster &amp; Host, Southeast Asia</title>
+  <meta name="description" content="Zac Crush is a combat sports broadcaster, storyteller and host based in Vietnam — the gateway between East and West martial arts across Southeast Asia.">
+  <meta name="author" content="Zac Crush">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <link rel="canonical" href="https://zaccrush.com/">
+  <meta name="theme-color" content="#050505">
+  <meta name="color-scheme" content="dark">
+  <meta name="format-detection" content="telephone=no">
 
-    <!-- Open Graph / Facebook / Social Media Meta Tags -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://zaccrush.com/">
-    <meta property="og:title" content="Crush Combat Agency — Architects of the Combat Economy">
-    <meta property="og:description" content="Elite MMA talent management & live broadcast media house powering Southeast Asia's fastest-growing fight ecosystem.">
-    <meta property="og:image" content="https://github.com/zaccrush/zac-crush-homepage/blob/main/zac-crush-raising-hand-winner-grappling-match-saigon-superfights.jpeg?raw=true">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta property="og:site_name" content="Crush Combat Agency">
+  <!-- Favicons: 02 — Tally App Badge -->
+  <link rel="icon" href="/favicon.ico" sizes="32x32">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
 
-    <!-- Twitter Card Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://zaccrush.com/">
-    <meta name="twitter:title" content="Crush Combat Agency — Architects of the Combat Economy">
-    <meta name="twitter:description" content="Elite MMA talent management & live broadcast media house powering Southeast Asia's fastest-growing fight ecosystem.">
-    <meta name="twitter:image" content="https://github.com/zaccrush/zac-crush-homepage/blob/main/zac-crush-raising-hand-winner-grappling-match-saigon-superfights.jpeg?raw=true">
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Zac Crush">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:url" content="https://zaccrush.com/">
+  <meta property="og:title" content="Zac Crush — Combat Sports Broadcaster, Storyteller &amp; Host">
+  <meta property="og:description" content="The gateway between East and West martial arts. MMA, grappling and fight-culture stories from across Southeast Asia.">
+  <meta property="og:image" content="https://zaccrush.com/assets/og/zac-crush-og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Zac Crush signal-box logo with the line Broadcaster, Storyteller, Host">
+  <meta property="og:video" content="https://zaccrush.com/assets/video/zac-crush-brand-reel.mp4">
+  <meta property="og:video:secure_url" content="https://zaccrush.com/assets/video/zac-crush-brand-reel.mp4">
+  <meta property="og:video:type" content="video/mp4">
+  <meta property="og:video:width" content="1920">
+  <meta property="og:video:height" content="1080">
 
-    <!-- Structured Data (JSON-LD) for Rich Snippets -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "Crush Combat Agency",
-      "url": "https://zaccrush.com",
-      "description": "Elite MMA talent management & live broadcast media house powering Southeast Asia's fastest-growing fight ecosystem.",
-      "founder": {
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Zac Crush — Combat Sports Broadcaster, Storyteller &amp; Host">
+  <meta name="twitter:description" content="The gateway between East and West martial arts. MMA, grappling and fight-culture stories from across Southeast Asia.">
+  <meta name="twitter:image" content="https://zaccrush.com/assets/og/zac-crush-og.png">
+  <meta name="twitter:image:alt" content="Zac Crush signal-box logo with the line Broadcaster, Storyteller, Host">
+
+  <link rel="preload" as="image" href="/assets/video/zac-crush-brand-reel-poster.jpg" fetchpriority="high">
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
         "@type": "Person",
+        "@id": "https://zaccrush.com/#zac",
         "name": "Zac Crush",
-        "url": "https://zaccrush.com",
+        "url": "https://zaccrush.com/",
+        "image": "https://zaccrush.com/assets/og/zac-crush-og.png",
+        "jobTitle": "Combat Sports Broadcaster, Storyteller and Host",
+        "description": "Combat sports broadcaster, storyteller and show host based in Vietnam, bridging East and West martial arts across Southeast Asia.",
+        "nationality": "American",
+        "homeLocation": { "@type": "Country", "name": "Vietnam" },
+        "knowsAbout": ["Mixed martial arts", "Brazilian jiu-jitsu", "Grappling", "Muay Thai", "Kun Khmer", "Lethwei", "Combat sports broadcasting", "Fight commentary", "Podcasting"],
         "sameAs": [
-          "https://www.linkedin.com/in/zac-crush/",
-          "https://www.instagram.com/zcrush13/",
+          "https://www.instagram.com/zaccrush_/",
           "https://www.facebook.com/crushza",
-          "https://www.youtube.com/@vietnam-grappling"
+          "https://www.linkedin.com/in/zac-crush/"
         ]
       },
-      "areaServed": [
-        "Singapore", "Phnom Penh, Cambodia", "Da Nang, Vietnam", "Kuala Lumpur, Malaysia",
-        "Ho Chi Minh City, Vietnam", "Jakarta, Indonesia", "Manila, Philippines", "Siem Reap, Cambodia"
-      ]
+      {
+        "@type": "WebSite",
+        "@id": "https://zaccrush.com/#website",
+        "url": "https://zaccrush.com/",
+        "name": "Zac Crush",
+        "inLanguage": "en",
+        "publisher": { "@id": "https://zaccrush.com/#zac" }
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://zaccrush.com/#webpage",
+        "url": "https://zaccrush.com/",
+        "name": "Zac Crush | Combat Sports Broadcaster & Host, Southeast Asia",
+        "isPartOf": { "@id": "https://zaccrush.com/#website" },
+        "about": { "@id": "https://zaccrush.com/#zac" },
+        "primaryImageOfPage": "https://zaccrush.com/assets/og/zac-crush-og.png",
+        "video": { "@id": "https://zaccrush.com/#reel" },
+        "inLanguage": "en"
+      },
+      {
+        "@type": "VideoObject",
+        "@id": "https://zaccrush.com/#reel",
+        "name": "Zac Crush — Brand Reel",
+        "description": "24 seconds with Zac Crush: motorbike roads, high-school wrestling roots, grappling across Southeast Asia, and the broadcaster telling the story.",
+        "thumbnailUrl": "https://zaccrush.com/assets/video/zac-crush-brand-reel-poster.jpg",
+        "contentUrl": "https://zaccrush.com/assets/video/zac-crush-brand-reel.mp4",
+        "uploadDate": "2026-10-18T09:00:00+07:00",
+        "duration": "PT24S",
+        "width": 1920,
+        "height": 1080,
+        "creator": { "@id": "https://zaccrush.com/#zac" }
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    :root {
+      --black: #050505;
+      --gold: #E5B84B;
+      --red: #EE2B2B;
+      --cream: #F5F0E6;
+      --cream-2: rgba(245, 240, 230, .62);
+      --cream-3: rgba(245, 240, 230, .38);
+      --line: rgba(245, 240, 230, .12);
+      --sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+      --gutter: clamp(16px, 4vw, 40px);
     }
-    </script>
+    *, *::before, *::after { box-sizing: border-box; }
+    html { background: var(--black); }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      min-height: 100svh;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      background: var(--black);
+      color: var(--cream);
+      font-family: var(--sans);
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+    a { color: inherit; text-decoration: none; }
+    :focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+    .mono { font-family: var(--mono); text-transform: uppercase; letter-spacing: .22em; font-size: 11px; font-weight: 600; }
+    .dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: var(--red); vertical-align: 1px; }
+    .pulse { animation: pulse 2s ease-in-out infinite; }
+    @keyframes pulse { 0%, 100% { opacity: 1 } 50% { opacity: .3 } }
 
-    <!-- Tailwind CSS & Google Fonts -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        serif: ['"Source Serif 4"', 'Georgia', 'serif'],
-                        display: ['Inter', 'sans-serif'],
-                    },
-                    colors: {
-                        ink: '#141413',
-                        'ink-soft': '#3D3D3A',
-                        clay: '#D97757',
-                        'clay-dark': '#C6613F',
-                        cream: '#FAF9F5',
-                        'cream-alt': '#F0EEE6',
-                    },
-                },
-            },
-        };
-    </script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/assets/styles.css">
+    /* ---------- Header ---------- */
+    .site-header {
+      display: flex; align-items: center; justify-content: space-between; gap: 16px;
+      padding: 16px var(--gutter);
+      padding-top: max(16px, env(safe-area-inset-top));
+      border-bottom: 1px solid var(--line);
+    }
+    .brand { margin: 0; font-size: inherit; font-weight: inherit; }
+    .brand a { display: flex; align-items: center; gap: 14px; }
+    .brand svg { width: 42px; height: 42px; flex: none; }
+    .brand .name { display: block; font-weight: 900; font-size: 19px; letter-spacing: .16em; line-height: 1; }
+    .brand .role { display: block; margin-top: 7px; color: var(--cream-2); font-size: 9.5px; letter-spacing: .2em; }
+    .book {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 10px 14px; border: 1px solid rgba(229, 184, 75, .45); color: var(--gold);
+      transition: background .2s, color .2s, border-color .2s;
+    }
+    .book:hover { background: var(--gold); color: var(--black); border-color: var(--gold); }
+
+    /* ---------- Main: the monitor ---------- */
+    main {
+      display: grid; place-items: center;
+      padding: clamp(20px, 4vh, 44px) var(--gutter);
+    }
+    .monitor {
+      width: min(100%, 1280px, calc((100svh - 300px) * 16 / 9));
+      min-width: min(100%, 320px);
+      margin: 0;
+    }
+    .hud { display: flex; justify-content: space-between; align-items: center; gap: 12px; color: var(--cream-2); }
+    .hud-top { margin-bottom: 14px; }
+    .hud-bottom { margin-top: 14px; }
+    .hud .gold { color: var(--gold); }
+    .tc { font-variant-numeric: tabular-nums; }
+
+    .screen {
+      position: relative; aspect-ratio: 16 / 9; background: #0b0b0b;
+      isolation: isolate;
+    }
+    /* viewfinder brackets */
+    .screen::before, .screen::after, .frame::before, .frame::after {
+      content: ""; position: absolute; width: clamp(18px, 3vw, 34px); height: clamp(18px, 3vw, 34px);
+      border: 0 solid var(--gold); z-index: 3; pointer-events: none;
+      filter: drop-shadow(0 0 6px rgba(229, 184, 75, .55));
+    }
+    .screen::before { top: -9px; left: -9px; border-top-width: 3px; border-left-width: 3px; }
+    .screen::after { top: -9px; right: -9px; border-top-width: 3px; border-right-width: 3px; }
+    .frame::before { bottom: -9px; left: -9px; border-bottom-width: 3px; border-left-width: 3px; }
+    .frame::after { bottom: -9px; right: -9px; border-bottom-width: 3px; border-right-width: 3px; }
+    .frame { position: absolute; inset: 0; z-index: 3; pointer-events: none; }
+
+    /* slate shows behind the video, and stands in if the file is missing */
+    .slate {
+      position: absolute; inset: 0; z-index: 0; display: grid; place-items: center; overflow: hidden;
+      background:
+        radial-gradient(60% 70% at 50% 50%, rgba(238, 43, 43, .16), transparent 70%),
+        linear-gradient(var(--black), #0d0a09);
+    }
+    .slate .bars { position: absolute; left: 0; right: 0; top: 50%; transform: translateY(-50%); height: 15%; display: grid; align-content: space-between; opacity: .5; }
+    .slate .bars i { display: block; height: clamp(2px, .45vw, 5px); background: var(--red); }
+    .slate .bars i:nth-child(2) { background: var(--cream); }
+    .slate svg { position: relative; width: 22%; min-width: 88px; }
+    .slate .msg { position: absolute; bottom: 9%; color: var(--cream-3); }
+
+    video {
+      position: absolute; inset: 0; z-index: 1; width: 100%; height: 100%;
+      object-fit: cover; display: block; cursor: pointer; background: transparent;
+    }
+    .no-signal video { display: none; }
+
+    .controls { display: flex; gap: 8px; }
+    .ctl {
+      display: inline-flex; align-items: center; gap: 8px;
+      font: inherit; color: var(--cream); background: transparent;
+      border: 1px solid var(--line); padding: 8px 12px; cursor: pointer;
+      transition: border-color .2s, color .2s;
+    }
+    .ctl:hover { border-color: var(--gold); color: var(--gold); }
+    .ctl[aria-pressed="true"] { border-color: rgba(238, 43, 43, .6); }
+    .no-signal .controls { visibility: hidden; }
+
+    /* ---------- Footer ---------- */
+    .site-footer {
+      display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px 24px;
+      padding: 18px var(--gutter);
+      padding-bottom: max(18px, env(safe-area-inset-bottom));
+      border-top: 1px solid var(--line);
+      color: var(--cream-2);
+    }
+    .site-footer nav ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px 22px; }
+    .site-footer nav a { transition: color .2s; }
+    .site-footer nav a:hover { color: var(--gold); }
+    .site-footer nav .ext { color: var(--cream); }
+    .sig { display: flex; align-items: center; gap: 18px; }
+    .eastwest .gold { color: var(--gold); }
+    .eastwest .red { color: var(--red); }
+
+    @media (max-width: 640px) {
+      .brand .role, .hide-sm { display: none; }
+      .brand svg { width: 36px; height: 36px; }
+      .brand .name { font-size: 16px; }
+      .book { padding: 9px 11px; }
+      .site-footer { justify-content: center; text-align: center; }
+      .site-footer nav ul { justify-content: center; }
+      .ctl .lbl { display: none; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .pulse { animation: none; }
+      * { transition: none !important; }
+    }
+  </style>
 </head>
-<body class="antialiased flex flex-col min-h-screen">
+<body>
 
-    <!-- Sticky Header -->
-    <header class="fixed top-0 left-0 right-0 z-50 bg-[#FAF9F5]/90 backdrop-blur-sm border-b border-black/10">
-        <nav class="max-w-6xl mx-auto flex items-center justify-between px-4 sm:px-6 py-4">
-            <a href="/" class="font-display text-lg font-extrabold tracking-tight text-ink">CRUSH <span class="text-clay">COMBAT</span></a>
-            <button id="nav-toggle" class="sm:hidden text-ink p-2" aria-label="Toggle menu" aria-expanded="false">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
-            </button>
-            <div id="nav-links" class="hidden sm:flex flex-col sm:flex-row items-center gap-x-8 gap-y-3 sm:gap-y-0 text-sm font-medium font-display absolute sm:static top-full inset-x-0 sm:inset-auto bg-[#FAF9F5] sm:bg-transparent border-t sm:border-0 border-black/10 px-4 sm:px-0 py-4 sm:py-0">
-                <a href="/roster/" class="text-ink/70 hover:text-ink transition-colors">Roster</a>
-                <a href="/services/" class="text-ink/70 hover:text-ink transition-colors">Services</a>
-                <a href="/media/" class="text-ink/70 hover:text-ink transition-colors">Media</a>
-                <a href="/faq.html" class="text-ink/70 hover:text-ink transition-colors">FAQ</a>
-                <a href="/partner-inquiry/" class="text-ink/70 hover:text-ink transition-colors">Partner With Us</a>
-                <a href="/join-fighter/" class="btn-clay !py-2 !px-4 text-sm">Join as a Fighter</a>
-            </div>
-        </nav>
-    </header>
+  <header class="site-header">
+    <h1 class="brand">
+      <a href="/" aria-label="Zac Crush — home">
+        <!-- 01 — SIGNAL mark -->
+        <svg viewBox="42 66 256 208" aria-hidden="true" focusable="false">
+          <rect x="74" y="74" width="192" height="192" fill="none" stroke="#E5B84B" stroke-width="9"/>
+          <g stroke-linecap="round" stroke-width="7">
+            <line x1="48" y1="146" x2="292" y2="146" stroke="#EE2B2B"/>
+            <line x1="48" y1="170" x2="292" y2="170" stroke="#F5F0E6"/>
+            <line x1="48" y1="194" x2="292" y2="194" stroke="#EE2B2B"/>
+          </g>
+          <path d="M108 118H160V137L131 203H160V222H106V203L135 137H108Z" fill="#F5F0E6" stroke="#050505" stroke-width="10" stroke-linejoin="round" paint-order="stroke fill"/>
+          <path d="M178 140C178 124 189 116 205 116C221 116 232 124 232 140V156H210V141C210 136 208 134 205 134C202 134 200 136 200 141V199C200 204 202 206 205 206C208 206 210 204 210 199V182H232V200C232 216 221 224 205 224C189 224 178 216 178 200Z" fill="#F5F0E6" stroke="#050505" stroke-width="10" stroke-linejoin="round" paint-order="stroke fill"/>
+        </svg>
+        <span>
+          <span class="name">ZAC CRUSH</span>
+          <span class="role mono">Broadcaster • Storyteller • Host</span>
+        </span>
+      </a>
+    </h1>
+    <a class="book mono" href="https://wa.me/15406180904?text=Hi%20Zac%2C%20I%27d%20like%20to%20talk%20about%20a%20booking." target="_blank" rel="noopener">
+      <span class="dot pulse" aria-hidden="true"></span>Bookings
+    </a>
+  </header>
 
-    <main class="flex-grow pt-24">
+  <main>
+    <figure class="monitor" id="reel">
+      <div class="hud hud-top mono" aria-hidden="true">
+        <span class="gold">01 — Signal</span>
+        <span><span class="dot pulse"></span>&nbsp; Rec &nbsp;<span class="tc" id="tc">00:00:00:00</span></span>
+      </div>
 
-        <!-- Hero -->
-        <section class="max-w-5xl mx-auto px-4 sm:px-6 pt-16 pb-12">
-            <p class="eyebrow mb-5">Now Launching</p>
-            <h1 class="font-display text-4xl sm:text-6xl md:text-7xl font-extrabold text-ink leading-[1.05] tracking-tight max-w-4xl">
-                <span class="headline-mark"><a href="/services/" class="text-ink">Talent management</a></span> and <span class="headline-mark"><a href="/media/" class="text-ink">live broadcast</a></span> that puts fighters at the center
-            </h1>
-            <p class="font-serif text-xl sm:text-2xl text-ink-soft max-w-2xl mt-8 leading-relaxed">
-                Architects of the Combat Economy. Crush Combat Agency is an elite MMA talent management and live broadcast media house powering Southeast Asia's fastest-growing fight ecosystem.
-            </p>
-            <div class="mt-10 flex flex-wrap gap-4">
-                <a href="/join-fighter/" class="btn-clay">Join as a Fighter</a>
-                <a href="/partner-inquiry/" class="btn-outline">Partner With Us</a>
-            </div>
-        </section>
-
-        <!-- Hero image, editorial style rather than full-bleed dark overlay -->
-        <section class="max-w-5xl mx-auto px-4 sm:px-6 pb-20">
-            <div class="rounded-2xl overflow-hidden border border-black/10">
-                <img src="https://github.com/zaccrush/zac-crush-homepage/blob/main/zac-crush-raising-hand-winner-grappling-match-saigon-superfights.jpeg?raw=true" alt="Zac Crush, founder of Crush Combat Agency" class="w-full h-[280px] sm:h-[420px] object-cover" onerror="this.onerror=null;this.src='https://placehold.co/1200x420/141413/FAF9F5?text=Crush+Combat+Agency';">
-            </div>
-        </section>
-
-        <!-- Footprint strip -->
-        <section class="bg-[#F0EEE6] border-y border-black/10 py-8">
-            <div class="max-w-5xl mx-auto px-4 sm:px-6 flex flex-wrap items-center justify-between gap-4">
-                <p class="eyebrow">On the ground across SE Asia</p>
-                <p class="font-serif text-base sm:text-lg text-ink-soft">
-                    Singapore &middot; Phnom Penh &middot; Da Nang &middot; Kuala Lumpur &middot; Ho Chi Minh City &middot; Jakarta &middot; Manila &middot; Siem Reap
-                </p>
-            </div>
-        </section>
-
-        <!-- Editorial "hard questions" style section -->
-        <section class="max-w-5xl mx-auto px-4 sm:px-6 py-20">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16">
-                <div>
-                    <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-ink leading-tight">Crush Combat Agency is built on the fighter's side of the table.</h2>
-                    <p class="font-serif text-lg text-ink-soft mt-6 leading-relaxed">
-                        Most fighters in Southeast Asia have no one negotiating for them, no one shopping their highlight reel, no one building their brand. We exist to change that — with real management, real broadcast infrastructure, and real sponsorship relationships.
-                    </p>
-                    <a href="/services/" class="inline-block mt-6 font-display font-semibold text-ink border-b-2 border-clay hover:text-clay transition-colors">See what we do →</a>
-                </div>
-                <div class="space-y-6 font-display text-xl sm:text-2xl font-semibold text-ink">
-                    <p class="border-t border-black/10 pt-6">Who negotiates a fighter's purse?</p>
-                    <p class="border-t border-black/10 pt-6">Who gets a fighter's highlight reel in front of promotions abroad?</p>
-                    <p class="border-t border-black/10 pt-6">Who builds the broadcast that makes a regional card feel world-class?</p>
-                    <p class="border-t border-black/10 pt-6 border-b pb-6">Who turns a sponsor into a partner, not just a logo?</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Specialties: card grid, "Latest releases" style -->
-        <section class="bg-[#F0EEE6] border-y border-black/10 py-20">
-            <div class="max-w-5xl mx-auto px-4 sm:px-6">
-                <p class="eyebrow mb-3">What we do</p>
-                <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-ink mb-12">Five specialties, one agency</h2>
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                    <article class="glass-card hover-lift rounded-2xl p-7">
-                        <h3 class="font-display text-lg font-bold text-ink mb-2">Live Broadcast Production</h3>
-                        <p class="font-serif text-ink-soft leading-relaxed">Cinema-grade livestream production for combat sports. We capture the cage's speed and violence with international-tier fidelity.</p>
-                    </article>
-                    <article class="glass-card hover-lift rounded-2xl p-7">
-                        <h3 class="font-display text-lg font-bold text-ink mb-2">Strategic Sponsorships</h3>
-                        <p class="font-serif text-ink-soft leading-relaxed">Moving sponsors beyond logo placement. We integrate brands into the event narrative for measurable ROI and authentic community connection.</p>
-                    </article>
-                    <article class="glass-card hover-lift rounded-2xl p-7">
-                        <h3 class="font-display text-lg font-bold text-ink mb-2">Global Fighter Scouting</h3>
-                        <p class="font-serif text-ink-soft leading-relaxed">The direct talent pipeline for regional promotions. We scout and recruit elite international fighters for the Southeast Asian stage.</p>
-                    </article>
-                    <article class="glass-card hover-lift rounded-2xl p-7">
-                        <h3 class="font-display text-lg font-bold text-ink mb-2">Digital Media &amp; Podcasts</h3>
-                        <p class="font-serif text-ink-soft leading-relaxed">Full-scale digital content creation. We produce professional podcasts, fighter highlight reels, and targeted media campaigns.</p>
-                    </article>
-                    <article class="glass-card hover-lift rounded-2xl p-7 sm:col-span-2">
-                        <h3 class="font-display text-lg font-bold text-ink mb-2">Elite Athlete Management</h3>
-                        <p class="font-serif text-ink-soft leading-relaxed">We architect careers. We manage elite MMA fighters, handling purse negotiations, career planning, and brand development in SE Asia.</p>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <!-- Roster teaser -->
-        <section class="max-w-5xl mx-auto px-4 sm:px-6 py-20 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
-            <div>
-                <p class="eyebrow mb-3">Talent</p>
-                <h2 class="font-display text-3xl font-extrabold text-ink mb-4">Meet the roster</h2>
-                <p class="font-serif text-lg text-ink-soft mb-6 leading-relaxed">The fighters Crush Combat Agency represents across Southeast Asia.</p>
-                <a href="/roster/" class="btn-primary">View Roster</a>
-            </div>
-            <div class="rounded-2xl overflow-hidden border border-black/10">
-                <img src="https://raw.githubusercontent.com/zaccrush/zac-crush-homepage/main/EP%2011%20GMA%20Beyond%20The%20Fight%20Podcast%20Robson%20Thumbnail.png?raw=true" alt="Crush Combat Agency" class="w-full h-56 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x300/F0EEE6/141413?text=Roster';">
-            </div>
-        </section>
-
-        <!-- Legacy promotions teaser -->
-        <section class="border-t border-black/10 py-20">
-            <div class="max-w-5xl mx-auto px-4 sm:px-6">
-                <p class="eyebrow mb-3">Where it started</p>
-                <h2 class="font-display text-3xl font-extrabold text-ink mb-10">Past promotions</h2>
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                    <a href="/gmaregistration/" class="group glass-card hover-lift rounded-2xl overflow-hidden flex items-center gap-5 p-5">
-                        <img src="https://raw.githubusercontent.com/zaccrush/zac-crush-homepage/4f38e25754d34b0e66645603976bb5e4d4e24916/GMA_Emblem%202K.jpeg" alt="Gods of Martial Arts Emblem" class="w-20 h-20 rounded-xl object-contain bg-white flex-shrink-0" onerror="this.onerror=null;this.src='https://placehold.co/80x80/F0EEE6/141413?text=GMA';">
-                        <span class="font-display font-bold text-ink group-hover:text-clay transition-colors">Gods of Martial Arts</span>
-                    </a>
-                    <a href="/saigon-superfights-registration/" class="group glass-card hover-lift rounded-2xl overflow-hidden flex items-center gap-5 p-5">
-                        <img src="https://raw.githubusercontent.com/zaccrush/zac-crush-homepage/4f38e25754d34b0e66645603976bb5e4d4e24916/saigon%20superfights%20logo.jpg" alt="Saigon Superfights Logo" class="w-20 h-20 rounded-xl object-contain bg-white flex-shrink-0" onerror="this.onerror=null;this.src='https://placehold.co/80x80/F0EEE6/141413?text=SSF';">
-                        <span class="font-display font-bold text-ink group-hover:text-clay transition-colors">Saigon Superfights</span>
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Story Section -->
-        <section id="story" class="bg-[#F0EEE6] border-y border-black/10 py-20">
-            <div class="max-w-3xl mx-auto px-4 sm:px-6">
-                <p class="eyebrow mb-3 text-center">The Story</p>
-                <h2 class="font-display text-3xl font-extrabold text-ink mb-8 text-center">From Humble Beginnings to Regional Grappling Ambassador</h2>
-                <p class="font-serif text-lg leading-relaxed text-ink-soft">
-                    I know what it’s like to walk around scared — unsure if you could protect yourself or trust anything else about who you were. For me, that all changed when I was fourteen, humiliated one last time in front of everyone during a playful wrestling match. Everyone was staring, and that moment lit a fire inside me. Since that moment, I dedicated myself to martial arts to build not just skill, but real confidence. My mission became clear: to build a community where no one would ever have to feel that way.
-                    <br><br>
-                    When I moved to Southeast Asia, I saw a passionate fight scene that lacked professional opportunities. I knew I couldn't build something alone, so I partnered with the respected leaders of the Vietnam martial arts and grappling community. We quickly realized we shared the same vision: to elevate local athletes and give them the platform they deserved.
-                    <br><br>
-                    From that partnership, we created and executed events like Saigon Superfights. Together, we handled everything from matchmaking to running the event, always focused on the fighters. Our goal was to build a professional stage for athletes to showcase their skills and grow the sport.
-                    <br><br>
-                    Everything we do is about creating a strong community where people feel confident and supported, never powerless or alone. Crush Combat Agency is the next chapter of that mission — scaled across Southeast Asia.
-                </p>
-            </div>
-        </section>
-
-        <!-- Media teaser -->
-        <section class="max-w-5xl mx-auto px-4 sm:px-6 py-20">
-            <p class="eyebrow mb-3">Media</p>
-            <h2 class="font-display text-3xl font-extrabold text-ink mb-8">Podcasts &amp; broadcasts</h2>
-            <a href="https://www.youtube.com/watch?v=5xoRhcy-qKU" target="_blank" rel="noopener" class="thumb-play relative block rounded-2xl overflow-hidden border border-black/10 mb-8">
-                <img src="https://raw.githubusercontent.com/zaccrush/zac-crush-homepage/main/EP%2011%20GMA%20Beyond%20The%20Fight%20Podcast%20Robson%20Thumbnail.png?raw=true" alt="GMA Beyond The Fight Podcast Thumbnail" class="w-full" onerror="this.onerror=null;this.src='https://placehold.co/1280x720/F0EEE6/141413?text=Podcast';">
-            </a>
-            <a href="/media/" class="btn-outline">View All Episodes</a>
-        </section>
-
-        <!-- Closing statement, ink section -->
-        <section class="ink-section py-20">
-            <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
-                <p class="font-display text-2xl sm:text-3xl font-semibold leading-snug">
-                    At Crush Combat Agency, we build the infrastructure fighters deserve — real management, real broadcast, real opportunity, across Southeast Asia.
-                </p>
-                <div class="mt-10 flex flex-wrap justify-center gap-4">
-                    <a href="/join-fighter/" class="btn-clay">Join as a Fighter</a>
-                    <a href="/partner-inquiry/" class="inline-block font-display font-semibold border border-white/30 text-[#FAF9F5] px-7 py-3 rounded-xl hover:bg-white/10 transition-colors">Partner / Sponsor Inquiry</a>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer class="bg-[#FAF9F5] border-t border-black/10 py-14 px-4">
-        <div class="max-w-5xl mx-auto">
-            <div class="flex flex-wrap justify-center items-center gap-x-6 gap-y-2 mb-4 font-display text-sm">
-                <a href="/roster/" class="text-ink/70 hover:text-ink transition-colors">Roster</a>
-                <a href="/services/" class="text-ink/70 hover:text-ink transition-colors">Services</a>
-                <a href="/media/" class="text-ink/70 hover:text-ink transition-colors">Media</a>
-                <a href="/faq.html" class="text-ink/70 hover:text-ink transition-colors">FAQ</a>
-                <a href="/partner-inquiry/" class="text-ink/70 hover:text-ink transition-colors">Partner With Us</a>
-                <a href="/join-fighter/" class="text-ink/70 hover:text-ink transition-colors">Join as a Fighter</a>
-            </div>
-            <div class="flex flex-wrap justify-center items-center gap-x-4 gap-y-2 mb-4 text-sm text-ink/50 font-display">
-                <span>Past Promotions:</span>
-                <a href="/gmaregistration/" class="hover:text-ink transition-colors">Gods of Martial Arts</a>
-                <a href="/saigon-superfights-registration/" class="hover:text-ink transition-colors">Saigon Superfights</a>
-            </div>
-            <div class="flex flex-wrap justify-center items-center gap-x-6 gap-y-2 mb-6 font-display text-sm text-ink/70">
-                <a href="https://www.linkedin.com/in/zac-crush/" target="_blank" rel="noopener" class="hover:text-ink transition-colors">LinkedIn</a>
-                <a href="https://www.instagram.com/zcrush13/" target="_blank" rel="noopener" class="hover:text-ink transition-colors">Instagram</a>
-                <a href="https://www.youtube.com/@GMAFightingChampionship" target="_blank" rel="noopener" class="hover:text-ink transition-colors">YouTube</a>
-                <a href="https://www.facebook.com/crushza" target="_blank" rel="noopener" class="hover:text-ink transition-colors">Facebook</a>
-                <a href="mailto:hello@zaccrush.com" class="hover:text-ink transition-colors">hello@zaccrush.com</a>
-            </div>
-            <p class="text-sm mb-2 text-center text-ink/60 font-display">© 2026 Crush Combat Agency. All rights reserved.</p>
-            <p class="text-xs text-center text-ink/40 font-display">Sponsored by <a href="https://shadeprotocol.io/" target="_blank" rel="noopener" class="underline hover:text-ink transition-colors">Shade Protocol: New Generation of Private DeFi</a></p>
+      <div class="screen">
+        <div class="slate" aria-hidden="true">
+          <div class="bars"><i></i><i></i><i></i></div>
+          <svg viewBox="96 108 148 124">
+            <path d="M108 118H160V137L131 203H160V222H106V203L135 137H108Z" fill="#F5F0E6" stroke="#050505" stroke-width="10" stroke-linejoin="round" paint-order="stroke fill"/>
+            <path d="M178 140C178 124 189 116 205 116C221 116 232 124 232 140V156H210V141C210 136 208 134 205 134C202 134 200 136 200 141V199C200 204 202 206 205 206C208 206 210 204 210 199V182H232V200C232 216 221 224 205 224C189 224 178 216 178 200Z" fill="#F5F0E6" stroke="#050505" stroke-width="10" stroke-linejoin="round" paint-order="stroke fill"/>
+          </svg>
+          <span class="msg mono">Signal incoming</span>
         </div>
-    </footer>
+        <video id="video"
+          muted loop playsinline preload="metadata"
+          poster="/assets/video/zac-crush-brand-reel-poster.jpg"
+          aria-label="Zac Crush brand reel: motorbike roads, wrestling roots, grappling across Southeast Asia, and the broadcaster behind the mic">
+          <source src="/assets/video/zac-crush-brand-reel.mp4" type="video/mp4">
+        </video>
+        <div class="frame" aria-hidden="true"></div>
+      </div>
 
-    <script src="/assets/nav.js" defer></script>
+      <figcaption class="hud hud-bottom mono">
+        <span>Brand reel <span class="hide-sm">· 00:24</span></span>
+        <span class="controls">
+          <button class="ctl mono" id="play" type="button" aria-label="Pause video" aria-pressed="false">
+            <span aria-hidden="true" id="play-icon">❚❚</span><span class="lbl" id="play-lbl">Pause</span>
+          </button>
+          <button class="ctl mono" id="sound" type="button" aria-label="Turn sound on" aria-pressed="false">
+            <span class="dot" aria-hidden="true" id="sound-dot" style="background:var(--cream-3)"></span><span class="lbl" id="sound-lbl">Sound off</span>
+          </button>
+        </span>
+      </figcaption>
+    </figure>
+  </main>
 
+  <footer class="site-footer mono">
+    <nav aria-label="Zac Crush elsewhere">
+      <ul>
+        <li><a href="https://www.instagram.com/zaccrush_/" target="_blank" rel="me noopener">Instagram</a></li>
+        <li><a href="https://www.facebook.com/crushza" target="_blank" rel="me noopener">Facebook</a></li>
+        <li><a href="https://www.linkedin.com/in/zac-crush/" target="_blank" rel="me noopener">LinkedIn</a></li>
+        <li><a class="ext" href="https://crushcombat.com/" target="_blank" rel="noopener">Crush Combat ↗</a></li>
+      </ul>
+    </nav>
+    <div class="sig">
+      <span class="eastwest"><span class="gold">East</span> <span class="red">≠</span> <span class="gold">West</span></span>
+      <small style="font-size:inherit">© <span id="yr">2026</span> Zac Crush</small>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var v = document.getElementById('video');
+      var monitor = document.getElementById('reel');
+      var tc = document.getElementById('tc');
+      var playBtn = document.getElementById('play'), playIcon = document.getElementById('play-icon'), playLbl = document.getElementById('play-lbl');
+      var soundBtn = document.getElementById('sound'), soundDot = document.getElementById('sound-dot'), soundLbl = document.getElementById('sound-lbl');
+      var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      document.getElementById('yr').textContent = new Date().getFullYear();
+
+      // No file yet / failed load: keep the branded slate on screen.
+      var src = v.querySelector('source');
+      src.addEventListener('error', function () { monitor.classList.add('no-signal'); });
+
+      function pad(n) { return (n < 10 ? '0' : '') + n; }
+      function tick() {
+        var t = v.currentTime || 0;
+        tc.textContent = pad(Math.floor(t / 3600)) + ':' + pad(Math.floor(t / 60) % 60) + ':' + pad(Math.floor(t) % 60) + ':' + pad(Math.floor((t % 1) * 30));
+        if (!v.paused) requestAnimationFrame(tick);
+      }
+      function syncPlay() {
+        var paused = v.paused;
+        playIcon.textContent = paused ? '▶' : '❚❚';
+        playLbl.textContent = paused ? 'Play' : 'Pause';
+        playBtn.setAttribute('aria-label', paused ? 'Play video' : 'Pause video');
+        playBtn.setAttribute('aria-pressed', paused ? 'true' : 'false');
+        if (!paused) requestAnimationFrame(tick);
+      }
+      function togglePlay() { v.paused ? v.play() : v.pause(); }
+      function toggleSound() {
+        v.muted = !v.muted;
+        if (!v.muted && v.paused) v.play();
+        soundLbl.textContent = v.muted ? 'Sound off' : 'Sound on';
+        soundDot.style.background = v.muted ? 'var(--cream-3)' : 'var(--red)';
+        soundDot.classList.toggle('pulse', !v.muted);
+        soundBtn.setAttribute('aria-label', v.muted ? 'Turn sound on' : 'Turn sound off');
+        soundBtn.setAttribute('aria-pressed', v.muted ? 'false' : 'true');
+      }
+
+      v.addEventListener('play', syncPlay);
+      v.addEventListener('pause', syncPlay);
+      v.addEventListener('click', togglePlay);
+      playBtn.addEventListener('click', togglePlay);
+      soundBtn.addEventListener('click', toggleSound);
+
+      if (!reduce) {
+        var p = v.play();
+        if (p && p.catch) p.catch(function () { syncPlay(); });
+      } else {
+        syncPlay();
+      }
+    })();
+  </script>
 </body>
 </html>

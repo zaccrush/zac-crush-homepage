@@ -1,50 +1,21 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+Personal site for **Zac Crush** — combat sports broadcaster, storyteller, host. Deployed at zaccrush.com from this repo via Netlify (push to `main` ships). No build step.
 
-## What this is
+## What's here
+- `index.html` — the only page: header (Signal Box mark + name), the brand reel, footer (socials, Crush Combat, East ≠ West). All CSS/JS inline, system fonts, no frameworks.
+- `assets/video/zac-crush-brand-reel.mp4` + `-poster.jpg` — the reel. The page shows a branded "Signal incoming" slate if the MP4 is missing or can't play.
+- `assets/og/zac-crush-og.png` — 1200×630 share card.
+- `favicon.svg` / `favicon.ico` / `apple-touch-icon.png` / `icon-192.png` / `icon-512.png` — from logo **02 Tally App Badge**.
+- `robots.txt`, `sitemap.xml` (with video extension), `site.webmanifest`, `_redirects` (old Crush Combat Agency pages → `/` 301), `_headers`, `404.html`.
 
-Static marketing/site repo for **Crush Combat Agency** (deployed at zaccrush.com) — no build step, no package manager, no test suite. Every page is a standalone `.html` file with Tailwind pulled from the CDN (`<script src="https://cdn.tailwindcss.com">`). Shared brand CSS lives in `assets/styles.css` and the mobile nav toggle in `assets/nav.js`, both referenced via plain `<link>`/`<script src>` tags — everything else (Tailwind config, Google Fonts links, per-page SEO/OG meta, per-page background images) stays inline per file since there's no build step to centralize it further. "Developing" here means editing HTML directly and previewing it.
+## Brand tokens (01 — SIGNAL suite)
+Pitch Black `#050505` · Signal Gold `#E5B84B` · Tally Red `#EE2B2B` · Warm Cream `#F5F0E6`. Heavy sans for the name, monospace caps for HUD labels.
 
-## Commands
+## Swapping the reel
+Encode for web, then replace the two files (keep the names, or update index.html, sitemap.xml and the JSON-LD together):
 
-- Preview a page: open the `.html` file directly in a browser, or serve the directory locally, e.g. `python3 -m http.server 8000`.
-- No build, lint, test, or typecheck commands exist in this repo — do not invent npm/build tooling for it.
-- Deploy: pushing to the GitHub repo (`zaccrush/zac-crush-homepage`, remote `origin`) is what ships changes — there is no CI config. Hosting/build config for forms (Netlify Forms) is managed outside this repo, in the Netlify dashboard.
+    ffmpeg -i reel.mp4 -c:v libx264 -preset slow -crf 23 -profile:v high -pix_fmt yuv420p -vf scale=1920:-2 -c:a aac -b:a 128k -movflags +faststart assets/video/zac-crush-brand-reel.mp4
+    ffmpeg -ss 3 -i reel.mp4 -frames:v 1 -q:v 3 assets/video/zac-crush-brand-reel-poster.jpg
 
-## Structure
-
-- [index.html](index.html) — launch landing page: agency tagline/mission, Zac Crush's personal story (real, don't rewrite), the 5 service specialties, roster/legacy/media teasers, sign-up CTAs.
-- [roster/index.html](roster/index.html) — fighter roster. **Contains placeholder cards** (`PLACEHOLDER` comments) — no real roster data exists yet.
-- [services/index.html](services/index.html) — the 5 real agency specialties (Live Broadcast Production, Strategic Sponsorships, Global Fighter Scouting, Digital Media & Podcasts, Elite Athlete Management).
-- [media/index.html](media/index.html) — dedicated podcast/broadcast archive. Add a new episode by copying one `<article class="podcast-card">` block.
-- [join-fighter/index.html](join-fighter/index.html) + [success.html](join-fighter/success.html) — fighter sign-up form (Netlify form `fighter-signup`).
-- [partner-inquiry/index.html](partner-inquiry/index.html) + [success.html](partner-inquiry/success.html) — sponsor/partner inquiry form (Netlify form `partner-inquiry`).
-- [faq.html](faq.html) — FAQ page (Vietnam grappling/MMA scene, gym directories). Content is untouched from the pre-relaunch site — nav/footer only were updated.
-- [gmaregistration/index.html](gmaregistration/index.html) — **archived**. Was the live "Gods of Martial Arts" registration form; the `<form>` has been removed and replaced with a past-promotion showcase + CTA to `/join-fighter/`. No longer a Netlify form.
-- [saigon-superfights-registration/index.html](saigon-superfights-registration/index.html) — **archived**, same treatment as above for the old Saigon Superfights registration.
-- `SEA GRAPPLING UNITED/index.html` — **not a real HTML page**: raw React/JSX + Firebase source, no `<html>` scaffolding. Unwired prototype, out of scope.
-- Top-level image/photo assets are referenced both locally and via raw GitHub URLs (`raw.githubusercontent.com/zaccrush/zac-crush-homepage/...`) inside `<img>` tags.
-
-**Removed in the Crush Combat Agency relaunch** (do not recreate without being asked): `admin.html` (dead Netlify-Identity-gated duplicate form), `gmaregistration/success.html` and `saigon-superfights-registration/success.html` (unreachable once their forms were archived).
-
-## Design system
-
-Visual language is modeled on anthropic.com: warm cream background (`#FAF9F5`), near-black ink text (`#141413`), a single clay/rust accent (`#D97757`), serif body copy (Source Serif 4) paired with bold sans headlines (Inter), hairline borders instead of shadows/glassmorphism, 12px (`rounded-xl`) corner radius. Tokens are defined twice per page by necessity: as CSS custom properties in `assets/styles.css` (`--ink`, `--clay`, `--bg`, etc., used by the shared component classes) and as Tailwind color entries in each page's inline `tailwind.config` (`ink`, `clay`, `cream`, `cream-alt`, plus legacy `gma-gold`/`gma-gray`/`gma-red` aliases kept for `faq.html`'s long-form Q&A body so its ~85 existing `text-gma-gold`/`text-gma-gray` classes repoint to the new palette without per-instance edits). **Both places must be updated together** on any future palette change — updating only `assets/styles.css` leaves Tailwind utility classes like `text-clay` or `bg-cream` non-functional on pages that don't also carry the matching `tailwind.config` colors block.
-
-## Brand assets pending
-
-The real Crush Combat Agency logo is **not yet in this repo** — it exists only on the agency's Facebook Page as of the relaunch (camera-lens mark with a kicking-fighter silhouette, paint-splatter accents). The site currently ships with a styled text wordmark as a placeholder. Run `grep -rn "PLACEHOLDER" .` to find every spot still waiting on real content (roster cards, wordmark).
-
-## Forms
-
-All live registration/contact forms use **Netlify Forms**: `<form data-netlify="true" name="...">` with a matching hidden `<input name="form-name" value="...">`, a `netlify-honeypot="bot-field"` spam trap, and a hidden `redirect` input pointing at `./success.html`. Currently exactly two live forms exist: `fighter-signup` and `partner-inquiry` (`grep -rn 'data-netlify="true"' .` should always return exactly these two). When editing a form:
-- Keep the `name` attribute on `<form>` and the hidden `form-name` input in sync — Netlify matches submissions by form name.
-- New form field `name`s must also physically exist in the static HTML — Netlify parses it at deploy time, so a field injected purely by JS won't be detected.
-
-## Conventions across pages
-
-- Shared brand CSS/JS: `assets/styles.css` (color tokens, `.glass-card`, `.btn-primary`/`.btn-outline`, `.eyebrow`, form-field styles, FAQ accordion, etc.) and `assets/nav.js` (mobile hamburger toggle) are referenced from every page — edit those files for a site-wide style/behavior change instead of touching each HTML file.
-- What still can't be centralized without a build step (stays inline per page): the Tailwind CDN script + `tailwind.config`, Google Fonts `<link>` tags, each page's unique hero `background-image`, and each page's unique SEO/OG/JSON-LD block — update these per-file when changing titles/descriptions.
-- `<img>` tags commonly carry `onerror="this.onerror=null;this.src='https://placehold.co/...'"` fallbacks — preserve this pattern when adding images.
-- Nav/footer link sets are duplicated per page (no shared header/footer partial is possible without a build step) — when adding/removing a nav item, update it across every page.
+If the duration changes, update `PT24S` in the JSON-LD, `video:duration` in sitemap.xml and the `00:24` label.
